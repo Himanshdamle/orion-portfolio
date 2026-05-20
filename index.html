@@ -33,7 +33,7 @@
       class="bg-linear-to-br from-[#000123] to-[#000149] w-screen h-screen fixed top-0 left-0 -z-2"
     ></div>
 
-    <section class="mx-14 text-[#E2E2FD] h-full grid grid-rows-[auto_auto_1fr]">
+    <section class="mx-14 text-[#E2E2FD] h-full grid grid-rows-[auto_1fr]">
       <nav
         class="text-[#B9BBFF] pt-14 mb-7 flex flex-row justify-between items-center"
       >
@@ -45,109 +45,112 @@
         </button>
       </nav>
 
-      <header>
-        <img class="mx-auto" src="/orion.svg" alt="orion star constellation" />
-      </header>
+      <div class="fixed left-1/2 -translate-x-1/2 top-[10%]">
+        <img class="scale-90" src="/orion.svg" alt="orion svg" />
+      </div>
 
-      <main class="mt-14 grid grid-rows-[auto_1fr_1fr]">
+      <main class="grid grid-rows-[1fr_auto]">
         <!-- Center -->
-        <div class="flex flex-col items-center">
-          <!-- TOP -->
-          <div class="flex flex-row items-end ml-16 -mb-2">
-            <!-- web design -->
-            <div class="flex flex-col">
-              <div class="flex flex-row gap-1 text-[#8385FF] text-xl">
+        <div class="flex flex-col justify-center">
+          <div class="flex flex-col items-center">
+            <!-- TOP -->
+            <div class="flex flex-row items-end ml-16 -mb-2">
+              <!-- web design -->
+              <div class="flex flex-col">
+                <div class="flex flex-row gap-1 text-[#8385FF] text-xl">
+                  <img
+                    class="aspect-square w-5"
+                    src="/web_design.svg"
+                    alt="web_design svg"
+                  />
+                  <h2 class="text-nowrap">Web Design</h2>
+                </div>
+
                 <img
-                  class="aspect-square w-5"
-                  src="/web_design.svg"
-                  alt="web_design svg"
+                  class="aspect-square -rotate-180 h-20"
+                  src="/st_arr.svg"
+                  alt="st_arr svg"
                 />
-                <h2 class="text-nowrap">Web Design</h2>
               </div>
 
-              <img
-                class="aspect-square -rotate-180 h-20"
-                src="/st_arr.svg"
-                alt="st_arr svg"
-              />
-            </div>
-
-            <!-- Badminton -->
-            <div class="flex flex-row -ml-10">
-              <img
-                class="aspect-square h-12"
-                src="/curve_arr.svg"
-                alt="curve_arr svg"
-              />
-              <h3 class="leading-3 ml-0.5">Badminton</h3>
-            </div>
-          </div>
-
-          <!-- MAIN HIMANSH NAME -->
-          <div class="relative w-max">
-            <h1 class="sans-stock-notch text-6xl text-[#B9BBFF]">Himansh</h1>
-            <h1
-              class="sans-stock-notch text-6xl text-[#B9BBFF] blur-[1px] absolute top-0 left-0"
-            >
-              Himansh
-            </h1>
-
-            <div
-              class="rounded-full bg-[#000275] blur-lg absolute top-0 left-0 -z-1 w-full h-full"
-            ></div>
-          </div>
-
-          <!-- Bottom -->
-          <div class="flex flex-row items-start mr-10 -translate-x-5">
-            <!-- Badminton -->
-            <div class="flex flex-row -mr-10">
-              <h3 class="leading-3 mr-0.5 mt-auto">Photographer</h3>
-              <img
-                class="-rotate-180 aspect-square h-12"
-                src="/curve_arr.svg"
-                alt="curve_arr svg"
-              />
-            </div>
-
-            <!-- web design -->
-            <div class="flex flex-col">
-              <img
-                class="aspect-square h-20"
-                src="/st_arr.svg"
-                alt="st_arr svg"
-              />
-
-              <div class="flex flex-row gap-1 text-[#8385FF] text-xl">
+              <!-- Badminton -->
+              <div class="flex flex-row -ml-10">
                 <img
-                  class="aspect-square w-5"
-                  src="/web_dev.svg"
-                  alt="web_dev svg"
+                  class="aspect-square h-12"
+                  src="/curve_arr.svg"
+                  alt="curve_arr svg"
                 />
-                <h2 class="text-nowrap">Web Dev.</h2>
+                <h3 class="leading-3 ml-0.5">Badminton</h3>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Based in -->
-        <div class="flex flex-col w-max self-center">
-          <img
-            class="aspect-square w-8 -ml-4 -mb-2"
-            src="/location_pin.svg"
-            alt="location_pin svg"
-          />
+            <!-- MAIN HIMANSH NAME -->
+            <div class="relative w-max">
+              <h1 class="sans-stock-notch text-5xl text-[#B9BBFF]">Himansh</h1>
+              <h1
+                class="sans-stock-notch text-5xl text-[#B9BBFF] blur-[1px] absolute top-0 left-0"
+              >
+                Himansh
+              </h1>
 
-          <div class="flex flex-row items-center">
-            <p>Based in</p>
-            <div class="relative ml-1.5">
               <div
-                class="rounded-full bg-[#000275] blur-sm absolute top-0 left-0 -z-1 w-full h-full"
+                class="rounded-full bg-[#000275] blur-lg absolute top-0 left-0 -z-1 w-full h-full"
               ></div>
-              <h3 class="text-[#8385FF] sans-stock-notch text-xl">India</h3>
+            </div>
+
+            <!-- Bottom -->
+            <div class="flex flex-row items-start mr-10 -translate-x-5">
+              <!-- Badminton -->
+              <div class="flex flex-row -mr-10">
+                <h3 class="leading-3 mr-0.5 mt-auto">Photographer</h3>
+                <img
+                  class="-rotate-180 aspect-square h-12"
+                  src="/curve_arr.svg"
+                  alt="curve_arr svg"
+                />
+              </div>
+
+              <!-- web design -->
+              <div class="flex flex-col">
+                <img
+                  class="aspect-square h-20"
+                  src="/st_arr.svg"
+                  alt="st_arr svg"
+                />
+
+                <div class="flex flex-row gap-1 text-[#8385FF] text-xl">
+                  <img
+                    class="aspect-square w-5"
+                    src="/web_dev.svg"
+                    alt="web_dev svg"
+                  />
+                  <h2 class="text-nowrap">Web Dev.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Based in -->
+          <div class="flex flex-col w-max translate-y-12">
+            <img
+              class="aspect-square w-8 -ml-4 -mb-2"
+              src="/location_pin.svg"
+              alt="location_pin svg"
+            />
+
+            <div class="flex flex-row items-center">
+              <p>Based in</p>
+              <div class="relative ml-1.5">
+                <div
+                  class="rounded-full bg-[#000275] blur-sm absolute top-0 left-0 -z-1 w-full h-full"
+                ></div>
+                <h3 class="text-[#8385FF] sans-stock-notch text-xl">India</h3>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Scroll -->
         <div class="w-full self-end">
           <div class="flex flex-col items-center">
             <p class="font-light tracking-wider text-sm">Scroll</p>
