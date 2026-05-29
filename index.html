@@ -23,17 +23,47 @@
 
     <!-- <script src="src/event.js" defer type="module"></script> -->
     <script src="src/meteor.js" defer type="module"></script>
+    <script type="module" src="src/animation.js"></script>
   </head>
   <body class="poppins h-screen">
     <canvas id="trail" class="-z-1 hidden"></canvas>
 
     <section id="meteor-shower-display" class="-z-1 relative"></section>
 
-    <div
-      class="bg-linear-to-br from-[#000123] to-[#000149] w-screen h-screen fixed top-0 left-0 -z-2"
-    ></div>
+    <div class="bg-gradient w-screen h-screen fixed top-0 left-0 -z-2"></div>
 
-    <section class="mx-14 text-[#E2E2FD] h-full grid grid-rows-[auto_1fr]">
+    <!-- st counter -->
+    <section
+      class="h-full w-full flex justify-center items-center sans-stock-notch text-5xl text-[#B9BBFF] absolute z-1 st-counter"
+    >
+      <div class="relative" id="st-animation-box">
+        <div
+          class="rounded-full bg-[#000275] blur-lg absolute top-0 left-0 -z-1 w-full h-full"
+          id="st-anima-glow"
+        ></div>
+        <div class="relative w-max overflow-hidden">
+          <div class="jskdjf">
+            <div class="relative t1">
+              <h1 class="counter-txt">000%</h1>
+              <h1 class="blur-[1px] absolute top-0 left-0 counter-txt">000%</h1>
+            </div>
+
+            <div class="absolute t2 blur-[5px] opacity-0">
+              <h1 class="counter-txt">Himansh</h1>
+              <h1 class="blur-[1px] absolute top-0 left-0 counter-txt">
+                Himansh
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mx-14 text-[#E2E2FD] h-full grid grid-rows-[auto_1fr]"
+      id="content"
+      style="opacity: 0; filter: blur(30px)"
+    >
       <nav
         class="text-[#B9BBFF] pt-14 mb-7 flex flex-row justify-between items-center"
       >
@@ -85,13 +115,11 @@
             </div>
 
             <!-- MAIN HIMANSH NAME -->
-            <div class="relative w-max">
-              <h1 class="sans-stock-notch text-5xl text-[#B9BBFF]">Himansh</h1>
-              <h1
-                class="sans-stock-notch text-5xl text-[#B9BBFF] blur-[1px] absolute top-0 left-0"
-              >
-                Himansh
-              </h1>
+            <div
+              class="relative w-max sans-stock-notch text-5xl text-[#B9BBFF] main-head z-10"
+            >
+              <h1 class="">Himansh</h1>
+              <h1 class="blur-[1px] absolute top-0 left-0">Himansh</h1>
 
               <div
                 class="rounded-full bg-[#000275] blur-lg absolute top-0 left-0 -z-1 w-full h-full"
@@ -151,11 +179,11 @@
         </div>
 
         <!-- Scroll -->
-        <div class="w-full self-end">
+        <div class="w-full self-end text-[#B9BBFF]">
           <div class="flex flex-col items-center">
-            <p class="font-light tracking-wider text-sm">Scroll</p>
+            <p class="tracking-wider text-sm font-normal z-1">Scroll</p>
 
-            <div class="w-px h-16 -mt-1.5 ml-[-1.5px] bg-[#E2E2FD]"></div>
+            <div class="w-px h-16 -mt-1.5 ml-[-1.5px] bg-[#B9BBFF]"></div>
           </div>
         </div>
       </main>

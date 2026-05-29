@@ -21,3 +21,10 @@ canvas {
 button {
   cursor: pointer;
 }
+
+.bg-gradient {
+  background: linear-gradient(to bottom right, #00011e, #000261);
+
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+}
