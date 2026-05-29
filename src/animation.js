@@ -1,16 +1,26 @@
 import gsap from "gsap";
 
+export function runAllAnima() {
+  stGradient();
+  stCounterAnima();
+}
+
+const stCounter = document.querySelector(".st-counter");
 function stGradient() {
   gsap.to(".bg-gradient", {
     backgroundSize: "100% 100%",
     duration: 4,
     ease: "power2.out",
   });
+
+  gsap.to(stCounter, {
+    filter: "blur(0px)",
+    duration: 0.5,
+  });
 }
-stGradient();
 
 const stAnimationBox = document.querySelector("#st-animation-box");
-function stCounter() {
+function stCounterAnima() {
   const counter = document.querySelectorAll(".counter-txt");
   const mainHeadingRect = document
     .querySelector(".main-head")
@@ -46,7 +56,6 @@ function stCounter() {
     },
   });
 }
-stCounter();
 
 function moveUp() {
   const tl = gsap.timeline({
@@ -93,9 +102,49 @@ function revealContent() {
         ease: "power2.out",
 
         onComplete() {
-          document.querySelector(".st-counter").remove();
+          stCounter.remove();
         },
       });
     },
   });
+}
+
+let tl;
+export function menuAnimation(openAnima) {
+  if (!openAnima) {
+    tl.reverse();
+    return;
+  }
+
+  if (tl) {
+    menuAnimation(false);
+    return;
+  }
+
+  tl = gsap.timeline({
+    onReverseComplete() {
+      tl = null;
+    },
+  });
+
+  tl.to(".t-menu-bar-wrp", {
+    marginLeft: 0,
+  })
+    .to([".t1-mb", ".b2-mb"], {
+      rotate: 45,
+    })
+    .to(
+      [".t2-mb", ".b1-mb"],
+      {
+        rotate: -45,
+      },
+      "<<",
+    )
+    .to(
+      [".t1-mb", ".b1-mb"],
+      {
+        marginRight: 4,
+      },
+      "<<",
+    );
 }

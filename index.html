@@ -21,9 +21,8 @@
 
     <link href="/src/style.css" rel="stylesheet" />
 
-    <!-- <script src="src/event.js" defer type="module"></script> -->
     <script src="src/meteor.js" defer type="module"></script>
-    <script type="module" src="src/animation.js"></script>
+    <script src="src/main.js" defer type="module"></script>
   </head>
   <body class="poppins h-screen">
     <canvas id="trail" class="-z-1 hidden"></canvas>
@@ -35,6 +34,7 @@
     <!-- st counter -->
     <section
       class="h-full w-full flex justify-center items-center sans-stock-notch text-5xl text-[#B9BBFF] absolute z-1 st-counter"
+      style="filter: blur(20px)"
     >
       <div class="relative" id="st-animation-box">
         <div
@@ -69,9 +69,16 @@
       >
         <a href="index.html" class="sans-stock-notch">Himansh.com</a>
 
-        <button class="flex flex-col gap-1">
-          <div class="w-6 h-px bg-[#B9BBFF] ml-2"></div>
-          <div class="w-6 h-px bg-[#B9BBFF]"></div>
+        <button class="flex flex-col gap-1" id="menu-btn">
+          <div class="flex flex-row t-menu-bar-wrp" style="margin-left: 8px">
+            <div class="t1-mb w-3 h-px bg-[#B9BBFF] origin-right"></div>
+            <div class="t2-mb w-3 h-px bg-[#B9BBFF] origin-left"></div>
+          </div>
+
+          <div class="flex flex-row -translate-y-0.5">
+            <div class="b1-mb w-3 h-px bg-[#B9BBFF] origin-right"></div>
+            <div class="b2-mb w-3 h-px bg-[#B9BBFF] origin-left"></div>
+          </div>
         </button>
       </nav>
 
@@ -129,7 +136,7 @@
             <!-- Bottom -->
             <div class="flex flex-row items-start mr-10 -translate-x-5">
               <!-- Photographer -->
-              <div class="flex flex-row -mr-10 -translate-y-1.5">
+              <div class="flex flex-row -mr-10 -translate-1.5">
                 <h3 class="leading-3 mr-0.5 mt-auto">Photographer</h3>
                 <img
                   class="-rotate-180 aspect-square h-12"
