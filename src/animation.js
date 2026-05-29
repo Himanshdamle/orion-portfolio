@@ -22,7 +22,6 @@ function stCounter() {
 
   // align perfectly
   const y = mainHeadingRect.top - stAnimationBoxRect.top;
-  console.log(y, mainHeadingRect.top, stAnimationBoxRect.top);
 
   gsap.set("#st-animation-box", { y: y });
 
