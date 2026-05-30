@@ -20,10 +20,10 @@
     />
 
 
-    <script type="module" crossorigin src="/orion-portfolio/assets/index-BKl_LWqm.js"></script>
-    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-_EsgZH1i.css">
+    <script type="module" crossorigin src="/orion-portfolio/assets/index-DyPemi1A.js"></script>
+    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-2ZQVwdGH.css">
   </head>
-  <body class="poppins h-screen">
+  <body class="poppins h-screen text-[#E2E2FD]">
     <canvas id="trail" class="-z-1 hidden"></canvas>
 
     <section id="meteor-shower-display" class="-z-1 relative"></section>
@@ -58,8 +58,12 @@
       </div>
     </section>
 
+    <div class="fixed left-1/2 -translate-x-1/2 top-[10%]">
+      <img class="scale-90" src="/orion-portfolio/orion.svg" alt="orion svg" />
+    </div>
+
     <section
-      class="mx-14 text-[#E2E2FD] h-full grid grid-rows-[auto_1fr]"
+      class="mx-14 h-full grid grid-rows-[auto_1fr]"
       id="content"
       style="opacity: 0; filter: blur(30px)"
     >
@@ -81,11 +85,7 @@
         </button>
       </nav>
 
-      <div class="fixed left-1/2 -translate-x-1/2 top-[10%]">
-        <img class="scale-90" src="/orion-portfolio/orion.svg" alt="orion svg" />
-      </div>
-
-      <main class="grid grid-rows-[1fr_auto]">
+      <div class="grid grid-rows-[1fr_auto]">
         <!-- Center -->
         <div class="flex flex-col justify-center">
           <div class="flex flex-col items-center">
@@ -192,7 +192,94 @@
             <div class="w-px h-16 -mt-1.5 ml-[-1.5px] bg-[#B9BBFF]"></div>
           </div>
         </div>
-      </main>
+      </div>
+    </section>
+
+    <!-- about me -->
+    <section class="mx-14 h-full grid grid-rows-[auto_1fr]">
+      <!-- heading -->
+      <div class="w-full self-end text-[#B9BBFF]">
+        <div class="flex flex-col items-center">
+          <div class="w-px h-16 ml-[-1.5px] bg-[#B9BBFF]"></div>
+          <p class="tracking-wider text-sm font-normal z-1 -mt-2.5 -ml-0.5">
+            About me
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="tracking-widest text-[#B9BBFF] text-lg self-center leading-6 flex flex-col gap-16"
+      >
+        <div>
+          <div class="flex flex-col">
+            <div class="relative">
+              Hey, I'm Himansh
+
+              <div
+                class="absolute left-0 top-3.5 bg-linear-to-r from-[#000275] to-[#00027500] blur-[10px] rounded-full w-full h-5 -z-1"
+              ></div>
+            </div>
+
+            <div
+              class="relative translate-x-26 w-max -translate-y-1.5 flex flex-col"
+            >
+              <div>
+                <div class="w-[1.5px] h-16 bg-[#B9BBFF] -mt-1.5 ml-px"></div>
+
+                <div class="flex flex-row -mt-2 ml-[-6.5px]">
+                  <!-- I -->
+                  <div class="flex flex-col justify-center items-center">
+                    <div class="h-px w-4 bg-[#B9BBFF]"></div>
+                    <div class="w-[1.5px] h-3 bg-[#B9BBFF] ml-px"></div>
+                    <div class="h-px w-4 bg-[#B9BBFF]"></div>
+                  </div>
+
+                  <div class="ml-2 relative">
+                    <p class="text-nowrap">Love building</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="-translate-x-4.5 -translate-y-px">
+                <div class="flex flex-row items-baseline gap-2">
+                  <div
+                    class="relative sans-stock-notch text-[#B9BBFF] h-max text-xl"
+                  >
+                    <h2>Websites</h2>
+                    <h2 class="absolute top-0 left-0 blur-[2px]">Websites</h2>
+
+                    <div
+                      class="absolute left-0 top-0 bg-[#000275] blur-[10px] rounded-full w-full h-5 -z-1"
+                    ></div>
+                  </div>
+
+                  <!--  -->
+                  <img
+                    class="rotate-180 scale-125"
+                    src="/orion-portfolio/curve_arr.svg"
+                    alt="curve_arr svg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-center items-center gap-3 mt-2">
+            <p>Chase clean design</p>
+            <p>Enjoy making things that feel smooth and aesthetic</p>
+          </div>
+        </div>
+
+        <div>Into Web dev, Badminton & clicking random good-looking shots</div>
+      </div>
+
+      <div class="w-full self-end text-[#B9BBFF]">
+        <div class="flex flex-col items-center">
+          <p class="tracking-wider text-sm font-normal z-1">Scroll</p>
+
+          <div class="w-px h-16 -mt-1.5 ml-[-1.5px] bg-[#B9BBFF]"></div>
+        </div>
+      </div>
     </section>
   </body>
 </html>
