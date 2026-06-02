@@ -89,7 +89,7 @@ function moveUp() {
 }
 
 function revealContent() {
-  gsap.to("#content", {
+  gsap.to("#home", {
     opacity: 1,
     filter: "blur(0px)",
     duration: 1,
@@ -147,4 +147,34 @@ export function menuAnimation(openAnima) {
       },
       "<<",
     );
+}
+
+let ani;
+export function blurOverlay(open, e) {
+  if (!open) {
+    ani.reverse();
+    return;
+  }
+
+  gsap.set("#blur-overlay", {
+    top: e.y,
+    left: e.x,
+    filter: "blur(30px)",
+    opacity: 0.3,
+  });
+
+  ani = gsap.to("#blur-overlay", {
+    width: "100%",
+    height: "100%",
+
+    top: 0,
+    left: 0,
+
+    borderRadius: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+
+    duration: 0.5,
+    ease: "power2.inOut",
+  });
 }
