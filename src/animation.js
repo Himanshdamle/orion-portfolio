@@ -3,6 +3,8 @@ import gsap from "gsap";
 export function runAllAnima() {
   stGradient();
   stCounterAnima();
+
+  // infiniteScroll();
 }
 
 const stCounter = document.querySelector(".st-counter");
@@ -156,25 +158,53 @@ export function blurOverlay(open, e) {
     return;
   }
 
-  gsap.set("#blur-overlay", {
-    top: e.y,
-    left: e.x,
-    filter: "blur(30px)",
-    opacity: 0.3,
-  });
+  const tl = gsap.timeline();
+  ani = tl
+    .set("#blur-overlay", {
+      top: e.y,
+      left: e.x,
+      filter: "blur(30px)",
+      opacity: 0.3,
+    })
+    .set("#menu-content", {
+      opacity: 0,
+      filter: "blur(20px)",
+      scale: 0.95,
+      x: "-12%",
+    })
+    .to("#blur-overlay", {
+      width: "100%",
+      height: "100%",
 
-  ani = gsap.to("#blur-overlay", {
-    width: "100%",
-    height: "100%",
+      top: 0,
+      left: 0,
 
-    top: 0,
-    left: 0,
+      borderRadius: 0,
+      opacity: 1,
+      filter: "blur(0px)",
 
-    borderRadius: 0,
-    opacity: 1,
-    filter: "blur(0px)",
-
-    duration: 0.5,
-    ease: "power2.inOut",
-  });
+      duration: 0.7,
+      ease: "power2.inOut",
+    })
+    .to(
+      "#menu-content",
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        x: 0,
+        duration: 0.35,
+      },
+      "+=0.1",
+    );
 }
+
+// function infiniteScroll() {
+//   gsap.to(".ism", {
+//     x: "-100%",
+//     duration: 3,
+//     repeat: -1,
+
+//     ease: "none",
+//   });
+// }

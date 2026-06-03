@@ -23,27 +23,39 @@ function onScrollNavControl() {
   const navWrapperRect = navWrapper.getBoundingClientRect();
 
   let lastScroll = 0;
-  let pull = 0;
-  let hPull = 0;
+  let anima1, anima2;
   window.addEventListener("scroll", (e) => {
-    const upScroll = lastScroll > window.scrollY;
+    const upScroll = lastScroll < window.scrollY;
 
     if (upScroll) {
-      hPull = lastScroll;
-      const yPull = pull - window.scrollY;
+      if (anima1) return;
 
-      gsap.set(navWrapper, {
-        y: yPull > navWrapperRect.height ? 0 : yPull - navWrapperRect.height,
+      anima1 = gsap.to(navWrapper, {
+        y: "-100%",
+        filter: "blur(10px)",
+        opacity: 0.5,
+        scale: 0.8,
+
+        duration: 0.5,
+
+        onComplete() {
+          anima1 = null;
+        },
       });
     } else {
-      pull = lastScroll;
+      if (anima2) return;
 
-      const h = lastScroll - hPull;
+      gsap.to(navWrapper, {
+        y: 0,
+        filter: "blur(0px)",
+        opacity: 1,
+        scale: 1,
 
-      console.log(h);
+        duration: 0.5,
 
-      gsap.set(navWrapper, {
-        y: h > navWrapperRect.height ? "-100%" : -h,
+        onComplete() {
+          anima2 = null;
+        },
       });
     }
 
