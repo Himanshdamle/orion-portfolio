@@ -20,8 +20,8 @@
     />
 
 
-    <script type="module" crossorigin src="/orion-portfolio/assets/index-BRNuB5LJ.js"></script>
-    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-BltyxmXn.css">
+    <script type="module" crossorigin src="/orion-portfolio/assets/index-BlBYUrBD.js"></script>
+    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-CeukTKS3.css">
   </head>
   <body class="poppins h-screen text-[#E2E2FD]">
     <canvas id="trail" class="-z-1 hidden"></canvas>
@@ -64,57 +64,92 @@
 
     <!-- menu  -->
     <div
-      class="fixed backdrop-blur-lg bg-[#000149]/60 z-40 overflow-hidden grid place-items-center"
+      class="fixed backdrop-blur-lg bg-[#000149]/20 z-40 text-[#B9BBFF]"
       id="blur-overlay"
       style="top: 0; left: 0; border-radius: 100%; height: 20px; width: 28px"
     >
-      <div class="grid grid-cols-[auto_1fr] gap-3">
-        <div class="relative h-full w-0.5">
-          <div class="w-full h-full bg-[#B9BBFF]"></div>
-          <div
-            class="w-full h-full bg-[#B9BBFF] absolute top-0 left-0 blur-[2px] -z-1"
-          ></div>
-
-          <div
-            class="w-full h-1/4 bg-[#8385FF] absolute top-0 left-0 z-1"
-          ></div>
-        </div>
-
+      <div
+        class="relative w-full h-full grid place-items-center overflow-hidden"
+      >
         <div
-          class="sans-stock-notch text-2xl text-[#B9BBFF] flex flex-col gap-5"
+          class="grid grid-cols-[auto_1fr] gap-3"
+          id="menu-content"
+          style="opacity: 0; filter: blur(10px)"
         >
-          <button class="text-[#8385FF] w-max relative">
-            <h1>Home</h1>
-            <h1 class="absolute top-0 left-0 blur-[2px]">Home</h1>
-          </button>
+          <div class="relative h-full w-0.5">
+            <div class="w-full h-full bg-[#B9BBFF]"></div>
+            <div
+              class="w-full h-full bg-[#B9BBFF] absolute top-0 left-0 blur-[2px] -z-1"
+            ></div>
 
-          <button class="relative w-max">
-            <h1>About me</h1>
-            <h1 class="absolute top-0 left-0 blur-[2px]">About me</h1>
-          </button>
+            <div
+              class="w-full h-1/4 bg-[#8385FF] absolute top-0 left-0 z-1"
+            ></div>
+          </div>
 
-          <button class="relative w-max">
-            <h1>Projects</h1>
-            <h1 class="absolute top-0 left-0 blur-[2px]">Projects</h1>
-          </button>
+          <div
+            class="sans-stock-notch text-2xl text-[#B9BBFF] flex flex-col gap-5"
+          >
+            <button class="text-[#8385FF] w-max relative">
+              <h1>Home</h1>
+              <h1 class="absolute top-0 left-0 blur-[2px]">Home</h1>
+            </button>
 
-          <button class="relative w-max">
-            <h1>testemonials</h1>
-            <h1 class="absolute top-0 left-0 blur-[2px]">testemonials</h1>
-          </button>
+            <button class="relative w-max">
+              <h1>About me</h1>
+              <h1 class="absolute top-0 left-0 blur-[2px]">About me</h1>
+            </button>
 
-          <button class="relative w-max">
-            <h1>Social links</h1>
-            <h1 class="absolute top-0 left-0 blur-[2px]">Social links</h1>
-          </button>
+            <button class="relative w-max">
+              <h1>Projects</h1>
+              <h1 class="absolute top-0 left-0 blur-[2px]">Projects</h1>
+            </button>
+
+            <button class="relative w-max">
+              <h1>Testemonials</h1>
+              <h1 class="absolute top-0 left-0 blur-[2px]">Testemonials</h1>
+            </button>
+
+            <button class="relative w-max">
+              <h1>Social links</h1>
+              <h1 class="absolute top-0 left-0 blur-[2px]">Social links</h1>
+            </button>
+          </div>
         </div>
+
+        <!-- <aside
+          class="absolute bottom-8 text-xl w-full -rotate-45"
+          id="infinite-scroll-menu"
+        >
+          <div class="flex flex-row w-full overflow-hidden">
+            <div
+              class="ism ism-1 w-full flex flex-row shrink-0 justify-between"
+            >
+              <p class="font-light">Menu</p>
+              <p class="font-normal">Menu</p>
+              <p class="font-medium">Menu</p>
+              <p class="font-semibold">Menu</p>
+              <p class="font-bold">Menu</p>
+            </div>
+
+            <div
+              class="ism ism-2 w-full flex flex-row shrink-0 justify-between"
+            >
+              <p class="font-light">Menu</p>
+              <p class="font-normal">Menu</p>
+              <p class="font-medium">Menu</p>
+              <p class="font-semibold">Menu</p>
+              <p class="font-bold">Menu</p>
+            </div>
+          </div>
+        </aside> -->
       </div>
     </div>
 
     <!-- NAV -->
-    <div class="w-full fixed z-50 top-0" id="nav-wrapper">
+    <div class="w-full fixed z-50 top-0 backdrop-blur-2xl" id="nav-wrapper">
       <nav
-        class="text-[#B9BBFF] pt-14 px-14 pb-4 flex flex-row justify-between items-center backdrop-blur-lg"
+        class="text-[#B9BBFF] pt-14 px-14 pb-4 flex flex-row justify-between items-center"
       >
         <a href="index.html" class="sans-stock-notch">Himansh.com</a>
 
