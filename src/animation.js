@@ -4,7 +4,7 @@ export function runAllAnima() {
   stGradient();
   stCounterAnima();
 
-  // infiniteScroll();
+  infiniteScroll();
 }
 
 const stCounter = document.querySelector(".st-counter");
@@ -199,12 +199,12 @@ export function blurOverlay(open, e) {
     );
 }
 
-// function infiniteScroll() {
-//   gsap.to(".ism", {
-//     x: "-100%",
-//     duration: 3,
-//     repeat: -1,
+function infiniteScroll() {
+  gsap.to(".ism", {
+    x: "-105%",
+    duration: 8,
+    repeat: -1,
 
-//     ease: "none",
-//   });
-// }
+    ease: "none",
+  });
+}
