@@ -6,26 +6,38 @@ const display = document.querySelector("#meteor-shower-display");
 function spawnMeteor() {
   const randomWidth = randomInt(80, 150);
   const randomScale = randomFloat(1.8, 3);
-  const html = `
+  const randomMeteor = randomInt(0, 1);
+
+  const meteorHtml = [
+    `
     <div
       class="bg-linear-to-r from-[#000275] to-[#00027500] blur-[10px] rounded-full fixed"
     ></div>
-  `;
+  `,
+
+    ` <div
+        class="bg-linear-to-r from-[#B9BBFF] to-[#b9bbff00] fixed"
+      ></div>`,
+  ];
+
   const tempNode = document.createElement("div");
-  tempNode.innerHTML = html;
+  tempNode.innerHTML = meteorHtml[randomMeteor];
   const meteor = tempNode.children[0];
 
   const randPosition = randomInt(100, window.innerWidth);
+
+  const isLineMetoer = randomMeteor == 1;
 
   gsap.set(meteor, {
     x: randPosition,
     y: -randomWidth * Math.sin(Math.PI / 4),
 
     width: randomWidth,
-    height: 20,
-    scale: randomScale,
+    height: isLineMetoer ? 1 : 20,
+    scale: isLineMetoer ? 1 : randomScale,
     rotate: -45,
     transformOrigin: "center center",
+    force3D: true,
   });
 
   display.appendChild(meteor);

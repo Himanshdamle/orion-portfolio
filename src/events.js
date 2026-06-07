@@ -25,7 +25,10 @@ function onScrollNavControl() {
   let lastScroll = 0;
   let anima1, anima2;
   window.addEventListener("scroll", (e) => {
-    const upScroll = lastScroll < window.scrollY;
+    const scrollY = window.scrollY;
+    let upScroll = lastScroll < scrollY;
+
+    if (scrollY == 0) upScroll = false;
 
     if (upScroll) {
       if (anima1) return;
@@ -45,7 +48,7 @@ function onScrollNavControl() {
     } else {
       if (anima2) return;
 
-      gsap.to(navWrapper, {
+      anima2 = gsap.to(navWrapper, {
         y: 0,
         filter: "blur(0px)",
         opacity: 1,

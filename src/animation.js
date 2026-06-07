@@ -158,7 +158,10 @@ export function blurOverlay(open, e) {
     return;
   }
 
-  const tl = gsap.timeline();
+  const tl = gsap.timeline({
+    duration: 0.35,
+    ease: "power2.in",
+  });
   ani = tl
     .set("#blur-overlay", {
       top: e.y,
@@ -166,26 +169,45 @@ export function blurOverlay(open, e) {
       filter: "blur(30px)",
       opacity: 0.3,
     })
+    .set("#nav-wrapper", { backdropFilter: "blur(40px)" })
     .set("#menu-content", {
       opacity: 0,
       filter: "blur(20px)",
       scale: 0.95,
       x: "-12%",
     })
-    .to("#blur-overlay", {
-      width: "100%",
-      height: "100%",
+    .set("#infinite-scroll-menu", {
+      opacity: 0,
+      filter: "blur(20px)",
+      scale: 0.9,
+      x: 50,
+    });
 
-      top: 0,
-      left: 0,
+  tl.to("#blur-overlay", {
+    width: "100%",
+    height: "100%",
 
-      borderRadius: 0,
-      opacity: 1,
-      filter: "blur(0px)",
+    top: 0,
+    left: 0,
 
-      duration: 0.7,
-      ease: "power2.inOut",
-    })
+    borderRadius: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+
+    duration: 0.5,
+    ease: "power2.inOut",
+  })
+    .to("#nav-wrapper", { backdropFilter: "blur(0px)", duration: 0.5 }, "<<")
+    .to(
+      "#infinite-scroll-menu",
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        filter: "blur(0px)",
+      },
+      "-=0.2",
+    )
     .to(
       "#menu-content",
       {
@@ -193,9 +215,8 @@ export function blurOverlay(open, e) {
         filter: "blur(0px)",
         scale: 1,
         x: 0,
-        duration: 0.35,
       },
-      "+=0.1",
+      "-=0.1",
     );
 }
 
