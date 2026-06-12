@@ -31,10 +31,38 @@ button {
 
 .grid-lines {
   background-image:
-    linear-gradient(rgba(131, 133, 255, 0.3) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(131, 133, 255, 0.3) 2px, transparent 2px);
+    linear-gradient(rgba(131, 133, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(131, 133, 255, 0.3) 1px, transparent 1px);
 
   background-size:
     15px 15px,
     15px 15px;
+}
+
+@media (max-width: 400px) {
+  .margin-x-400 {
+    margin-inline: 28px;
+  }
+  .margin-y-400 {
+    margin-top: 48px;
+  }
+
+  .left-mq-400 {
+    left: -28px;
+  }
+  .right-mq-400 {
+    right: -28px;
+  }
+}
+
+@media (max-height: 750px) {
+  .y-gap-skills-750 {
+    gap: 24px;
+  }
+}
+
+@media (max-height: 700px) {
+  .y-gap-skills-700 {
+    gap: 16px;
+  }
 }
