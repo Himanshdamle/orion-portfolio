@@ -1,9 +1,11 @@
-import { blurOverlay, menuAnimation } from "./animation";
+import { blurOverlay, menuAnimation, moveTsSlider } from "./animation";
 import gsap from "gsap";
 
 export function setupAllEvents() {
   menu();
   onScrollNavControl();
+
+  techStackSlider();
 }
 
 function menu() {
@@ -63,5 +65,21 @@ function onScrollNavControl() {
     }
 
     lastScroll = window.scrollY;
+  });
+}
+
+function techStackSlider() {
+  const buttonWrapper = document.querySelector("#ts-slider-btn-wrp");
+
+  buttonWrapper.addEventListener("click", (e) => {
+    const targetID = e.target.id;
+
+    const moveLeft = targetID == "frontend-ts";
+
+    if (moveLeft) {
+      moveTsSlider(true);
+    } else if (targetID == "backend-ts") {
+      moveTsSlider(false);
+    }
   });
 }

@@ -28,3 +28,13 @@ button {
   background-size: 200% 200%;
   background-position: 0% 0%;
 }
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(131, 133, 255, 0.3) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(131, 133, 255, 0.3) 2px, transparent 2px);
+
+  background-size:
+    15px 15px,
+    15px 15px;
+}

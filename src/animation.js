@@ -169,7 +169,7 @@ export function blurOverlay(open, e) {
       filter: "blur(30px)",
       opacity: 0.3,
     })
-    .set("#nav-wrapper", { backdropFilter: "blur(40px)" })
+    .set("#nav-wrapper", { backdropFilter: "blur(16px)" })
     .set("#menu-content", {
       opacity: 0,
       filter: "blur(20px)",
@@ -228,4 +228,53 @@ function infiniteScroll() {
 
     ease: "none",
   });
+}
+
+const frontendTs = document.querySelector("#frontend-ts");
+const backendTs = document.querySelector("#backend-ts");
+const tsSlider = document.querySelector("#ts-slider");
+let lastState = true;
+export function moveTsSlider(isMoveLeft) {
+  // meaning user is clicking the same state btn
+  if (lastState == isMoveLeft) return;
+
+  lastState = isMoveLeft;
+
+  const tl = gsap.timeline({
+    duration: 0.2,
+
+    onComplete() {
+      gsap.to(tsSlider, {
+        scale: 1,
+        opacity: 1,
+        filter: "blur(0px)",
+
+        duration: 0.2,
+      });
+    },
+  });
+
+  tl.to(tsSlider, { scale: 1.2, opacity: 0.9, filter: "blur(1px)" });
+
+  tl.to(
+    tsSlider,
+    {
+      x: isMoveLeft ? 0 : "100%",
+    },
+    "<<",
+  );
+
+  tl.to(
+    isMoveLeft ? frontendTs : backendTs,
+    {
+      color: "#000275",
+    },
+    "<<",
+  ).to(
+    isMoveLeft ? backendTs : frontendTs,
+    {
+      color: "#E2E2FD",
+    },
+    "<<",
+  );
 }
