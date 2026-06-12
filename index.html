@@ -65,7 +65,7 @@
 
     <!-- menu  -->
     <div
-      class="fixed backdrop-blur-lg bg-[#000149]/20 z-40 text-[#ffffff]"
+      class="fixed backdrop-blur-lg bg-[#000149]/40 z-40 text-[#ffffff]"
       id="blur-overlay"
       style="top: 0; left: 0; height: 20px; width: 28px"
     >
@@ -458,8 +458,6 @@
         <div class="flex flex-col gap-4">
           <!-- select frontend or backend tech stack -->
           <div class="text-[16px]">
-            <span class="text-xs ml-4">Tech stack</span>
-
             <div class="rounded-full border border-[#8385FF] px-2 py-2">
               <div
                 class="relative flex flex-row justify-between items-center py-1"
@@ -497,93 +495,218 @@
               <div
                 class="grid grid-cols-5 grid-rows-3 p-[15px] w-full max-w-[440px] mx-auto"
               >
-                <div class="relative">
-                  <div class="bg-[#BD775F] w-full h-full">
+                <div class="ts-overlay">
+                  <div class="relative ts-box">
+                    <div class="bg-[#BD775F] w-full h-full">
+                      <img
+                        src="/html.png"
+                        alt="html image"
+                        class="aspect-square h-full w-full"
+                      />
+                    </div>
+
+                    <div
+                      class="bg-[#BD775F] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="col-start-2 row-start-2 ts-overlay">
+                  <div class="relative ts-box">
+                    <div class="bg-[#65A5D4] w-full h-full">
+                      <img
+                        src="/css3.png"
+                        alt="css3 image"
+                        class="h-full w-full"
+                      />
+                    </div>
+
+                    <div
+                      class="bg-[#65A5D4] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="col-start-3 row-start-1 ts-overlay">
+                  <div class="relative ts-box">
                     <img
-                      src="/html.png"
-                      alt="html image"
+                      src="/jslogo.png"
+                      alt="jslogo image"
                       class="aspect-square h-full w-full"
                     />
-                  </div>
 
-                  <div
-                    class="bg-[#BD775F] blur-sm absolute top-0 w-full h-full -z-1"
-                  ></div>
-                </div>
-
-                <div class="relative col-start-2 row-start-2">
-                  <div class="bg-[#65A5D4] w-full h-full">
                     <img
-                      src="/css3.png"
-                      alt="css3 image"
-                      class="h-full w-full"
+                      src="/jslogo.png"
+                      alt="jslogo image"
+                      class="aspect-square h-full w-full blur-sm absolute top-0 -z-1 ts-box-glow"
                     />
                   </div>
-
-                  <div
-                    class="bg-[#65A5D4] blur-sm absolute top-0 w-full h-full -z-1"
-                  ></div>
                 </div>
 
-                <div class="relative col-start-3 row-start-1">
-                  <img
-                    src="/jslogo.png"
-                    alt="jslogo image"
-                    class="aspect-square h-full w-full"
-                  />
-                  <img
-                    src="/jslogo.png"
-                    alt="jslogo image"
-                    class="aspect-square h-full w-full blur-sm absolute top-0 -z-1"
-                  />
+                <div class="col-start-4 row-start-2 ts-overlay">
+                  <div class="relative ts-box">
+                    <img
+                      src="/react.png"
+                      alt="react image"
+                      class="aspect-square h-full w-full"
+                    />
+
+                    <div
+                      class="bg-[#61DAFB] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow"
+                    ></div>
+                  </div>
                 </div>
 
-                <div class="relative col-start-4 row-start-2">
-                  <img
-                    src="/react.png"
-                    alt="react image"
-                    class="aspect-square h-full w-full"
-                  />
+                <div class="col-start-5 row-start-1 ts-overlay">
+                  <div class="relative ts-box">
+                    <img
+                      src="/reduxlogo.png"
+                      alt="reduxlogo image"
+                      class="aspect-square h-full w-full"
+                    />
 
-                  <div
-                    class="bg-[#61DAFB] blur-sm absolute top-0 w-full h-full -z-1"
-                  ></div>
+                    <div
+                      class="bg-[#7849BC] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow"
+                    ></div>
+                  </div>
                 </div>
 
-                <div class="relative col-start-5 row-start-1">
-                  <img
-                    src="/reduxlogo.png"
-                    alt="reduxlogo image"
-                    class="aspect-square h-full w-full"
-                  />
+                <div class="col-start-1 row-start-3 ts-overlay">
+                  <div class="relative ts-box">
+                    <img
+                      src="/tailwindcss.png"
+                      alt="tailwindcss image"
+                      class="aspect-square h-full w-full"
+                    />
 
-                  <div
-                    class="bg-[#7849BC] blur-sm absolute top-0 w-full h-full -z-1"
-                  ></div>
+                    <div
+                      class="bg-[#00B5B8] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow"
+                    ></div>
+                  </div>
                 </div>
 
-                <div class="relative col-start-1 row-start-3">
-                  <img
-                    src="/tailwindcss.png"
-                    alt="tailwindcss image"
-                    class="aspect-square h-full w-full"
-                  />
+                <div class="col-start-3 row-start-3 ts-overlay">
+                  <div class="relative ts-box">
+                    <img
+                      src="/gsaplogo.png"
+                      alt="gsaplogo image"
+                      class="aspect-square h-full w-full"
+                    />
 
-                  <div
-                    class="bg-[#00B5B8] blur-sm absolute top-0 w-full h-full -z-1"
-                  ></div>
+                    <div
+                      class="bg-[#09E448] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow"
+                    ></div>
+                  </div>
                 </div>
 
-                <div class="relative col-start-3 row-start-3">
-                  <img
-                    src="/gsaplogo.png"
-                    alt="gsaplogo image"
-                    class="aspect-square h-full w-full"
-                  />
+                <!-- BACKEND -->
+                <!-- node js logo -->
+                <div class="ts-overlay-b">
+                  <div class="relative ts-box-b">
+                    <div class="bg-[#B8F0A9] w-full h-full">
+                      <img
+                        src="/nodejslogo.png"
+                        alt="nodejslogo image"
+                        class="aspect-square h-full w-full"
+                      />
+                    </div>
 
+                    <div
+                      class="bg-[#B8F0A9] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow-b"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- mongoDB -->
+                <div class="ts-overlay-b">
+                  <div class="relative ts-box-b bg-[#119837] w-full h-full">
+                    <img
+                      src="/mongoDBlogo.png"
+                      alt="mongoDBlogo image"
+                      class="h-full w-full"
+                    />
+
+                    <div
+                      class="bg-[#119837] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow-b"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- python -->
+                <div class="ts-overlay-b">
+                  <div class="relative bg-[#69B1EC] ts-box-b">
+                    <img
+                      src="/pythonlogo.png"
+                      alt="pythonlogo image"
+                      class="aspect-square h-full w-full"
+                    />
+
+                    <div
+                      class="bg-[#69B1EC] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow-b"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- express.js -->
+                <div class="ts-overlay-b">
                   <div
-                    class="bg-[#09E448] blur-sm absolute top-0 w-full h-full -z-1"
-                  ></div>
+                    class="relative bg-[#E2E2FD] w-full h-full grid place-items-center ts-box-b"
+                  >
+                    <img
+                      src="/expressjslogo.png"
+                      alt="expressjslogo image"
+                      class=""
+                    />
+
+                    <div
+                      class="bg-[#E2E2FD] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow-b"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- postgreSQL -->
+                <div class="ts-overlay-b">
+                  <div class="relative bg-[#336791] ts-box-b">
+                    <img
+                      src="/postgrelogo.png"
+                      alt="postgrelogo image"
+                      class="aspect-square h-full w-full"
+                    />
+
+                    <div
+                      class="bg-[#336791] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow-b"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- nestJS -->
+                <div class="ts-overlay-b">
+                  <div class="relative bg-[#FF9FB5] ts-box-b">
+                    <img
+                      src="/nestjslogo.png"
+                      alt="nestjslogo image"
+                      class="aspect-square h-full w-full"
+                    />
+
+                    <div
+                      class="bg-[#FF9FB5] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow-b"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- docker -->
+                <div class="ts-overlay-b">
+                  <div class="relative bg-[#BACDFF] ts-box-b">
+                    <img
+                      src="/dockerlogo.png"
+                      alt="dockerlogo image"
+                      class="aspect-square h-full w-full"
+                    />
+
+                    <div
+                      class="bg-[#BACDFF] blur-sm absolute top-0 w-full h-full -z-1 ts-box-glow-b"
+                    ></div>
+                  </div>
                 </div>
               </div>
             </div>

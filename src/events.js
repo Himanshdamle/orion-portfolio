@@ -1,4 +1,10 @@
-import { blurOverlay, menuAnimation, moveTsSlider } from "./animation";
+import {
+  blurOverlay,
+  menuAnimation,
+  moveTsSlider,
+  slideBackendTs,
+  slideFrontendTs,
+} from "./animation";
 import gsap from "gsap";
 
 export function setupAllEvents() {
@@ -81,5 +87,8 @@ function techStackSlider() {
     } else if (targetID == "backend-ts") {
       moveTsSlider(false);
     }
+
+    slideBackendTs();
+    slideFrontendTs();
   });
 }

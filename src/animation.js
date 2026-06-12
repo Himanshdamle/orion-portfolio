@@ -5,6 +5,10 @@ export function runAllAnima() {
   stCounterAnima();
 
   infiniteScroll();
+
+  gsap.set(".ts-overlay-b", { overflow: "hidden" });
+  gsap.set(".ts-box-b", { x: "-100%" });
+  gsap.set(".ts-box-glow-b", { opacity: 0 });
 }
 
 const stCounter = document.querySelector(".st-counter");
@@ -277,4 +281,63 @@ export function moveTsSlider(isMoveLeft) {
     },
     "<<",
   );
+}
+
+let tl1;
+export function slideBackendTs() {
+  if (tl1) {
+    tl1.reverse();
+    return;
+  }
+
+  gsap.set(".ts-overlay-b", { overflow: "hidden" });
+  gsap.set(".ts-box-b", { x: "-100%" });
+  gsap.set(".ts-box-glow-b", { opacity: 0 });
+
+  tl1 = gsap.timeline({
+    onReverseComplete() {
+      tl1 = null;
+    },
+  });
+
+  tl1
+    .to(".ts-box-b", {
+      x: 0,
+      duration: 0.5,
+      ease: "power1.out",
+
+      delay: 0.5,
+    })
+    .set(".ts-overlay-b", { overflow: "unset" })
+    .to(".ts-box-glow-b", {
+      opacity: 1,
+      duration: 0.3,
+    });
+}
+
+let tl2;
+export function slideFrontendTs() {
+  if (tl2) {
+    tl2.reverse();
+    return;
+  }
+
+  tl2 = gsap.timeline({
+    onReverseComplete() {
+      tl2 = null;
+    },
+  });
+
+  tl2
+    .to(".ts-box-glow", {
+      opacity: 0,
+      duration: 0.3,
+      delay: 0.5,
+    })
+    .set(".ts-overlay", { overflow: "hidden" })
+    .to(".ts-box", {
+      x: "100%",
+      duration: 0.5,
+      ease: "power1.in",
+    });
 }
