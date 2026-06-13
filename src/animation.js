@@ -245,7 +245,7 @@ export function moveTsSlider(isMoveLeft) {
   lastState = isMoveLeft;
 
   const tl = gsap.timeline({
-    duration: 0.5,
+    duration: 0.3,
 
     onComplete() {
       gsap.to(tsSlider, {
@@ -253,7 +253,7 @@ export function moveTsSlider(isMoveLeft) {
         opacity: 1,
         filter: "blur(0px)",
 
-        duration: 0.5,
+        duration: 0.3,
       });
     },
   });
