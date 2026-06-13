@@ -245,7 +245,7 @@ export function moveTsSlider(isMoveLeft) {
   lastState = isMoveLeft;
 
   const tl = gsap.timeline({
-    duration: 0.2,
+    duration: 0.5,
 
     onComplete() {
       gsap.to(tsSlider, {
@@ -253,34 +253,29 @@ export function moveTsSlider(isMoveLeft) {
         opacity: 1,
         filter: "blur(0px)",
 
-        duration: 0.2,
+        duration: 0.5,
       });
     },
   });
 
-  tl.to(tsSlider, { scale: 1.2, opacity: 0.9, filter: "blur(1px)" });
-
-  tl.to(
-    tsSlider,
-    {
-      x: isMoveLeft ? 0 : "100%",
-    },
-    "<<",
-  );
-
-  tl.to(
-    isMoveLeft ? frontendTs : backendTs,
-    {
-      color: "#000275",
-    },
-    "<<",
-  ).to(
-    isMoveLeft ? backendTs : frontendTs,
-    {
-      color: "#E2E2FD",
-    },
-    "<<",
-  );
+  tl.to(tsSlider, {
+    x: isMoveLeft ? 0 : "100%",
+  });
+  tl.to(tsSlider, { scale: 1.2, opacity: 0.9, filter: "blur(1px)" }, "<<")
+    .to(
+      isMoveLeft ? frontendTs : backendTs,
+      {
+        color: "#000275",
+      },
+      "<<",
+    )
+    .to(
+      isMoveLeft ? backendTs : frontendTs,
+      {
+        color: "#E2E2FD",
+      },
+      "<<",
+    );
 }
 
 let tl1;
