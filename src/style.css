@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+html,
+body {
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+}
+
+/* Overrides the Tailwind h-screen utility to support dynamic mobile viewports */
+.h-screen {
+  height: 100vh;
+  height: 100dvh;
+}
+
 .sans-stock-notch {
   font-family: "Stack Sans Notch", sans-serif;
 }
