@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 html {
-  background-color: #00011e;
+  background: linear-gradient(to bottom right, #00011e, #000261);
 }
-
 html,
 body {
   margin: 0;
