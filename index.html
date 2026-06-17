@@ -23,10 +23,10 @@
     />
 
 
-    <script type="module" crossorigin src="/orion-portfolio/assets/index-DdWUPwrl.js"></script>
+    <script type="module" crossorigin src="/orion-portfolio/assets/index-DgPvD6eI.js"></script>
     <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-LfOWwOta.css">
   </head>
-  <body class="poppins bg-gradient text-[#E2E2FD]">
+  <body class="poppins h-screen text-[#E2E2FD]">
     <canvas id="trail" class="-z-1 hidden"></canvas>
 
     <section
@@ -34,7 +34,7 @@
       class="z-70 relative pointer-events-none"
     ></section>
 
-    <!-- <div class="bg-gradient fixed inset-0 w-full h-full -z-2"></div> -->
+    <div class="bg-gradient fixed inset-0 w-full h-full -z-2"></div>
 
     <!-- st counter -->
     <section
@@ -159,7 +159,13 @@
     <!-- NAV -->
     <div
       class="w-full fixed z-50 top-0"
-      style="backdrop-filter: blur(16px)"
+      style="
+        backdrop-filter: blur(16px);
+        filter: blur(10px);
+        scale: 0.8;
+        opacity: 0.5;
+        transform: translate(0, -100%);
+      "
       id="nav-wrapper"
     >
       <nav
@@ -183,7 +189,7 @@
 
     <!-- Home -->
     <section
-      class="h-screen grid grid-rows-[1fr]"
+      class="h-full grid grid-rows-[1fr]"
       id="home"
       style="opacity: 0; filter: blur(30px)"
     >
@@ -299,7 +305,7 @@
 
     <!-- about me -->
     <section
-      class="h-screen margin-x-400 mx-14 grid grid-rows-[auto_1fr]"
+      class="margin-x-400 mx-14 h-full grid grid-rows-[auto_1fr]"
       id="about-me"
     >
       <!-- heading -->
@@ -435,7 +441,7 @@
 
     <!-- Skill section -->
     <section
-      class="h-screen margin-x-400 mx-14 grid grid-rows-[auto_1fr]"
+      class="margin-x-400 mx-14 h-full grid grid-rows-[auto_1fr]"
       id="skills"
     >
       <!-- heading -->
