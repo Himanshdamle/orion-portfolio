@@ -59,6 +59,7 @@ function stCounterAnima() {
       counter[1].textContent = "Himansh";
 
       moveUp();
+      scrollDownNav();
     },
   });
 }
@@ -231,6 +232,29 @@ function infiniteScroll() {
     repeat: -1,
 
     ease: "none",
+  });
+}
+
+const navWrapper = document.querySelector("#nav-wrapper");
+export function scrollUpNav() {
+  gsap.to(navWrapper, {
+    y: "-100%",
+    filter: "blur(10px)",
+    opacity: 0.5,
+    scale: 0.8,
+
+    duration: 0.5,
+  });
+}
+
+export function scrollDownNav() {
+  gsap.to(navWrapper, {
+    y: 0,
+    filter: "blur(0px)",
+    opacity: 1,
+    scale: 1,
+
+    duration: 0.5,
   });
 }
 

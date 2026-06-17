@@ -1,6 +1,8 @@
 import {
   blurOverlay,
   menuAnimation,
+  scrollDownNav,
+  scrollUpNav,
   moveTsSlider,
   slideBackendTs,
   slideFrontendTs,
@@ -14,60 +16,42 @@ export function setupAllEvents() {
   techStackSlider();
 }
 
+let isMenuOpen = false;
 function menu() {
   const menuBtn = document.querySelector("#menu-btn");
   const btnRect = menuBtn.getBoundingClientRect();
 
-  let isOpen = false;
+  isMenuOpen = false;
   menuBtn.addEventListener("click", (e) => {
-    isOpen = !isOpen;
-    menuAnimation(isOpen);
-    blurOverlay(isOpen, e);
+    isMenuOpen = !isMenuOpen;
+    menuAnimation(isMenuOpen);
+    blurOverlay(isMenuOpen, e);
   });
 }
 
 function onScrollNavControl() {
   const navWrapper = document.querySelector("#nav-wrapper");
-  const navWrapperRect = navWrapper.getBoundingClientRect();
 
   let lastScroll = 0;
-  let anima1, anima2;
+  let anima1 = false;
   window.addEventListener("scroll", (e) => {
+    if (isMenuOpen) return;
+
     const scrollY = window.scrollY;
     let upScroll = lastScroll < scrollY;
 
     if (scrollY == 0) upScroll = false;
 
     if (upScroll) {
-      if (anima1) return;
-
-      anima1 = gsap.to(navWrapper, {
-        y: "-100%",
-        filter: "blur(10px)",
-        opacity: 0.5,
-        scale: 0.8,
-
-        duration: 0.5,
-
-        onComplete() {
-          anima1 = null;
-        },
-      });
+      if (!anima1) {
+        scrollUpNav();
+        anima1 = true;
+      }
     } else {
-      if (anima2) return;
-
-      anima2 = gsap.to(navWrapper, {
-        y: 0,
-        filter: "blur(0px)",
-        opacity: 1,
-        scale: 1,
-
-        duration: 0.5,
-
-        onComplete() {
-          anima2 = null;
-        },
-      });
+      if (anima1) {
+        anima1 = false;
+        scrollDownNav();
+      }
     }
 
     lastScroll = window.scrollY;
