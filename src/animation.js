@@ -7,7 +7,7 @@ export function runAllAnima() {
   infiniteScroll();
 
   gsap.set(".ts-overlay-b", { overflow: "hidden" });
-  gsap.set(".ts-box-b", { x: "-100%" });
+  gsap.set(".ts-box-b", { x: "-105%" });
   gsap.set(".ts-box-glow-b", { opacity: 0 });
 }
 
@@ -104,6 +104,7 @@ function revealContent() {
     ease: "power2.out",
 
     onComplete() {
+      gsap.set("#web-container", { filter: "none" });
       gsap.to("#st-anima-glow", {
         opacity: 0,
         duration: 1,

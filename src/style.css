@@ -97,3 +97,11 @@ button {
     right: -13vw;
   }
 }
+
+@media (min-width: 1024px) {
+  #about-me {
+    width: calc(
+      100vw - 112px
+    ) !important; /* 56px left + 56px right, matching mx-14 on both sides */
+  }
+}

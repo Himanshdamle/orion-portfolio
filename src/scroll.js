@@ -1,5 +1,8 @@
 import LocomotiveScroll from "locomotive-scroll";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function onScroll({ velocity }) {
   const skew = gsap.utils.clamp(-8, 8, velocity * 0.2);
@@ -8,7 +11,10 @@ function onScroll({ velocity }) {
     skewY: skew,
     duration: 0.6,
     ease: "power3.out",
+    overwrite: "auto",
   });
+
+  ScrollTrigger.update();
 }
 
 const locoScroll = new LocomotiveScroll({
@@ -17,9 +23,18 @@ const locoScroll = new LocomotiveScroll({
     wheelMultiplier: 0.85,
     touchMultiplier: 2,
     smoothWheel: true,
-    smoothTouch: false, // native touch scroll on mobile, which is what you wanted anyway
+    smoothTouch: false,
   },
   scrollCallback: onScroll,
+  initCustomTicker: (render) => {
+    gsap.ticker.add(render);
+    gsap.ticker.lagSmoothing(0);
+  },
+  destroyCustomTicker: (render) => {
+    gsap.ticker.remove(render);
+  },
 });
+
+ScrollTrigger.refresh();
 
 export { locoScroll };

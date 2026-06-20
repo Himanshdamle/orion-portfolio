@@ -93,9 +93,9 @@
 
     <!-- Orion star -->
     <div
-      class="fixed left-1/2 -translate-x-1/2 top-[10%] z-60 pointer-events-none"
+      class="fixed left-1/2 -translate-x-1/2 top-[10%] lg:left-[10%] lg:translate-0 lg:top-1/3 z-60 pointer-events-none"
     >
-      <img class="scale-90" src="/orion.svg" alt="orion svg" />
+      <img class="scale-90 lg:scale-110" src="/orion.svg" alt="orion svg" />
     </div>
 
     <!-- menu  -->
@@ -214,7 +214,8 @@
       </nav>
     </div>
 
-    <div
+    <!-- web container -->
+    <main
       class="h-full w-full"
       id="web-container"
       style="opacity: 0; filter: blur(30px)"
@@ -427,7 +428,7 @@
       <!-- about me -->
       <section
         data-scroll-section
-        class="margin-x-400 mx-14 h-full grid grid-rows-[auto_1fr]"
+        class="margin-x-400 mx-14 h-screen grid grid-rows-[auto_1fr] relative"
         id="about-me"
       >
         <!-- heading -->
@@ -445,11 +446,9 @@
         <!-- about me text -->
         <div
           class="tracking-widest text-[#E2E2FD] text-lg lg:text-xl self-center leading-6"
-          data-scroll
-          data-scroll-speed="0.25"
         >
           <div class="slow-moment flex flex-col gap-14">
-            <div class="max-w-[350px] lg:max-w-[400px] mx-auto">
+            <div class="max-w-[350px] lg:max-w-[400px] mx-auto about-me-text">
               <div
                 class="flex flex-col items-center max-[345px]:items-start max-[345px]:translate-x-0 -translate-x-14"
               >
@@ -552,7 +551,7 @@
             </div>
 
             <div
-              class="max-w-[400px] lg:max-w-[490px] lg:translate-x-4 mx-auto"
+              class="max-w-[400px] lg:max-w-[490px] lg:translate-x-4 mx-auto about-me-text"
             >
               Into
               <span class="font-medium text-[#B9BBFF]">Web dev</span>
@@ -561,6 +560,78 @@
               clicking random &
               <span class="font-medium text-[#B9BBFF]">good-looking shots</span>
             </div>
+          </div>
+        </div>
+
+        <!-- my interest and profession -->
+        <div
+          class="hidden lg:flex flex-col gap-20 absolute top-1/2 -translate-y-1/2 right-0 min-[1440px]:right-[10%] text-xl"
+        >
+          <!-- My interest -->
+          <div class="relative">
+            <h2 class="text-[#B9BBFF] sans-stock-notch font-medium si-heading">
+              My interest
+            </h2>
+
+            <div
+              class="h-full w-[2.5px] bg-[#B9BBFF] absolute top-0 left-3.5 mt-3 si-side-bar"
+            ></div>
+
+            <ul class="text-[#E2E2FD] ml-8 flex flex-col gap-1 si-list">
+              <!--  -->
+              <li class="flex flex-row gap-2 text-nowrap">
+                <img src="/music_node.svg" alt="music node" />
+
+                <span>Listening music</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="/sketching.svg" alt="sketching" />
+
+                <span>Sketching</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="/camera_lavendar.svg" alt="camera" />
+
+                <span>Photography</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img
+                  src="/badminton_lavendar.svg"
+                  alt="badminton and shuttlecock"
+                />
+
+                <span>Badminton</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Profession -->
+          <div class="relative">
+            <h2 class="text-[#B9BBFF] sans-stock-notch font-medium si-heading">
+              Profession
+            </h2>
+
+            <div
+              class="h-full w-[2.5px] bg-[#B9BBFF] absolute top-0 left-3.5 mt-3 si-side-bar"
+            ></div>
+
+            <ul class="text-[#E2E2FD] ml-8 flex flex-col gap-1 si-list">
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="public/web_dev.svg" alt="web dev" />
+
+                <span>Web dev</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="public/web_design.svg" alt="web design" />
+
+                <span>Web design</span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -576,7 +647,7 @@
       <!-- Skill section -->
       <section
         data-scroll-section
-        class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr] lg:hidden"
+        class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr]"
         id="skills"
       >
         <!-- heading -->
@@ -648,12 +719,12 @@
             <!-- tect stack -->
             <div class="h-[64vw] max-h-[279px] relative w-full">
               <div
-                class="absolute z-1 top-0 left-mq-400 -left-14 mq--left-500 h-full w-8 bg-linear-to-r from-[#000133] to-[#00013300]"
+                class="absolute z-1 top-0 left-mq-400 -left-14 mq--left-500 lg:left-0! h-full w-8 bg-linear-to-r from-[#000133] to-[#00013300]"
               ></div>
 
               <!-- -left-14 because mx-14 -->
               <div
-                class="absolute left-mq-400 -left-14 mq--left-500 grid-lines h-max w-screen"
+                class="absolute left-mq-400 -left-14 mq--left-500 grid-lines h-max w-screen lg:w-full lg:left-0!"
               >
                 <div
                   class="grid grid-cols-5 grid-rows-3 p-[15px] w-full max-w-[440px] mx-auto"
@@ -875,7 +946,7 @@
               </div>
 
               <div
-                class="absolute z-1 top-0 right-mq-400 -right-14 mq--right-500 h-full w-8 bg-linear-to-r from-[#00026A00] to-[#000151]"
+                class="absolute z-1 top-0 right-mq-400 -right-14 mq--right-500 lg:right-0! h-full w-8 bg-linear-to-r from-[#00026A00] to-[#000151]"
               ></div>
             </div>
           </div>
@@ -939,6 +1010,6 @@
           </div>
         </div>
       </section>
-    </div>
+    </main>
   </body>
 </html>
