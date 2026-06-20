@@ -44,8 +44,8 @@
     />
 
 
-    <script type="module" crossorigin src="/orion-portfolio/assets/index-DaVj4uZT.js"></script>
-    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-D6PYcaKh.css">
+    <script type="module" crossorigin src="/orion-portfolio/assets/index-U4c3R8Ta.js"></script>
+    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-BjCep4uu.css">
   </head>
   <body class="poppins h-screen text-[#E2E2FD]">
     <canvas
@@ -90,9 +90,9 @@
 
     <!-- Orion star -->
     <div
-      class="fixed left-1/2 -translate-x-1/2 top-[10%] z-60 pointer-events-none"
+      class="fixed left-1/2 -translate-x-1/2 top-[10%] lg:left-[10%] lg:translate-0 lg:top-1/3 z-60 pointer-events-none"
     >
-      <img class="scale-90" src="/orion-portfolio/orion.svg" alt="orion svg" />
+      <img class="scale-90 lg:scale-110" src="/orion-portfolio/orion.svg" alt="orion svg" />
     </div>
 
     <!-- menu  -->
@@ -211,7 +211,8 @@
       </nav>
     </div>
 
-    <div
+    <!-- web container -->
+    <main
       class="h-full w-full"
       id="web-container"
       style="opacity: 0; filter: blur(30px)"
@@ -424,7 +425,7 @@
       <!-- about me -->
       <section
         data-scroll-section
-        class="margin-x-400 mx-14 h-full grid grid-rows-[auto_1fr]"
+        class="margin-x-400 mx-14 h-screen grid grid-rows-[auto_1fr] relative"
         id="about-me"
       >
         <!-- heading -->
@@ -442,11 +443,9 @@
         <!-- about me text -->
         <div
           class="tracking-widest text-[#E2E2FD] text-lg lg:text-xl self-center leading-6"
-          data-scroll
-          data-scroll-speed="0.25"
         >
           <div class="slow-moment flex flex-col gap-14">
-            <div class="max-w-[350px] lg:max-w-[400px] mx-auto">
+            <div class="max-w-[350px] lg:max-w-[400px] mx-auto about-me-text">
               <div
                 class="flex flex-col items-center max-[345px]:items-start max-[345px]:translate-x-0 -translate-x-14"
               >
@@ -549,7 +548,7 @@
             </div>
 
             <div
-              class="max-w-[400px] lg:max-w-[490px] lg:translate-x-4 mx-auto"
+              class="max-w-[400px] lg:max-w-[490px] lg:translate-x-4 mx-auto about-me-text"
             >
               Into
               <span class="font-medium text-[#B9BBFF]">Web dev</span>
@@ -558,6 +557,78 @@
               clicking random &
               <span class="font-medium text-[#B9BBFF]">good-looking shots</span>
             </div>
+          </div>
+        </div>
+
+        <!-- my interest and profession -->
+        <div
+          class="hidden lg:flex flex-col gap-20 absolute top-1/2 -translate-y-1/2 right-0 min-[1440px]:right-[10%] text-xl"
+        >
+          <!-- My interest -->
+          <div class="relative">
+            <h2 class="text-[#B9BBFF] sans-stock-notch font-medium si-heading">
+              My interest
+            </h2>
+
+            <div
+              class="h-full w-[2.5px] bg-[#B9BBFF] absolute top-0 left-3.5 mt-3 si-side-bar"
+            ></div>
+
+            <ul class="text-[#E2E2FD] ml-8 flex flex-col gap-1 si-list">
+              <!--  -->
+              <li class="flex flex-row gap-2 text-nowrap">
+                <img src="/orion-portfolio/music_node.svg" alt="music node" />
+
+                <span>Listening music</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="/orion-portfolio/sketching.svg" alt="sketching" />
+
+                <span>Sketching</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="/orion-portfolio/camera_lavendar.svg" alt="camera" />
+
+                <span>Photography</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img
+                  src="/orion-portfolio/badminton_lavendar.svg"
+                  alt="badminton and shuttlecock"
+                />
+
+                <span>Badminton</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Profession -->
+          <div class="relative">
+            <h2 class="text-[#B9BBFF] sans-stock-notch font-medium si-heading">
+              Profession
+            </h2>
+
+            <div
+              class="h-full w-[2.5px] bg-[#B9BBFF] absolute top-0 left-3.5 mt-3 si-side-bar"
+            ></div>
+
+            <ul class="text-[#E2E2FD] ml-8 flex flex-col gap-1 si-list">
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M6.66669%2015L1.66669%2010L6.66669%205L7.85419%206.1875L4.02085%2010.0208L7.83335%2013.8333L6.66669%2015ZM13.3334%2015L12.1459%2013.8125L15.9792%209.97917L12.1667%206.16667L13.3334%205L18.3334%2010L13.3334%2015Z'%20fill='%238385FF'/%3e%3c/svg%3e" alt="web dev" />
+
+                <span>Web dev</span>
+              </li>
+              <!--  -->
+              <li class="flex flex-row gap-2">
+                <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M6.99998%208.79166L8.79165%206.97916L7.62498%205.79166L6.70831%206.70833L5.54165%205.54166L6.43748%204.62499L5.49998%203.68749L3.68748%205.49999L6.99998%208.79166ZM13.8333%2015.6458L15.6458%2013.8333L14.7083%2012.8958L13.7916%2013.7917L12.625%2012.625L13.5208%2011.7083L12.3333%2010.5417L10.5416%2012.3333L13.8333%2015.6458ZM5.70831%2017.1667H2.16665V13.625L5.81248%209.97916L1.33331%205.49999L5.49998%201.33333L9.99998%205.83333L13.1458%202.66666C13.3125%202.49999%2013.5%202.37499%2013.7083%202.29166C13.9166%202.20833%2014.1319%202.16666%2014.3541%202.16666C14.5764%202.16666%2014.7916%202.20833%2015%202.29166C15.2083%202.37499%2015.3958%202.49999%2015.5625%202.66666L16.6666%203.79166C16.8333%203.95833%2016.9583%204.14583%2017.0416%204.35416C17.125%204.56249%2017.1666%204.77777%2017.1666%204.99999C17.1666%205.22222%2017.125%205.43402%2017.0416%205.63541C16.9583%205.8368%2016.8333%206.02083%2016.6666%206.18749L13.5208%209.35416L18%2013.8333L13.8333%2018L9.35415%2013.5208L5.70831%2017.1667ZM3.83331%2015.5H4.99998L13.1666%207.35416L11.9791%206.16666L3.83331%2014.3333V15.5ZM12.5833%206.77083L11.9791%206.16666L13.1666%207.35416L12.5833%206.77083Z'%20fill='%238385FF'/%3e%3c/svg%3e" alt="web design" />
+
+                <span>Web design</span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -573,7 +644,7 @@
       <!-- Skill section -->
       <section
         data-scroll-section
-        class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr] lg:hidden"
+        class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr]"
         id="skills"
       >
         <!-- heading -->
@@ -645,12 +716,12 @@
             <!-- tect stack -->
             <div class="h-[64vw] max-h-[279px] relative w-full">
               <div
-                class="absolute z-1 top-0 left-mq-400 -left-14 mq--left-500 h-full w-8 bg-linear-to-r from-[#000133] to-[#00013300]"
+                class="absolute z-1 top-0 left-mq-400 -left-14 mq--left-500 lg:left-0! h-full w-8 bg-linear-to-r from-[#000133] to-[#00013300]"
               ></div>
 
               <!-- -left-14 because mx-14 -->
               <div
-                class="absolute left-mq-400 -left-14 mq--left-500 grid-lines h-max w-screen"
+                class="absolute left-mq-400 -left-14 mq--left-500 grid-lines h-max w-screen lg:w-full lg:left-0!"
               >
                 <div
                   class="grid grid-cols-5 grid-rows-3 p-[15px] w-full max-w-[440px] mx-auto"
@@ -872,7 +943,7 @@
               </div>
 
               <div
-                class="absolute z-1 top-0 right-mq-400 -right-14 mq--right-500 h-full w-8 bg-linear-to-r from-[#00026A00] to-[#000151]"
+                class="absolute z-1 top-0 right-mq-400 -right-14 mq--right-500 lg:right-0! h-full w-8 bg-linear-to-r from-[#00026A00] to-[#000151]"
               ></div>
             </div>
           </div>
@@ -936,6 +1007,6 @@
           </div>
         </div>
       </section>
-    </div>
+    </main>
   </body>
 </html>
