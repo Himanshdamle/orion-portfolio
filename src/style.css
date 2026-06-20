@@ -82,3 +82,18 @@ button {
     gap: 16px;
   }
 }
+
+@media (min-width: 550px) {
+  .mq-margin-x-550 {
+    margin-inline: 13vw;
+  }
+  .mq-nav-margin-x-550 {
+    margin-inline: 10vw;
+  }
+  .mq--left-500 {
+    left: -13vw;
+  }
+  .mq--right-500 {
+    right: -13vw;
+  }
+}

@@ -60,7 +60,7 @@
 
     <!-- st counter -->
     <section
-      class="h-full w-full flex justify-center items-center sans-stock-notch text-5xl text-[#B9BBFF] absolute z-1 st-counter"
+      class="h-full w-full flex justify-center items-center sans-stock-notch text-5xl lg:text-6xl text-[#B9BBFF] absolute z-1 st-counter"
       style="filter: blur(20px)"
     >
       <div class="relative" id="st-animation-box">
@@ -95,7 +95,7 @@
 
     <!-- menu  -->
     <div
-      class="fixed backdrop-blur-lg bg-[#000149]/40 z-40 text-[#ffffff]"
+      class="fixed backdrop-blur-lg bg-[#000149]/40 z-40 text-[#ffffff] lg:hidden"
       id="blur-overlay"
       style="top: 0; left: 0; height: 20px; width: 28px"
     >
@@ -191,7 +191,7 @@
       id="nav-wrapper"
     >
       <nav
-        class="text-[#B9BBFF] margin-y-400 mt-14 margin-x-400 mx-14 pb-4 flex flex-row justify-between items-center"
+        class="text-[#B9BBFF] margin-y-400 mt-14 margin-x-400 mx-14 mq-nav-margin-x-550 pb-4 flex flex-row justify-between items-center"
       >
         <a href="index.html" class="sans-stock-notch">Himansh Web</a>
 
@@ -211,7 +211,7 @@
 
     <!-- Home -->
     <section
-      class="h-full grid grid-rows-[1fr]"
+      class="h-full grid grid-rows-[1fr] lg:text-xl"
       id="home"
       style="opacity: 0; filter: blur(30px)"
     >
@@ -219,8 +219,8 @@
         <!-- Center -->
         <div class="flex flex-col justify-center mt-20">
           <div class="flex flex-col items-center">
-            <!-- TOP -->
-            <div class="flex flex-row items-end ml-16 -mb-2">
+            <!-- Mobile/tab - TOP -->
+            <div class="flex flex-row items-end ml-16 -mb-2 lg:hidden">
               <!-- web design -->
               <div class="flex flex-col translate-y-1.5">
                 <div class="flex flex-row gap-1 text-[#8385FF] text-xl">
@@ -250,9 +250,42 @@
               </div>
             </div>
 
+            <!-- desktop - top -->
+            <div
+              class="lg:flex flex-row items-center hidden text-[#8385FF] text-2xl font-medium origin-left rotate-45 -translate-y-40 translate-x-15"
+            >
+              <!-- web design -->
+              <div class="-rotate-45 flex flex-row gap-1 translate-x-14">
+                <img
+                  class="aspect-square w-5"
+                  src="/web_design.svg"
+                  alt="web_design svg"
+                />
+
+                <h2 class="text-nowrap">Web Design</h2>
+              </div>
+
+              <div class="w-59 relative">
+                <div class="bg-[#8385FF] w-full h-0.5"></div>
+                <div
+                  class="bg-[#8385FF] w-full h-0.5 blur-[2px] absolute top-0 left-0"
+                ></div>
+              </div>
+
+              <div class="-rotate-45 flex flex-row gap-1 -translate-x-10">
+                <img
+                  class="aspect-square w-5"
+                  src="/web_dev.svg"
+                  alt="web_dev svg"
+                />
+
+                <h2 class="">Web dev.</h2>
+              </div>
+            </div>
+
             <!-- MAIN HIMANSH NAME -->
             <div
-              class="relative w-max sans-stock-notch text-5xl text-[#B9BBFF] main-head z-10"
+              class="relative w-max sans-stock-notch text-5xl lg:text-6xl text-[#B9BBFF] main-head z-10"
             >
               <h1>Himansh</h1>
               <h1 class="blur-[1px] absolute top-0 left-0">Himansh</h1>
@@ -262,8 +295,48 @@
               ></div>
             </div>
 
-            <!-- Bottom -->
-            <div class="flex flex-row items-start mr-10 -translate-x-5">
+            <!-- desktop - bottom -->
+            <div
+              class="lg:flex flex-row items-center hidden text-2xl origin-left -rotate-30 translate-y-40 translate-x-12"
+            >
+              <!-- photographer -->
+              <div
+                class="rotate-30 flex flex-row gap-1 translate-x-1 -translate-y-11"
+              >
+                <img
+                  class="aspect-square w-5"
+                  src="/camera.svg"
+                  alt="camera svg"
+                />
+
+                <h2 class="text-nowrap">Photographer</h2>
+              </div>
+
+              <div class="w-100 relative">
+                <div class="bg-[#8385FF] w-full h-0.5"></div>
+                <div
+                  class="bg-[#8385FF] w-full h-0.5 blur-[2px] absolute top-0 left-0"
+                ></div>
+              </div>
+
+              <!-- photographer -->
+              <div
+                class="rotate-30 flex flex-row gap-1 -translate-x-1 translate-y-8"
+              >
+                <h2 class="text-nowrap">Badminton</h2>
+
+                <img
+                  class="aspect-square w-5"
+                  src="/badminton.svg"
+                  alt="badminton svg"
+                />
+              </div>
+            </div>
+
+            <!-- Mobile/tab - Bottom -->
+            <div
+              class="flex flex-row items-start mr-10 -translate-x-5 lg:hidden"
+            >
               <!-- Photographer -->
               <div class="flex flex-row -mr-8 -translate-2">
                 <h3 class="leading-3 mt-auto">Photographer</h3>
@@ -295,7 +368,9 @@
           </div>
 
           <!-- Based in -->
-          <div class="flex flex-col w-max translate-y-12 margin-x-400 ml-14">
+          <div
+            class="flex flex-col w-max translate-y-12 margin-x-400 mq-margin-x-550 ml-14 lg:translate-y-36 lg:translate-x-12"
+          >
             <img
               class="aspect-square w-8 -ml-4 -mb-2"
               src="/location_pin.svg"
@@ -304,11 +379,13 @@
 
             <div class="flex flex-row items-center">
               <p>Based in</p>
+
               <div class="relative ml-1.5">
                 <div
                   class="rounded-full bg-[#000275] blur-sm absolute top-0 left-0 -z-1 w-full h-full"
                 ></div>
-                <h3 class="text-[#8385FF] sans-stock-notch text-xl">India</h3>
+
+                <h3 class="text-[#8385FF] sans-stock-notch text-2xl">India</h3>
               </div>
             </div>
           </div>
@@ -342,16 +419,16 @@
 
       <!-- about me text -->
       <div
-        class="tracking-widest text-[#E2E2FD] text-lg self-center leading-6 flex flex-col gap-14"
+        class="tracking-widest text-[#E2E2FD] text-lg lg:text-xl self-center leading-6 flex flex-col gap-14"
       >
-        <div>
+        <div class="max-w-[350px] lg:max-w-[400px] mx-auto">
           <div
             class="flex flex-col items-center max-[345px]:items-start max-[345px]:translate-x-0 -translate-x-14"
           >
             <!-- Hey, I'm .... -->
             <div class="relative w-max">
               Hey, I'm
-              <span class="text-[20px] text-[#B9BBFF] sans-stock-notch"
+              <span class="text-xl lg:text-2xl text-[#B9BBFF] sans-stock-notch"
                 >Himansh</span
               >
 
@@ -362,7 +439,7 @@
 
             <!-- I love.... -->
             <div
-              class="relative translate-x-23 max-[345px]:translate-x-26.25 w-max -translate-y-1 flex flex-col"
+              class="relative translate-x-23 max-[345px]:translate-x-26.25 lg:translate-x-25.5 w-max -translate-y-1 flex flex-col"
             >
               <!-- long -->
               <div
@@ -370,12 +447,14 @@
               ></div>
 
               <!-- love building text -->
-              <div class="flex flex-row -mt-2 -ml-1.25">
+              <div class="flex flex-row -mt-2 -ml-1.25 lg:-ml-2">
                 <!-- I -->
-                <div class="flex flex-col justify-center items-center ml-px">
-                  <div class="h-px w-3 bg-[#E2E2FD]"></div>
-                  <div class="w-0.5 h-3 bg-[#E2E2FD]"></div>
-                  <div class="h-px w-3 bg-[#E2E2FD]"></div>
+                <div
+                  class="flex flex-col justify-center items-center ml-px -mt-1.5"
+                >
+                  <div class="h-0.5 w-4.5 bg-[#E2E2FD]"></div>
+                  <div class="w-0.5 h-4.5 bg-[#E2E2FD]"></div>
+                  <div class="h-0.5 w-4.5 bg-[#E2E2FD]"></div>
                 </div>
 
                 <div class="ml-2 relative">
@@ -387,22 +466,22 @@
 
           <!-- Websites Text -->
           <div
-            class="flex flex-row items-baseline gap-2 w-max -translate-y-2.25 relative left-1/2 translate-x-[-40%]"
+            class="flex flex-row items-baseline gap-2 w-max -translate-y-2.25 lg:-translate-y-1 relative left-1/2 translate-x-[-40%]"
           >
             <div
-              class="relative sans-stock-notch text-[#B9BBFF] h-max text-2xl translate-y-1"
+              class="relative sans-stock-notch text-[#8385FF] h-max text-2xl translate-y-1"
             >
               <h2>Websites</h2>
               <h2 class="absolute top-0 left-0 blur-[1px]">Websites</h2>
 
               <div
-                class="absolute left-0 top-0 bg-[#000275] blur-[10px] rounded-full w-full h-5 -z-1"
+                class="absolute left-0 top-1 bg-[#000275] blur-[10px] rounded-full w-full h-5 -z-1 scale-120"
               ></div>
             </div>
 
             <!--  -->
             <img
-              class="rotate-180 scale-110 -ml-0.5"
+              class="rotate-180 scale-110 lg:scale-130 -ml-0.5"
               src="/bold_curve_arr.svg"
               alt="bold_curve_arr svg"
             />
@@ -424,7 +503,8 @@
                 <span class="text-[#B9BBFF] font-medium">clean design</span>
               </p>
             </li>
-            <li class="flex flex-row gap-2 -ml-2">
+
+            <li class="flex flex-row gap-2 -ml-2 lg:translate-x-4">
               <!-- Star or list pointer -->
               <div class="relative h-max mt-2">
                 <div class="w-1 h-1 bg-white rounded-full"></div>
@@ -442,7 +522,7 @@
           </ul>
         </div>
 
-        <div>
+        <div class="max-w-[400px] lg:max-w-[490px] lg:translate-x-4 mx-auto">
           Into
           <span class="font-medium text-[#B9BBFF]">Web dev</span>
           ,
@@ -463,7 +543,7 @@
 
     <!-- Skill section -->
     <section
-      class="margin-x-400 mx-14 h-full grid grid-rows-[auto_1fr]"
+      class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr]"
       id="skills"
     >
       <!-- heading -->
@@ -481,7 +561,7 @@
         class="tracking-widest text-[#E2E2FD] text-lg self-center leading-6 flex flex-col y-gap-skills-750 y-gap-skills-700 gap-10 -mt-4"
       >
         <!-- Im full stack ... -->
-        <div class="text-[20px]">
+        <div class="text-xl">
           <div>
             I'm
 
@@ -501,7 +581,9 @@
         <div class="flex flex-col gap-4">
           <!-- select frontend or backend tech stack -->
           <div class="text-[16px]">
-            <div class="rounded-full border border-[#8385FF] px-2 py-2">
+            <div
+              class="rounded-full border border-[#8385FF] px-2 py-2 max-w-[450px] mx-auto"
+            >
               <div
                 class="relative flex flex-row justify-between items-center py-1"
                 id="ts-slider-btn-wrp"
@@ -528,12 +610,12 @@
           <!-- tect stack -->
           <div class="h-[64vw] max-h-[279px] relative w-full">
             <div
-              class="absolute z-1 top-0 left-mq-400 -left-14 h-full w-8 bg-linear-to-r from-[#000133] to-[#00013300]"
+              class="absolute z-1 top-0 left-mq-400 -left-14 mq--left-500 h-full w-8 bg-linear-to-r from-[#000133] to-[#00013300]"
             ></div>
 
             <!-- -left-14 because mx-14 -->
             <div
-              class="absolute left-mq-400 -left-14 grid-lines h-max w-screen"
+              class="absolute left-mq-400 -left-14 mq--left-500 grid-lines h-max w-screen"
             >
               <div
                 class="grid grid-cols-5 grid-rows-3 p-[15px] w-full max-w-[440px] mx-auto"
@@ -755,7 +837,7 @@
             </div>
 
             <div
-              class="absolute z-1 top-0 right-mq-400 -right-14 h-full w-8 bg-linear-to-r from-[#00026A00] to-[#000151]"
+              class="absolute z-1 top-0 right-mq-400 -right-14 mq--right-500 h-full w-8 bg-linear-to-r from-[#00026A00] to-[#000151]"
             ></div>
           </div>
         </div>
@@ -789,7 +871,7 @@
                   ></div>
 
                   <div
-                    class="absolute -right-full -translate-x-[45%] top-1/2 -translate-y-1/2 text-xs"
+                    class="absolute -right-full -translate-x-[20%] top-1/2 -translate-y-1/2 text-xs"
                   >
                     Almost !
                   </div>
@@ -797,7 +879,7 @@
               </div>
 
               <!-- tech stack name -->
-              <p class="sans-stock-notch text-2xl font-bold translate-x-[-20%]">
+              <p class="sans-stock-notch text-xl font-bold translate-x-[-20%]">
                 Next.js
               </p>
             </div>
