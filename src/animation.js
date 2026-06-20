@@ -95,8 +95,9 @@ function moveUp() {
     );
 }
 
+export let isStAnimationEnded = false;
 function revealContent() {
-  gsap.to("#home", {
+  gsap.to("#web-container", {
     opacity: 1,
     filter: "blur(0px)",
     duration: 1,
@@ -109,6 +110,7 @@ function revealContent() {
         ease: "power2.out",
 
         onComplete() {
+          isStAnimationEnded = true;
           stCounter.remove();
         },
       });

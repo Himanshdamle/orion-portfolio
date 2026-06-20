@@ -16,6 +16,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "gsap": "^3.15.0",
+    "locomotive-scroll": "^5.0.1",
     "tailwindcss": "^4.3.0"
   }
 }

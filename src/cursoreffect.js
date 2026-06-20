@@ -21,7 +21,6 @@ window.addEventListener("mousemove", (e) => {
 
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   ctx.lineCap = "round";
   ctx.lineJoin = "round";
 
@@ -38,16 +37,10 @@ function animate() {
     const p2 = points[i];
 
     ctx.beginPath();
-
-    ctx.filter = "blur(15px)";
-
     ctx.strokeStyle = `rgba(0, 2, 117, ${p2.life})`;
-
     ctx.lineWidth = 35 * p2.life;
-
     ctx.moveTo(p1.x, p1.y);
     ctx.lineTo(p2.x, p2.y);
-
     ctx.stroke();
   }
 

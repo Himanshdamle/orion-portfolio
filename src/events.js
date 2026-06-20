@@ -6,6 +6,7 @@ import {
   moveTsSlider,
   slideBackendTs,
   slideFrontendTs,
+  isStAnimationEnded,
 } from "./animation";
 import gsap from "gsap";
 
@@ -14,6 +15,7 @@ export function setupAllEvents() {
   onScrollNavControl();
 
   techStackSlider();
+  slowCursorMoment();
 }
 
 let isMenuOpen = false;
@@ -74,5 +76,57 @@ function techStackSlider() {
 
     slideBackendTs();
     slideFrontendTs();
+  });
+}
+
+function slowCursorMoment() {
+  if (window.innerWidth < 1024) return;
+
+  const body = document.body;
+  const target = document.querySelector("#hero-section-center");
+  const tbwlt = document.querySelector("#text-bw-line-top");
+  const tbwlb = document.querySelector("#text-bw-line-bottom");
+  const els = document.querySelectorAll(".slow-moment");
+
+  const maxOffset = 45;
+
+  const motionEase = {
+    duration: 1.2,
+    ease: "power3.out",
+    overwrite: "auto", // kills the previous tween
+  };
+
+  body.addEventListener("mousemove", (e) => {
+    if (!isStAnimationEnded) return;
+
+    // position relative to viewport center
+    const xOffset = (e.clientX / window.innerWidth - 0.5) * 2 * maxOffset;
+    const yOffset = (e.clientY / window.innerHeight - 0.5) * 2 * maxOffset;
+
+    gsap.to(target, {
+      x: gsap.utils.clamp(-maxOffset, maxOffset, xOffset),
+      y: gsap.utils.clamp(-maxOffset, maxOffset, yOffset),
+      ...motionEase,
+    });
+
+    gsap.to(els, {
+      x: gsap.utils.clamp(-maxOffset, maxOffset, xOffset) / 2,
+      y: gsap.utils.clamp(-maxOffset, maxOffset, yOffset) / 2,
+      ...motionEase,
+    });
+
+    const vectorResultant = Math.sqrt(
+      (xOffset + 50) ** 2 + (yOffset + 50) ** 2,
+    );
+
+    gsap.to(tbwlt, {
+      width: 4 * 59 + vectorResultant,
+      ...motionEase,
+    });
+
+    gsap.to(tbwlb, {
+      width: 4 * 100 + vectorResultant,
+      ...motionEase,
+    });
   });
 }
