@@ -7,7 +7,8 @@ export function runAllScrollAnima() {
   sideInfoReveal();
   aboutMeReveal();
 
-  revealTechStack();
+  revealSkillSection();
+  // revealTechStack();
 }
 
 function aboutMeReveal() {
@@ -21,8 +22,7 @@ function aboutMeReveal() {
 
     opacity: 0,
     filter: "blur(20px)",
-    scale: 0.9,
-    x: -100,
+    y: 200,
     duration: 1.5,
     ease: "power3.out",
     overwrite: "auto",
@@ -75,38 +75,53 @@ function sideInfoReveal() {
     );
 }
 
-// mobile only
-function revealTechStack() {
-  gsap.set(".ts-box-glow", {
-    opacity: 0,
-  });
-  gsap.set(".ts-overlay", { overflow: "hidden" });
+function revealSkillSection() {
+  const psuedoSH = document.querySelector("#psuedo-skill-heading");
+  gsap.set(psuedoSH, { xPercent: -50, yPercent: -50 });
 
-  gsap.from(".ts-box", {
+  const tpSkillHeading = document
+    .querySelector("#skill-heading")
+    .getBoundingClientRect().top;
+
+  const tpSkillSection = document
+    .querySelector("#skills")
+    .getBoundingClientRect().top;
+
+  const topPosition = tpSkillHeading - tpSkillSection;
+
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#skills",
-      start: "top 40%",
-      end: "bottom 20%",
-      toggleActions: "play none play reverse",
-      onEnter: () => gsap.set(".ts-overlay", { overflow: "hidden" }),
-      onEnterBack: () => gsap.set(".ts-overlay", { overflow: "hidden" }),
-      onLeaveBack: () => gsap.set(".ts-overlay", { overflow: "hidden" }),
-    },
-
-    x: "-105%",
-    duration: 0.6,
-    ease: "power3.out",
-    overwrite: "auto",
-    stagger: 0.1,
-
-    onComplete() {
-      gsap.set(".ts-overlay", { overflow: "unset" });
-      gsap.to(".ts-box-glow", { opacity: 1, duration: 0.5 });
-    },
-
-    onReverseComplete() {
-      // optional: reset glow back to 0 when reversed, so it's ready for next play
-      gsap.set(".ts-box-glow", { opacity: 0 });
+      start: "bottom bottom",
+      end: "+=300",
+      pin: true,
+      scrub: 1,
     },
   });
+
+  tl.to(
+    psuedoSH,
+    {
+      top: topPosition,
+      left: 0,
+      xPercent: 0,
+      yPercent: 0,
+      scale: 1,
+    },
+    "+=0.3",
+  )
+    .from("#tech-stack-grid", {
+      filter: "blur(5px)",
+      y: 100,
+      opacity: 0,
+    })
+    .from(
+      "#learning-next-wrap",
+      {
+        opacity: 0,
+        y: 100,
+        filter: "blur(5px)",
+      },
+      "+=0.3",
+    );
 }

@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function onScroll({ velocity }) {
-  const skew = gsap.utils.clamp(-8, 8, velocity * 0.2);
+  const skew = gsap.utils.clamp(-8, 8, velocity * 0.06);
 
   gsap.to("[data-scroll-section]", {
     skewY: skew,

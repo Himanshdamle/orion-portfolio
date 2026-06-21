@@ -9,9 +9,11 @@ import {
   isStAnimationEnded,
 } from "./animation";
 import gsap from "gsap";
+import { locoScroll } from "./scroll.js";
 
 export function setupAllEvents() {
   menu();
+  scrollToMenu();
   onScrollNavControl();
 
   techStackSlider();
@@ -19,15 +21,55 @@ export function setupAllEvents() {
 }
 
 let isMenuOpen = false;
+let scrollToFunc = false;
+let targetSection;
+const menuBtn = document.querySelector("#menu-btn");
 function menu() {
-  const menuBtn = document.querySelector("#menu-btn");
-  const btnRect = menuBtn.getBoundingClientRect();
-
   isMenuOpen = false;
+
   menuBtn.addEventListener("click", (e) => {
     isMenuOpen = !isMenuOpen;
+
     menuAnimation(isMenuOpen);
-    blurOverlay(isMenuOpen, e);
+
+    blurOverlay(isMenuOpen, e, () => {
+      if (!scrollToFunc) return;
+
+      locoScroll.scrollTo(targetSection, {
+        offset: 0,
+        duration: 1.5,
+
+        onComplete: () => (scrollToFunc = false),
+      });
+    });
+  });
+}
+
+let lastBtn = document.querySelector("[data-menu-target='#home'");
+function scrollToMenu() {
+  document.querySelectorAll("[data-menu-target]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      targetSection = btn.getAttribute("data-menu-target");
+      const seq = btn.getAttribute("data-seq");
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          scrollToFunc = true;
+          menuBtn.click();
+        },
+      });
+
+      tl.to("#menu-slider", {
+        top: `${20 * Number(seq)}%`,
+        duration: 0.7,
+        ease: "power3.out",
+      })
+
+        .to(lastBtn, { color: "#B9BBFF", fontWeight: 400 }, "-=0.5")
+        .to(btn, { color: "#8385FF", fontWeight: 600 }, "<<");
+
+      lastBtn = btn;
+    });
   });
 }
 

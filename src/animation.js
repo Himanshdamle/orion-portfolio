@@ -159,8 +159,12 @@ export function menuAnimation(openAnima) {
     );
 }
 
-let ani;
-export function blurOverlay(open, e) {
+let ani, revCompleteFunc;
+export function blurOverlay(open, e, revComplete) {
+  if (window.innerWidth >= 550) return;
+
+  revCompleteFunc = revComplete ? revComplete : undefined;
+
   if (!open) {
     ani.reverse();
     return;
@@ -169,7 +173,14 @@ export function blurOverlay(open, e) {
   const tl = gsap.timeline({
     duration: 0.35,
     ease: "power2.in",
+
+    onReverseComplete() {
+      console.log(revComplete, e);
+
+      revComplete?.();
+    },
   });
+
   ani = tl
     .set("#blur-overlay", {
       top: e.y,

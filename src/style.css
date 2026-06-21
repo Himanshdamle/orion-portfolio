@@ -11,6 +11,18 @@ body {
   min-height: -webkit-fill-available;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+/* IE/old Edge */
+html {
+  -ms-overflow-style: none;
+}
+
 .h-screen {
   height: 100vh;
   height: 100dvh;
@@ -55,12 +67,22 @@ button {
     15px 15px;
 }
 
+.scrollAnimaEffect {
+  width: calc(
+    100dvw - 112px
+  ) !important; /* 56px left + 56px right, matching mx-14 on both sides */
+}
+
 @media (max-width: 400px) {
   .margin-x-400 {
     margin-inline: 28px;
   }
   .margin-y-400 {
     margin-top: 48px;
+  }
+
+  .scrollAnimaEffect {
+    width: calc(100dvw - 28 * 2px) !important;
   }
 
   .left-mq-400 {
@@ -85,23 +107,18 @@ button {
 
 @media (min-width: 550px) {
   .mq-margin-x-550 {
-    margin-inline: 13vw;
+    margin-inline: 8vw;
+  }
+  .scrollAnimaEffect {
+    width: calc(100dvw - 8 * 2vw) !important;
   }
   .mq-nav-margin-x-550 {
-    margin-inline: 10vw;
+    margin-inline: 6vw;
   }
   .mq--left-500 {
-    left: -13vw;
+    left: -8vw;
   }
   .mq--right-500 {
-    right: -13vw;
-  }
-}
-
-@media (min-width: 1024px) {
-  #about-me {
-    width: calc(
-      100vw - 112px
-    ) !important; /* 56px left + 56px right, matching mx-14 on both sides */
+    right: -8vw;
   }
 }
