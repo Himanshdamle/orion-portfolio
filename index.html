@@ -44,8 +44,8 @@
     />
 
 
-    <script type="module" crossorigin src="/orion-portfolio/assets/index-U4c3R8Ta.js"></script>
-    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-BjCep4uu.css">
+    <script type="module" crossorigin src="/orion-portfolio/assets/index-BjfLE5RG.js"></script>
+    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-BQVJh5LB.css">
   </head>
   <body class="poppins h-screen text-[#E2E2FD]">
     <canvas
@@ -425,7 +425,7 @@
       <!-- about me -->
       <section
         data-scroll-section
-        class="margin-x-400 mx-14 h-screen grid grid-rows-[auto_1fr] relative"
+        class="margin-x-400 mx-14 mq-margin-x-550 h-screen grid grid-rows-[auto_1fr] relative scrollAnimaEffect"
         id="about-me"
       >
         <!-- heading -->
@@ -644,7 +644,7 @@
       <!-- Skill section -->
       <section
         data-scroll-section
-        class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr]"
+        class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr] lg:hidden scrollAnimaEffect"
         id="skills"
       >
         <!-- heading -->
@@ -662,9 +662,31 @@
         <!-- content -->
         <div
           class="tracking-widest text-[#E2E2FD] text-lg self-center leading-6 flex flex-col y-gap-skills-750 y-gap-skills-700 gap-10 -mt-4"
+          id="skill-sec-content"
         >
           <!-- Im full stack ... -->
-          <div class="text-xl">
+          <div class="text-xl opacity-0" id="skill-heading">
+            <div>
+              I'm
+
+              <div class="relative w-max">
+                <h1 class="text-[#B9BBFF] font-medium sans-stock-notch">
+                  Full stack web dev
+                </h1>
+
+                <div
+                  class="absolute left-0 top-0 bg-[#000275] blur-[10px] rounded-full w-full h-5 -z-1"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- pseudo-skill-heading -->
+          <div
+            class="absolute"
+            id="psuedo-skill-heading"
+            style="scale: 1.35; top: 50%; left: 50%"
+          >
             <div>
               I'm
 
@@ -681,7 +703,7 @@
           </div>
 
           <!-- tech stack grid and toggle button -->
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-4" id="tech-stack-grid">
             <!-- select frontend or backend tech stack -->
             <div class="text-[16px]">
               <div
@@ -725,6 +747,7 @@
               >
                 <div
                   class="grid grid-cols-5 grid-rows-3 p-[15px] w-full max-w-[440px] mx-auto"
+                  id="tech-stack-wrapper"
                 >
                   <div class="ts-overlay">
                     <div class="relative ts-box">
@@ -949,7 +972,7 @@
           </div>
 
           <!-- What im learning next -->
-          <div class="h-max w-max relative">
+          <div class="h-max w-max relative" id="learning-next-wrap">
             <p>Next I'm learning</p>
 
             <div class="mt-2 flex flex-row">
