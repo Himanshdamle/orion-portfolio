@@ -990,46 +990,70 @@
 
           <!-- What im learning next -->
           <div class="h-max w-max relative" id="learning-next-wrap">
-            <p>Next I'm learning</p>
-
-            <div class="mt-2 flex flex-row">
-              <div class="relative w-max opacity-80">
-                <img
-                  src="/nextjslogo.png"
-                  alt="nextjslogo image"
-                  class="aspect-square h-16 w-16"
-                />
-
+            <div class="flex flex-row items-center gap-2 translate-x-[36.5px]">
+              <!-- Star or list pointer -->
+              <div class="relative h-max w-max">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
                 <div
-                  class="absolute bg-[#B9BBFF] blur-[4px] top-0 -z-1 w-full h-full"
+                  class="absolute top-0 w-full h-full bg-white blur-[2px] rounded-full"
                 ></div>
               </div>
 
-              <div class="flex flex-col justify-between">
-                <!-- progress bar -->
-                <div class="ml-5 h-full grid items-center">
-                  <!-- bar -->
-                  <div
-                    class="w-[140%] h-1 rounded-full bg-[#E2E2FD] relative mt-4"
-                  >
-                    <div
-                      class="w-[80%] h-1 rounded-full bg-[#8385FF] absolute"
-                    ></div>
+              <p>Next I'm learning</p>
+            </div>
 
-                    <div
-                      class="absolute -right-full -translate-x-[20%] top-1/2 -translate-y-1/2 text-xs"
-                    >
-                      Almost !
-                    </div>
-                  </div>
+            <div class="flex flex-col mt-3 gap-2">
+              <div class="flex flex-row">
+                <div class="relative w-max">
+                  <img
+                    src="public/nextjs_logo.png"
+                    alt="next js logo"
+                    class="rounded-lg border-2 border-[#8385FF] aspect-square w-18"
+                  />
+
+                  <div
+                    class="bg-[#E2E2FD] rounded-lg blur-[2px] absolute w-full h-full top-0 -z-1"
+                  ></div>
                 </div>
 
-                <!-- tech stack name -->
-                <p
-                  class="sans-stock-notch text-xl font-bold translate-x-[-20%]"
-                >
-                  Next.js
-                </p>
+                <div class="relative flex items-end pb-1 -translate-x-4">
+                  <span
+                    class="sans-stock-notch font-medium text-2xl text-[#8385FF]"
+                    >Next.js</span
+                  >
+
+                  <div class="absolute -top-6 right-0 translate-x-14">
+                    <svg
+                      width="50"
+                      height="90"
+                      viewBox="0 0 52 81"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M49.5022 0.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174"
+                        stroke="#E2E2FD"
+                        stroke-width="2"
+                      />
+
+                      <path
+                        d="M7.42 64.3924C7.698 68.6003 6.57124 70.588 2.2298 73.4577C7.97749 75.4811 9.85795 76.9073 11.7148 79.7768"
+                        stroke="#E2E2FD"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-row items-center gap-1">
+                <div class="bg-[#E2E2FD] relative w-full h-1 rounded-full">
+                  <div
+                    class="absolute bg-[#8385FF] left-0 w-[80%] h-full"
+                  ></div>
+                </div>
+
+                <span class="text-[#8385FF] text-sm">Almost!</span>
               </div>
             </div>
 
