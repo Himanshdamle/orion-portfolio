@@ -76,8 +76,15 @@ function sideInfoReveal() {
 }
 
 function revealSkillSection() {
-  const psuedoSH = document.querySelector("#skill-heading");
+  const psuedoSH = document.querySelector("#psuedo-skill-heading");
   gsap.set(psuedoSH, { xPercent: -50, yPercent: -50 });
+
+  const sh = document.querySelector("#skill-heading");
+
+  const tp1 = sh.getBoundingClientRect().top;
+  const tp2 = document.querySelector("#skills").getBoundingClientRect().top;
+
+  const topPosition = tp1 - tp2;
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -89,28 +96,42 @@ function revealSkillSection() {
     },
   });
 
-  tl.to(
-    psuedoSH,
-    {
-      y: -50,
-      filter: "blur(10px)",
-      opacity: 0,
-      scale: 1,
-    },
-    "+=0.3",
-  )
-    .from("#tech-stack-grid", {
-      filter: "blur(5px)",
-      y: 100,
-      opacity: 0,
-    })
-    .from(
-      "#learning-next-wrap",
+  if (window.innerWidth > 1024) {
+    tl.to(
+      psuedoSH,
       {
-        opacity: 0,
-        y: 100,
-        filter: "blur(5px)",
+        top: topPosition,
+        x: 0,
+        y: 0,
+        left: sh.getBoundingClientRect().left,
+        scale: 1,
       },
       "+=0.3",
     );
+  } else {
+    tl.to(
+      psuedoSH,
+      {
+        y: -50,
+        filter: "blur(10px)",
+        opacity: 0,
+        scale: 1,
+      },
+      "+=0.3",
+    );
+  }
+
+  tl.from("#tech-stack-grid", {
+    filter: "blur(5px)",
+    y: 100,
+    opacity: 0,
+  }).from(
+    "#learning-next-wrap",
+    {
+      opacity: 0,
+      y: 100,
+      filter: "blur(5px)",
+    },
+    "+=0.3",
+  );
 }
