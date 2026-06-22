@@ -95,13 +95,13 @@ button {
 
 @media (max-height: 750px) {
   .y-gap-skills-750 {
-    gap: 24px;
+    gap: 60px;
   }
 }
 
 @media (max-height: 700px) {
   .y-gap-skills-700 {
-    gap: 16px;
+    gap: 50px;
   }
 }
 

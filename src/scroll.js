@@ -5,6 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function onScroll({ velocity }) {
+  ScrollTrigger.update();
+
+  if (window.innerWidth < 1024) return;
+
   const skew = gsap.utils.clamp(-8, 8, velocity * 0.06);
 
   gsap.to("[data-scroll-section]", {
@@ -13,8 +17,6 @@ function onScroll({ velocity }) {
     ease: "power3.out",
     overwrite: "auto",
   });
-
-  ScrollTrigger.update();
 }
 
 const locoScroll = new LocomotiveScroll({

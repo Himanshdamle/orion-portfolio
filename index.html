@@ -678,30 +678,13 @@
 
         <!-- content -->
         <div
-          class="tracking-widest text-[#E2E2FD] text-lg self-center leading-6 flex flex-col y-gap-skills-750 y-gap-skills-700 gap-10 -mt-4"
+          class="tracking-widest text-[#E2E2FD] text-lg self-center leading-6 flex flex-col y-gap-skills-750 y-gap-skills-700 gap-22 -mt-4"
           id="skill-sec-content"
         >
-          <!-- Im full stack ... -->
-          <div class="text-xl opacity-0" id="skill-heading">
-            <div>
-              I'm
-
-              <div class="relative w-max">
-                <h1 class="text-[#B9BBFF] font-medium sans-stock-notch">
-                  Full stack web dev
-                </h1>
-
-                <div
-                  class="absolute left-0 top-0 bg-[#000275] blur-[10px] rounded-full w-full h-5 -z-1"
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- pseudo-skill-heading -->
+          <!-- skill-heading -->
           <div
             class="absolute"
-            id="psuedo-skill-heading"
+            id="skill-heading"
             style="scale: 1.35; top: 50%; left: 50%"
           >
             <div>
@@ -721,37 +704,6 @@
 
           <!-- tech stack grid and toggle button -->
           <div class="flex flex-col gap-4" id="tech-stack-grid">
-            <!-- select frontend or backend tech stack -->
-            <div class="text-[16px]">
-              <div
-                class="rounded-full border border-[#8385FF] px-2 py-2 max-w-[450px] mx-auto"
-              >
-                <div
-                  class="relative flex flex-row justify-between items-center py-1"
-                  id="ts-slider-btn-wrp"
-                >
-                  <button
-                    class="text-center font-medium w-full"
-                    id="frontend-ts"
-                    style="color: #000275"
-                  >
-                    Frontend
-                  </button>
-                  <button
-                    class="text-center font-medium w-full"
-                    id="backend-ts"
-                  >
-                    Backend
-                  </button>
-
-                  <div
-                    class="absolute -z-1 top-0 left-0 w-1/2 h-full bg-[#8385FF] rounded-full"
-                    id="ts-slider"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
             <!-- tect stack -->
             <div class="h-[64vw] max-h-[279px] relative w-full">
               <div
@@ -985,6 +937,37 @@
               <div
                 class="absolute z-1 top-0 right-mq-400 -right-14 mq--right-500 lg:right-0! h-full w-8 bg-linear-to-r from-[#00026A00] to-[#000151]"
               ></div>
+            </div>
+
+            <!-- select frontend or backend tech stack -->
+            <div class="text-[16px]">
+              <div
+                class="rounded-full border border-[#8385FF] px-2 py-2 max-w-[450px] mx-auto"
+              >
+                <div
+                  class="relative flex flex-row justify-between items-center py-1"
+                  id="ts-slider-btn-wrp"
+                >
+                  <button
+                    class="text-center font-medium w-full"
+                    id="frontend-ts"
+                    style="color: #000275"
+                  >
+                    Frontend
+                  </button>
+                  <button
+                    class="text-center font-medium w-full"
+                    id="backend-ts"
+                  >
+                    Backend
+                  </button>
+
+                  <div
+                    class="absolute -z-1 top-0 left-0 w-1/2 h-full bg-[#8385FF] rounded-full"
+                    id="ts-slider"
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
 

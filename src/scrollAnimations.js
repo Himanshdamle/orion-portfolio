@@ -76,24 +76,14 @@ function sideInfoReveal() {
 }
 
 function revealSkillSection() {
-  const psuedoSH = document.querySelector("#psuedo-skill-heading");
+  const psuedoSH = document.querySelector("#skill-heading");
   gsap.set(psuedoSH, { xPercent: -50, yPercent: -50 });
-
-  const tpSkillHeading = document
-    .querySelector("#skill-heading")
-    .getBoundingClientRect().top;
-
-  const tpSkillSection = document
-    .querySelector("#skills")
-    .getBoundingClientRect().top;
-
-  const topPosition = tpSkillHeading - tpSkillSection;
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#skills",
       start: "bottom bottom",
-      end: "+=300",
+      end: "+=500",
       pin: true,
       scrub: 1,
     },
@@ -102,10 +92,9 @@ function revealSkillSection() {
   tl.to(
     psuedoSH,
     {
-      top: topPosition,
-      left: 0,
-      xPercent: 0,
-      yPercent: 0,
+      y: -50,
+      filter: "blur(10px)",
+      opacity: 0,
       scale: 1,
     },
     "+=0.3",
