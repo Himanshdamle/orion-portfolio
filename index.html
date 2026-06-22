@@ -44,8 +44,8 @@
     />
 
 
-    <script type="module" crossorigin src="/orion-portfolio/assets/index-drWWyTo0.js"></script>
-    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-wN2QvkET.css">
+    <script type="module" crossorigin src="/orion-portfolio/assets/index-CatU-vYe.js"></script>
+    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-DQsm-gEV.css">
   </head>
   <body class="poppins h-screen text-[#E2E2FD]">
     <canvas
@@ -987,46 +987,70 @@
 
           <!-- What im learning next -->
           <div class="h-max w-max relative" id="learning-next-wrap">
-            <p>Next I'm learning</p>
-
-            <div class="mt-2 flex flex-row">
-              <div class="relative w-max opacity-80">
-                <img
-                  src="/orion-portfolio/nextjslogo.png"
-                  alt="nextjslogo image"
-                  class="aspect-square h-16 w-16"
-                />
-
+            <div class="flex flex-row items-center gap-2 translate-x-[36.5px]">
+              <!-- Star or list pointer -->
+              <div class="relative h-max w-max">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
                 <div
-                  class="absolute bg-[#B9BBFF] blur-[4px] top-0 -z-1 w-full h-full"
+                  class="absolute top-0 w-full h-full bg-white blur-[2px] rounded-full"
                 ></div>
               </div>
 
-              <div class="flex flex-col justify-between">
-                <!-- progress bar -->
-                <div class="ml-5 h-full grid items-center">
-                  <!-- bar -->
-                  <div
-                    class="w-[140%] h-1 rounded-full bg-[#E2E2FD] relative mt-4"
-                  >
-                    <div
-                      class="w-[80%] h-1 rounded-full bg-[#8385FF] absolute"
-                    ></div>
+              <p>Next I'm learning</p>
+            </div>
 
-                    <div
-                      class="absolute -right-full -translate-x-[20%] top-1/2 -translate-y-1/2 text-xs"
-                    >
-                      Almost !
-                    </div>
-                  </div>
+            <div class="flex flex-col mt-3 gap-2">
+              <div class="flex flex-row">
+                <div class="relative w-max">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABTCAYAAADjsjsAAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAABVJJREFUeAHtmlkobVEYgH/zkCkylQdliAwRMjwgUR5IESUlSklJ3sibvMqTFyHlhTyQMuSFZCpDhiSUMpYhZXgxr7v+de8+cZxzLvf+x+H0f7U6w1577b2+s9b/r7WxAQABDAm2wJDBMglhmYSwTEJYJiEskxCWSQjLJIRlEsIyCWGZhLBMQlgmISyTEJZJCMskhGUSwjIJYZmEsExCWCYhLJMQlkkIyySEZRLCMglhmYSwTEKsRqaNjY169ff3173/aqxGphACwsLCdO8tgVXIxJHo6+sLERERcHZ2ZrGRiYifXOzs7ISUJ5qbm9VnW1tbS94PiJ9aUCS+trW1iYCAAEuLFGaZ5rJTJo9/Zhoaq4vfPz8/Q1VVFczMzMDp6Sm8vLz8U1tU2AMhLi4uEB4eDuvr60qosc5hgkhMTITg4GB4fHx8d9zNzQ2Gh4chKSkJpqamQI5AJU6fyMhIyMvLg4aGBigqKoKnpydwcHCAk5MT8PDwAFdXV3UPeF8bGxuwtbUF5oRUJnZuZWUF4uPjlVCjF7W3h6WlJWhqagJvb+93IwaTydjYGNTU1EBBQQHU19erOlqW1uQuLCyAl5cXyHip5OF3FxcX0NXVpX6E7e1tJRfrXF1dmV0mQhYzMjMzRXd3tzg6OhKyE7qYpl/w2P7+vun48yf+nZ+fi+joaJVk4FWcnJ2dFWlpaQbj5ODgoJAj32ib5iqkMROnlJ+fH2RnZ8Pc3JwaKcbi59/iKraFdUJDQ2FtbU2NTBzR2GZ5eblaAs3PzxtcUzo6OqopbqhNc0IqEzuPHd7Z2QE5OqGwsPC/FtB47s3NDRQXF6vwgTFRZm3o6OhQMRKnu6UW6IYgz+bar4+d7enpAScnJ9VpfVCMKTDWoSg8d2hoCK6vryE3NxeWl5dBTnv1wxlKSpaENAG9BqdlamoqTE9PQ3Jy8pvsjhIw8WCSwCn55obkyJZxEvLz83V1sY6Mx3B/fw+1tbWwt7dn0V2OMcwqE7Pn4uIilJaWQl9fn+4YjjYcaVlZWWrZYghNPrbz8PCg5K6urqoVQGdn57ccmQhpNpdLmnc7lOPjYyETgu4zZvPDw8MPtYnnuLu7C/E7OIrq6mohk9ub9vXLyMiISE9PN9gWvmorA8zu2nuKQh4zXycELZvjdJ+cnDSZ3Q2hZW+5jIKYmBh1LiYfZ2dnKCsrU8c+M92xflxcHISEhEBdXZ0KNZQJ7EueGmFmHx0dhYqKig8vTzAUYJLq7+9X03pzc1N9j4ITEhKgt7cXPD09PyTzdR3cUOAuDdumXgmQy9TvHMpDMS0tLWonI6esbl9tCjyekZGhtp2NjY2qDWwLJeD5UVFRcHBwoGv/b/cRGxsLOTk5aje0u7sLgYGBKmZTQpqAsFM4BfXRpjcu5icmJkDuXNQUGx8fN5iA8Gl5ZWWl2lJi5/WTDYrCraLcbcHAwACUlJS8OR/vQV8m7tdxq4nbWFwV4N4fl1mmniF8FrwiyVjXbl5bSOuPPG1vjZkdpyfGPtxPG+oI1sXv7+7u1Cuepz8lcR2KD0lQ9u3tre562vW1+vj6el9vbsRXFS2btre3C/kw40OZlDLbfkH52guiUFyStLa2/l5OWPiB7o+WiQVHW1BQkJCP13Sfv4mM/yoW+4OaXMjD5eWlyqrWhGV+xT/TOyUlRY1MaxidZNn8X8Asi0sTHx8f9XDjp2NRmdYG/68RISyTEJZJCMskhGUSwjIJYZmEsExCWCYhLJMQlkkIyySEZRLCMglhmYSwTEJYJiEskxCWSQjLJIRlEsIyCWGZhLBMQlgmISyTEJZJyC/JQ3hjQy1NEwAAAABJRU5ErkJggg=="
+                    alt="next js logo"
+                    class="rounded-lg border-2 border-[#8385FF] aspect-square w-18"
+                  />
+
+                  <div
+                    class="bg-[#E2E2FD] rounded-lg blur-[2px] absolute w-full h-full top-0 -z-1"
+                  ></div>
                 </div>
 
-                <!-- tech stack name -->
-                <p
-                  class="sans-stock-notch text-xl font-bold translate-x-[-20%]"
-                >
-                  Next.js
-                </p>
+                <div class="relative flex items-end pb-1 -translate-x-4">
+                  <span
+                    class="sans-stock-notch font-medium text-2xl text-[#8385FF]"
+                    >Next.js</span
+                  >
+
+                  <div class="absolute -top-6 right-0 translate-x-14">
+                    <svg
+                      width="50"
+                      height="90"
+                      viewBox="0 0 52 81"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M49.5022 0.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174"
+                        stroke="#E2E2FD"
+                        stroke-width="2"
+                      />
+
+                      <path
+                        d="M7.42 64.3924C7.698 68.6003 6.57124 70.588 2.2298 73.4577C7.97749 75.4811 9.85795 76.9073 11.7148 79.7768"
+                        stroke="#E2E2FD"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-row items-center gap-1">
+                <div class="bg-[#E2E2FD] relative w-full h-1 rounded-full">
+                  <div
+                    class="absolute bg-[#8385FF] left-0 w-[80%] h-full"
+                  ></div>
+                </div>
+
+                <span class="text-[#8385FF] text-sm">Almost!</span>
               </div>
             </div>
 
