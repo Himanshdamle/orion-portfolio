@@ -94,14 +94,20 @@ button {
 }
 
 @media (max-height: 750px) {
-  .y-gap-skills-750 {
+  .y-gap-skills-mq {
     gap: 60px;
   }
 }
 
 @media (max-height: 700px) {
-  .y-gap-skills-700 {
-    gap: 50px;
+  .y-gap-skills-mq {
+    gap: 40px;
+  }
+}
+
+@media (max-height: 640px) {
+  .y-gap-skills-mq {
+    gap: 25px;
   }
 }
 
