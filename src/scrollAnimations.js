@@ -8,7 +8,6 @@ export function runAllScrollAnima() {
   aboutMeReveal();
 
   revealSkillSection();
-  // revealTechStack();
 }
 
 function aboutMeReveal() {
