@@ -38,6 +38,16 @@ function menu() {
   menuBtn.addEventListener("click", (e) => {
     isMenuOpen = !isMenuOpen;
 
+    if (isMenuOpen == false) {
+      setTimeout(() => {
+        deepSwooshSoundEffect();
+      }, 100);
+    } else {
+      setTimeout(() => {
+        deepSwooshSoundEffect();
+      }, 600);
+    }
+
     menuAnimation(isMenuOpen);
 
     blurOverlay(isMenuOpen, e, () => {
@@ -140,6 +150,8 @@ function techStackSlider() {
 }
 
 function hoverOnSkill() {
+  if (window.innerWidth < 1040) return;
+
   const tsw = document.querySelector("#tech-stack-wrapper");
 
   function adjustGlow(g, o) {

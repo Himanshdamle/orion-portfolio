@@ -1,6 +1,10 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { pingSoundEffect, swooshSoundEffect } from "./soundEffects";
+import {
+  deepSwooshSoundEffect,
+  pingSoundEffect,
+  swooshSoundEffect,
+} from "./soundEffects";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin();
 
@@ -94,18 +98,20 @@ function revealSkillSection() {
 
   const topPosition = tp1 - tp2;
 
-  const tl = gsap.timeline({
+  const isDesktop = window.innerWidth > 1024;
+
+  const tlScrollTrigger = gsap.timeline({
     scrollTrigger: {
       trigger: "#skills",
       start: "bottom bottom",
-      end: "+=500",
+      end: isDesktop ? "+=500" : "+=600",
       pin: true,
-      scrub: 1,
+      scrub: isDesktop ? 1 : 0.3,
     },
   });
 
-  if (window.innerWidth > 1024) {
-    tl.to(
+  if (isDesktop) {
+    tlScrollTrigger.to(
       psuedoSH,
       {
         top: topPosition,
@@ -121,29 +127,31 @@ function revealSkillSection() {
       "+=0.3",
     );
   } else {
-    tl.to(
-      psuedoSH,
+    tlScrollTrigger.to(psuedoSH, {
+      y: -50,
+      filter: "blur(10px)",
+      opacity: 0,
+      scale: 1,
+
+      onComplete() {
+        swooshSoundEffect();
+      },
+    });
+  }
+
+  tlScrollTrigger
+    .from("#tech-stack-grid", {
+      filter: "blur(5px)",
+      y: 100,
+      opacity: 0,
+    })
+    .from(
+      "#learning-next-wrap",
       {
-        y: -50,
-        filter: "blur(10px)",
         opacity: 0,
-        scale: 1,
+        y: 100,
+        filter: "blur(5px)",
       },
       "+=0.3",
     );
-  }
-
-  tl.from("#tech-stack-grid", {
-    filter: "blur(5px)",
-    y: 100,
-    opacity: 0,
-  }).from(
-    "#learning-next-wrap",
-    {
-      opacity: 0,
-      y: 100,
-      filter: "blur(5px)",
-    },
-    "+=0.3",
-  );
 }

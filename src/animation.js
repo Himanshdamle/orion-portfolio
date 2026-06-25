@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { swooshSoundEffect } from "./soundEffects";
+import { deepSwooshSoundEffect, swooshSoundEffect } from "./soundEffects";
 
 export function runAllAnima() {
   stGradient();
@@ -231,8 +231,6 @@ export function blurOverlay(open, e, revComplete) {
     ease: "power2.in",
 
     onReverseComplete() {
-      console.log(revComplete, e);
-
       revComplete?.();
     },
   });
