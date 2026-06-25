@@ -11,6 +11,7 @@ const deepSwoosh = document.querySelector("#deep-swoosh-music");
 deepSwoosh.volume = 0.25;
 export function deepSwooshSoundEffect() {
   if (!isSoundOn) return;
+  deepSwoosh.currentTime = 0;
   deepSwoosh.play();
 }
 
@@ -18,5 +19,6 @@ const ping = document.querySelector("#ping-music");
 ping.volume = 0.25;
 export function pingSoundEffect() {
   if (!isSoundOn) return;
+  ping.currentTime = 0;
   ping.play();
 }

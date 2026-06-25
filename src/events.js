@@ -3,7 +3,7 @@ import {
   menuAnimation,
   scrollDownNav,
   scrollUpNav,
-  moveTsSlider,
+  moveTsSliderLeft,
   slideBackendTs,
   slideFrontendTs,
   isStAnimationEnded,
@@ -20,6 +20,7 @@ export function setupAllEvents() {
   onScrollNavControl();
 
   techStackSlider();
+  hoverOnSkill();
   slowCursorMoment();
 
   onClickEffect();
@@ -111,6 +112,7 @@ function onScrollNavControl() {
 
 function techStackSlider() {
   const buttonWrapper = document.querySelector("#ts-slider-btn-wrp");
+  let currentState = true; // left
 
   buttonWrapper.addEventListener("click", (e) => {
     const targetID = e.target.id;
@@ -118,15 +120,71 @@ function techStackSlider() {
     const moveLeft = targetID == "frontend-ts";
 
     if (moveLeft) {
+      if (currentState == true) return;
+
       deepSwooshSoundEffect();
-      moveTsSlider(true);
+      moveTsSliderLeft(true);
+      currentState = true;
     } else if (targetID == "backend-ts") {
+      if (currentState == false) return;
+
       deepSwooshSoundEffect();
-      moveTsSlider(false);
-    }
+      moveTsSliderLeft(false);
+
+      currentState = false;
+    } else return;
 
     slideBackendTs();
     slideFrontendTs();
+  });
+}
+
+function hoverOnSkill() {
+  const tsw = document.querySelector("#tech-stack-wrapper");
+
+  function adjustGlow(g, o) {
+    if (!g || !o) return;
+
+    gsap.to(g, {
+      opacity: o,
+      duration: 0.5,
+    });
+  }
+
+  tsw.addEventListener(
+    "mousemove",
+    (e) => {
+      const card = e.target.closest(".tech-skill-card");
+
+      if (!card) return;
+
+      const hoverGlow = card.querySelector(".glow");
+      if (!hoverGlow) return;
+      const allCardGlow = document.querySelectorAll(".glow");
+
+      adjustGlow(hoverGlow, 1);
+
+      allCardGlow.forEach((g) => {
+        if (g == hoverGlow) return;
+
+        adjustGlow(g, 0.5);
+      });
+    },
+    true,
+  );
+
+  tsw.addEventListener("mouseenter", () => {
+    const allCardGlow = document.querySelectorAll(".glow");
+    allCardGlow.forEach((g) => {
+      adjustGlow(g, 0.5);
+    });
+  });
+
+  tsw.addEventListener("mouseleave", () => {
+    const allCardGlow = document.querySelectorAll(".glow");
+    allCardGlow.forEach((g) => {
+      adjustGlow(g, 1);
+    });
   });
 }
 
@@ -137,7 +195,6 @@ function slowCursorMoment() {
   const target = document.querySelector("#hero-section-center");
   const tbwlt = document.querySelector("#text-bw-line-top");
   const tbwlb = document.querySelector("#text-bw-line-bottom");
-  const els = document.querySelectorAll(".slow-moment");
 
   const maxOffset = 45;
 
@@ -160,7 +217,7 @@ function slowCursorMoment() {
       ...motionEase,
     });
 
-    gsap.to(els, {
+    gsap.to(".slow-moment", {
       x: gsap.utils.clamp(-maxOffset, maxOffset, xOffset) / 2,
       y: gsap.utils.clamp(-maxOffset, maxOffset, yOffset) / 2,
       ...motionEase,

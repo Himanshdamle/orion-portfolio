@@ -332,7 +332,7 @@ const frontendTs = document.querySelector("#frontend-ts");
 const backendTs = document.querySelector("#backend-ts");
 const tsSlider = document.querySelector("#ts-slider");
 let lastState = true;
-export function moveTsSlider(isMoveLeft) {
+export function moveTsSliderLeft(isMoveLeft) {
   // meaning user is clicking the same state btn
   if (lastState == isMoveLeft) return;
 
@@ -370,18 +370,37 @@ export function moveTsSlider(isMoveLeft) {
       },
       "<<",
     );
+
+  if (isMoveLeft) {
+    tsGlowBoxB.forEach((box) => {
+      box.classList.remove("glow");
+    });
+    tsBoxGlow.forEach((g) => {
+      g.classList.add("glow");
+    });
+  } else {
+    tsGlowBoxB.forEach((box) => {
+      box.classList.add("glow");
+    });
+    tsBoxGlow.forEach((g) => {
+      g.classList.remove("glow");
+    });
+  }
 }
 
 let tl1;
+const tsOverlayB = document.querySelectorAll(".ts-overlay-b");
+const tsGlowBoxB = document.querySelectorAll(".ts-box-glow-b");
+const tsBoxB = document.querySelectorAll(".ts-box-b");
 export function slideBackendTs() {
   if (tl1) {
     tl1.reverse();
     return;
   }
 
-  gsap.set(".ts-overlay-b", { overflow: "hidden" });
-  gsap.set(".ts-box-b", { x: "-100%" });
-  gsap.set(".ts-box-glow-b", { opacity: 0 });
+  gsap.set(tsOverlayB, { overflow: "hidden" });
+  gsap.set(tsBoxB, { x: "-100%" });
+  gsap.set(tsGlowBoxB, { opacity: 0 });
 
   tl1 = gsap.timeline({
     onReverseComplete() {
@@ -390,21 +409,24 @@ export function slideBackendTs() {
   });
 
   tl1
-    .to(".ts-box-b", {
+    .to(tsBoxB, {
       x: 0,
       duration: 0.5,
       ease: "power1.out",
-
-      delay: 0.5,
+      stagger: 0.02,
     })
-    .set(".ts-overlay-b", { overflow: "unset" })
-    .to(".ts-box-glow-b", {
+    .set(tsOverlayB, { overflow: "unset" })
+    .to(tsGlowBoxB, {
       opacity: 1,
       duration: 0.3,
+      stagger: 0.02,
     });
 }
 
 let tl2;
+const tsBoxGlow = document.querySelectorAll(".ts-box-glow");
+const tsOverlay = document.querySelectorAll(".ts-overlay");
+const tsBox = document.querySelectorAll(".ts-box");
 export function slideFrontendTs() {
   if (tl2) {
     tl2.reverse();
@@ -418,15 +440,16 @@ export function slideFrontendTs() {
   });
 
   tl2
-    .to(".ts-box-glow", {
+    .to(tsBoxGlow, {
       opacity: 0,
       duration: 0.3,
-      delay: 0.5,
+      stagger: 0.02,
     })
-    .set(".ts-overlay", { overflow: "hidden" })
-    .to(".ts-box", {
+    .set(tsOverlay, { overflow: "hidden" })
+    .to(tsBox, {
       x: "100%",
       duration: 0.5,
+      stagger: 0.02,
       ease: "power1.in",
     });
 }
