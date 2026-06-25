@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { pingSoundEffect, swooshSoundEffect } from "./soundEffects";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin();
 
@@ -17,6 +18,10 @@ function aboutMeReveal() {
       start: "top 40%",
       end: "bottom 20%",
       toggleActions: "play none play reverse",
+
+      onEnter() {
+        swooshSoundEffect();
+      },
     },
 
     opacity: 0,
@@ -59,6 +64,10 @@ function sideInfoReveal() {
       {
         height: 0,
         stagger: 0.2,
+
+        onComplete() {
+          pingSoundEffect();
+        },
       },
       "+=0.3",
     )
@@ -104,6 +113,10 @@ function revealSkillSection() {
         y: 0,
         left: sh.getBoundingClientRect().left,
         scale: 1,
+
+        onComplete() {
+          swooshSoundEffect();
+        },
       },
       "+=0.3",
     );

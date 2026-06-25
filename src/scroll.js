@@ -9,7 +9,7 @@ function onScroll({ velocity }) {
 
   if (window.innerWidth < 1024) return;
 
-  const skew = gsap.utils.clamp(-8, 8, velocity * 0.06);
+  const skew = gsap.utils.clamp(-8, 8, velocity * 0.04);
 
   gsap.to("[data-scroll-section]", {
     skewY: skew,

@@ -11,12 +11,12 @@ function spawnMeteor() {
   const meteorHtml = [
     `
     <div
-      class="bg-linear-to-r from-[#000275] to-[#00027500] blur-[10px] rounded-full fixed"
+      class="bg-linear-to-r from-[#000275] to-[#00027500] blur-[10px] rounded-full fixed select-none"
     ></div>
   `,
 
     ` <div
-        class="bg-linear-to-r from-[#B9BBFF] to-[#b9bbff00] fixed"
+        class="bg-linear-to-r from-[#B9BBFF] to-[#b9bbff00] fixed select-none"
       ></div>`,
   ];
 

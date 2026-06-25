@@ -7,9 +7,12 @@ import {
   slideBackendTs,
   slideFrontendTs,
   isStAnimationEnded,
+  iniWaveAnima,
+  waveRunAnima,
 } from "./animation";
 import gsap from "gsap";
 import { locoScroll } from "./scroll.js";
+import { deepSwooshSoundEffect } from "./soundEffects.js";
 
 export function setupAllEvents() {
   menu();
@@ -18,6 +21,10 @@ export function setupAllEvents() {
 
   techStackSlider();
   slowCursorMoment();
+
+  onClickEffect();
+
+  controlSound();
 }
 
 let isMenuOpen = false;
@@ -111,8 +118,10 @@ function techStackSlider() {
     const moveLeft = targetID == "frontend-ts";
 
     if (moveLeft) {
+      deepSwooshSoundEffect();
       moveTsSlider(true);
     } else if (targetID == "backend-ts") {
+      deepSwooshSoundEffect();
       moveTsSlider(false);
     }
 
@@ -170,5 +179,59 @@ function slowCursorMoment() {
       width: 4 * 100 + vectorResultant,
       ...motionEase,
     });
+  });
+}
+
+function onClickEffect() {
+  const blobHTML = `<div class="bg-[#000275] blur-[10px] rounded-full fixed w-20 h-20 select-none -z-1"></div>`;
+
+  document.body.addEventListener("click", (e) => {
+    const tempNode = document.createElement("div");
+    tempNode.innerHTML = blobHTML;
+    const blobNode = tempNode.children[0];
+
+    document.body.appendChild(blobNode);
+
+    // subtract half the width or height from the click coords to center the blob
+    gsap.set(blobNode, { scale: 0, left: e.clientX - 40, top: e.clientY - 40 });
+
+    gsap.to(blobNode, {
+      scale: 2,
+      opacity: 0,
+      filter: "blur(30px)",
+      duration: 1.5,
+      ease: "power3.out",
+
+      onComplete() {
+        // remove from html
+        blobNode.remove();
+      },
+    });
+  });
+}
+
+export let isSoundOn;
+function controlSound() {
+  const ctrlSoundBtn = document.querySelector("#ctrl-sound-nav");
+  const waveSvgWrapper = document.querySelector("#wave-svg-nav");
+
+  const bgMusic = document.querySelector("#bg-music");
+  bgMusic.volume = 0.15;
+
+  isSoundOn = false;
+
+  ctrlSoundBtn.addEventListener("click", () => {
+    isSoundOn = !isSoundOn;
+
+    if (!isSoundOn) {
+      bgMusic.pause();
+
+      iniWaveAnima(false);
+    } else {
+      iniWaveAnima();
+      waveRunAnima();
+
+      bgMusic.play();
+    }
   });
 }

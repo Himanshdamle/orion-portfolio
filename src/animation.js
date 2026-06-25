@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { swooshSoundEffect } from "./soundEffects";
 
 export function runAllAnima() {
   stGradient();
@@ -117,6 +118,61 @@ function revealContent() {
       });
     },
   });
+}
+
+let waveFormAnima;
+export function iniWaveAnima(ini = true) {
+  if (!ini) {
+    waveFormAnima.reverse();
+    return;
+  }
+
+  waveFormAnima = gsap.timeline({
+    onReverseComplete() {
+      waveFormAnima = null;
+      waveRunAnima(true);
+    },
+  });
+
+  waveFormAnima
+    .to(".wave-left", {
+      duration: 1,
+      attr: {
+        d: "M0 6.99957 C21.6918 22.4996 45.8069 6.99957 45.8069 6.99957",
+      },
+      ease: "power2.inOut",
+    })
+
+    .to(
+      ".wave-right",
+      {
+        duration: 1,
+        attr: {
+          d: "M89.591 7.88867 C68.4902 -7.61133 44.3751 7.88867 44.3751 7.88867",
+        },
+        ease: "power2.inOut",
+      },
+      "<<",
+    );
+}
+
+let waveAnima;
+export function waveRunAnima(killAnima) {
+  if (killAnima) {
+    if (!waveAnima) return;
+
+    waveAnima.kill();
+    gsap.set("#wave-marquee", {
+      x: 0,
+    });
+  } else {
+    waveAnima = gsap.to("#wave-marquee", {
+      x: "-50%",
+      ease: "none",
+      duration: 2,
+      repeat: -1,
+    });
+  }
 }
 
 let tl;
