@@ -12,21 +12,21 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/orion-portfolio/assets/apple-touch-icon-0grtMMyd.png"
+      href="/orion-portfolio/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/orion-portfolio/assets/favicon-32x32-Drf-jXCJ.png"
+      href="/orion-portfolio/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/orion-portfolio/assets/favicon-16x16-Da0O5d_y.png"
+      href="/orion-portfolio/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="/orion-portfolio/assets/site-BwHFeIBa.webmanifest" />
+    <link rel="manifest" href="/orion-portfolio/favicon/site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,8 +44,8 @@
     />
 
 
-    <script type="module" crossorigin src="/orion-portfolio/assets/index-7yXI2V7o.js"></script>
-    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-QAR-ZTvf.css">
+    <script type="module" crossorigin src="/orion-portfolio/assets/index-CVtHBilA.js"></script>
+    <link rel="stylesheet" crossorigin href="/orion-portfolio/assets/index-C2SBkVtI.css">
   </head>
   <body class="poppins h-screen text-[#E2E2FD]">
     <canvas
@@ -95,9 +95,10 @@
       <img class="scale-90 lg:scale-110" src="/orion-portfolio/orion.svg" alt="orion svg" />
     </div>
 
-    <!-- menu  -->
+    <!-- menu 
+    style="top: 0; left: 0; height: 20px; width: 28px"  -->
     <div
-      class="fixed backdrop-blur-lg bg-[#000149]/40 z-40 text-[#ffffff] min-[550px]:hidden"
+      class="fixed backdrop-blur-lg z-40"
       id="blur-overlay"
       style="top: 0; left: 0; height: 20px; width: 28px"
     >
@@ -123,9 +124,10 @@
 
           <div
             class="sans-stock-notch text-2xl text-[#B9BBFF] flex flex-col gap-5"
+            id="menu-btn-wrapper"
           >
             <button
-              class="w-max relative"
+              class="w-max relative menu-btn"
               data-menu-target="#home"
               data-seq="0"
               style="color: #8385ff; font-weight: 600"
@@ -135,7 +137,7 @@
             </button>
 
             <button
-              class="relative w-max"
+              class="relative menu-btn w-max"
               data-menu-target="#about-me"
               data-seq="1"
             >
@@ -144,7 +146,7 @@
             </button>
 
             <button
-              class="relative w-max"
+              class="relative menu-btn w-max"
               data-menu-target="#skills"
               data-seq="2"
             >
@@ -152,12 +154,12 @@
               <p class="absolute top-0 left-0 blur-[2px]">Skills</p>
             </button>
 
-            <button class="relative w-max">
+            <button class="relative menu-btn w-max">
               <p>Projects</p>
               <p class="absolute top-0 left-0 blur-[2px]">Projects</p>
             </button>
 
-            <button class="relative w-max">
+            <button class="relative menu-btn w-max">
               <p>Social links</p>
               <p class="absolute top-0 left-0 blur-[2px]">Social links</p>
             </button>
@@ -165,7 +167,7 @@
         </div>
 
         <aside
-          class="absolute -bottom-4 left-[40%] text-xl w-full -rotate-45 origin-bottom-left"
+          class="absolute -bottom-4 left-[40%] text-xl w-full -rotate-45 origin-bottom-left text-[#8385FF]"
           id="infinite-scroll-menu"
           style="opacity: 0; filter: blur(10px)"
         >
@@ -173,27 +175,28 @@
             <div
               class="ism ism-1 w-full flex flex-row shrink-0 justify-between"
             >
-              <p class="font-light">Menu</p>
-              <p class="font-normal">Menu</p>
-              <p class="font-medium">Menu</p>
-              <p class="font-semibold">Menu</p>
-              <p class="font-bold">Menu</p>
+              <i class="font-light">Menu</i>
+              <i class="font-normal">Menu</i>
+              <i class="font-medium">Menu</i>
+              <i class="font-semibold">Menu</i>
+              <i class="font-bold">Menu</i>
             </div>
 
             <div
               class="ism ism-2 w-full flex flex-row shrink-0 justify-between"
             >
-              <p class="font-light">Menu</p>
-              <p class="font-normal">Menu</p>
-              <p class="font-medium">Menu</p>
-              <p class="font-semibold">Menu</p>
-              <p class="font-bold">Menu</p>
+              <i class="font-light">Menu</i>
+              <i class="font-normal">Menu</i>
+              <i class="font-medium">Menu</i>
+              <i class="font-semibold">Menu</i>
+              <i class="font-bold">Menu</i>
             </div>
           </div>
         </aside>
       </div>
     </div>
 
+    <!-- audio's -->
     <div>
       <audio id="bg-music" loop>
         <source src="/orion-portfolio/audio/space-ambient.mp3" type="audio/mpeg" />
@@ -214,7 +217,7 @@
 
     <!-- NAV -->
     <div
-      class="w-full fixed z-50 top-0"
+      class="w-full fixed z-50 top-0 lg:z-80"
       style="
         backdrop-filter: blur(16px);
         filter: blur(10px);
@@ -304,7 +307,7 @@
 
     <!-- web container -->
     <main
-      class="h-full w-full"
+      class="h-full w-full z-1"
       id="web-container"
       style="opacity: 0; filter: blur(30px)"
     >
@@ -650,6 +653,7 @@
         <!-- my interest and profession -->
         <div
           class="hidden lg:flex flex-col gap-20 absolute top-1/2 -translate-y-1/2 right-0 min-[1440px]:right-[5%] text-xl"
+          id="ip-wrapper"
         >
           <!-- My interest -->
           <div class="relative">
@@ -705,13 +709,13 @@
             <ul class="text-[#E2E2FD] ml-8 flex flex-col gap-1 si-list">
               <!--  -->
               <li class="flex flex-row gap-2">
-                <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M6.66669%2015L1.66669%2010L6.66669%205L7.85419%206.1875L4.02085%2010.0208L7.83335%2013.8333L6.66669%2015ZM13.3334%2015L12.1459%2013.8125L15.9792%209.97917L12.1667%206.16667L13.3334%205L18.3334%2010L13.3334%2015Z'%20fill='%238385FF'/%3e%3c/svg%3e" alt="web dev" />
+                <img src="/orion-portfolio/web_dev.svg" alt="web dev" />
 
                 <span>Web dev</span>
               </li>
               <!--  -->
               <li class="flex flex-row gap-2">
-                <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M6.99998%208.79166L8.79165%206.97916L7.62498%205.79166L6.70831%206.70833L5.54165%205.54166L6.43748%204.62499L5.49998%203.68749L3.68748%205.49999L6.99998%208.79166ZM13.8333%2015.6458L15.6458%2013.8333L14.7083%2012.8958L13.7916%2013.7917L12.625%2012.625L13.5208%2011.7083L12.3333%2010.5417L10.5416%2012.3333L13.8333%2015.6458ZM5.70831%2017.1667H2.16665V13.625L5.81248%209.97916L1.33331%205.49999L5.49998%201.33333L9.99998%205.83333L13.1458%202.66666C13.3125%202.49999%2013.5%202.37499%2013.7083%202.29166C13.9166%202.20833%2014.1319%202.16666%2014.3541%202.16666C14.5764%202.16666%2014.7916%202.20833%2015%202.29166C15.2083%202.37499%2015.3958%202.49999%2015.5625%202.66666L16.6666%203.79166C16.8333%203.95833%2016.9583%204.14583%2017.0416%204.35416C17.125%204.56249%2017.1666%204.77777%2017.1666%204.99999C17.1666%205.22222%2017.125%205.43402%2017.0416%205.63541C16.9583%205.8368%2016.8333%206.02083%2016.6666%206.18749L13.5208%209.35416L18%2013.8333L13.8333%2018L9.35415%2013.5208L5.70831%2017.1667ZM3.83331%2015.5H4.99998L13.1666%207.35416L11.9791%206.16666L3.83331%2014.3333V15.5ZM12.5833%206.77083L11.9791%206.16666L13.1666%207.35416L12.5833%206.77083Z'%20fill='%238385FF'/%3e%3c/svg%3e" alt="web design" />
+                <img src="/orion-portfolio/web_design.svg" alt="web design" />
 
                 <span>Web design</span>
               </li>
@@ -761,7 +765,7 @@
               I'm
 
               <div class="relative w-max">
-                <h1 class="text-[#B9BBFF] font-medium sans-stock-notch">
+                <h1 class="text-[#8385FF] font-medium sans-stock-notch">
                   Full stack web dev
                 </h1>
 
@@ -772,7 +776,10 @@
             </div>
           </div>
 
-          <div class="flex flex-col gap-10 lg:w-[50%] lg:mx-auto! relative">
+          <div
+            class="flex flex-col gap-10 lg:w-[50%] lg:mx-auto! relative"
+            id="main-skill-sec-content"
+          >
             <!-- skill-heading -->
             <div
               class="lg:text-2xl hidden lg:block lg:opacity-0"
@@ -782,7 +789,7 @@
                 I'm
 
                 <div class="relative w-max">
-                  <h1 class="text-[#B9BBFF] font-medium sans-stock-notch">
+                  <h1 class="text-[#8385FF] font-medium sans-stock-notch">
                     Full stack web dev
                   </h1>
 
@@ -1093,11 +1100,13 @@
                 <p>Next I'm learning</p>
               </div>
 
-              <div class="flex flex-col mt-3 gap-2">
+              <div
+                class="flex flex-col mt-3 gap-2 slow-moment-y text-[#B9BBFF]"
+              >
                 <div class="flex flex-row">
                   <div class="relative w-max">
                     <img
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABTCAYAAADjsjsAAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAABVJJREFUeAHtmlkobVEYgH/zkCkylQdliAwRMjwgUR5IESUlSklJ3sibvMqTFyHlhTyQMuSFZCpDhiSUMpYhZXgxr7v+de8+cZxzLvf+x+H0f7U6w1577b2+s9b/r7WxAQABDAm2wJDBMglhmYSwTEJYJiEskxCWSQjLJIRlEsIyCWGZhLBMQlgmISyTEJZJCMskhGUSwjIJYZmEsExCWCYhLJMQlkkIyySEZRLCMglhmYSwTEKsRqaNjY169ff3173/aqxGphACwsLCdO8tgVXIxJHo6+sLERERcHZ2ZrGRiYifXOzs7ISUJ5qbm9VnW1tbS94PiJ9aUCS+trW1iYCAAEuLFGaZ5rJTJo9/Zhoaq4vfPz8/Q1VVFczMzMDp6Sm8vLz8U1tU2AMhLi4uEB4eDuvr60qosc5hgkhMTITg4GB4fHx8d9zNzQ2Gh4chKSkJpqamQI5AJU6fyMhIyMvLg4aGBigqKoKnpydwcHCAk5MT8PDwAFdXV3UPeF8bGxuwtbUF5oRUJnZuZWUF4uPjlVCjF7W3h6WlJWhqagJvb+93IwaTydjYGNTU1EBBQQHU19erOlqW1uQuLCyAl5cXyHip5OF3FxcX0NXVpX6E7e1tJRfrXF1dmV0mQhYzMjMzRXd3tzg6OhKyE7qYpl/w2P7+vun48yf+nZ+fi+joaJVk4FWcnJ2dFWlpaQbj5ODgoJAj32ib5iqkMROnlJ+fH2RnZ8Pc3JwaKcbi59/iKraFdUJDQ2FtbU2NTBzR2GZ5eblaAs3PzxtcUzo6OqopbqhNc0IqEzuPHd7Z2QE5OqGwsPC/FtB47s3NDRQXF6vwgTFRZm3o6OhQMRKnu6UW6IYgz+bar4+d7enpAScnJ9VpfVCMKTDWoSg8d2hoCK6vryE3NxeWl5dBTnv1wxlKSpaENAG9BqdlamoqTE9PQ3Jy8pvsjhIw8WCSwCn55obkyJZxEvLz83V1sY6Mx3B/fw+1tbWwt7dn0V2OMcwqE7Pn4uIilJaWQl9fn+4YjjYcaVlZWWrZYghNPrbz8PCg5K6urqoVQGdn57ccmQhpNpdLmnc7lOPjYyETgu4zZvPDw8MPtYnnuLu7C/E7OIrq6mohk9ub9vXLyMiISE9PN9gWvmorA8zu2nuKQh4zXycELZvjdJ+cnDSZ3Q2hZW+5jIKYmBh1LiYfZ2dnKCsrU8c+M92xflxcHISEhEBdXZ0KNZQJ7EueGmFmHx0dhYqKig8vTzAUYJLq7+9X03pzc1N9j4ITEhKgt7cXPD09PyTzdR3cUOAuDdumXgmQy9TvHMpDMS0tLWonI6esbl9tCjyekZGhtp2NjY2qDWwLJeD5UVFRcHBwoGv/b/cRGxsLOTk5aje0u7sLgYGBKmZTQpqAsFM4BfXRpjcu5icmJkDuXNQUGx8fN5iA8Gl5ZWWl2lJi5/WTDYrCraLcbcHAwACUlJS8OR/vQV8m7tdxq4nbWFwV4N4fl1mmniF8FrwiyVjXbl5bSOuPPG1vjZkdpyfGPtxPG+oI1sXv7+7u1Cuepz8lcR2KD0lQ9u3tre562vW1+vj6el9vbsRXFS2btre3C/kw40OZlDLbfkH52guiUFyStLa2/l5OWPiB7o+WiQVHW1BQkJCP13Sfv4mM/yoW+4OaXMjD5eWlyqrWhGV+xT/TOyUlRY1MaxidZNn8X8Asi0sTHx8f9XDjp2NRmdYG/68RISyTEJZJCMskhGUSwjIJYZmEsExCWCYhLJMQlkkIyySEZRLCMglhmYSwTEJYJiEskxCWSQjLJIRlEsIyCWGZhLBMQlgmISyTEJZJyC/JQ3hjQy1NEwAAAABJRU5ErkJggg=="
+                      src="/orion-portfolio/nextjs_logo.png"
                       alt="next js logo"
                       class="rounded-lg border-2 border-[#8385FF] aspect-square w-18"
                     />
@@ -1107,24 +1116,27 @@
                     ></div>
                   </div>
 
+                  <!-- next.js -->
                   <div class="relative flex items-end pb-1 -translate-x-4">
                     <span
                       class="sans-stock-notch font-medium text-2xl text-[#8385FF]"
                       >Next.js</span
                     >
 
-                    <div class="absolute -top-6 right-0 translate-x-14">
+                    <div class="absolute -top-25 right-0 translate-x-14">
                       <svg
                         width="50"
                         height="90"
                         viewBox="0 0 52 81"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
+                        style="height: 243px"
                       >
                         <path
-                          d="M49.5022 0.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174"
+                          d="M49.5022 -1.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174"
                           stroke="#E2E2FD"
                           stroke-width="2"
+                          id="arr-stick-nextlearningsec"
                         />
 
                         <path
@@ -1137,6 +1149,7 @@
                   </div>
                 </div>
 
+                <!-- almost -->
                 <div class="flex flex-row items-center gap-1">
                   <div class="bg-[#E2E2FD] relative w-full h-1 rounded-full">
                     <div
@@ -1144,7 +1157,7 @@
                     ></div>
                   </div>
 
-                  <span class="text-[#8385FF] text-sm">Almost!</span>
+                  <span class="text-sm">Almost!</span>
                 </div>
               </div>
 
