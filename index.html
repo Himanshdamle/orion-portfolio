@@ -12,21 +12,21 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="public/favicon/apple-touch-icon.png"
+      href="/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="public/favicon/favicon-32x32.png"
+      href="/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="public/favicon/favicon-16x16.png"
+      href="/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="public/favicon/site.webmanifest" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,8 +45,8 @@
 
     <link href="/src/style.css" rel="stylesheet" />
 
-    <script src="src/meteor.js" defer type="module"></script>
     <script src="src/main.js" defer type="module"></script>
+    <script src="src/meteor.js" defer type="module"></script>
     <script src="src/cursoreffect.js" defer type="module"></script>
     <script src="src/scroll.js" defer type="module"></script>
   </head>
@@ -98,9 +98,10 @@
       <img class="scale-90 lg:scale-110" src="/orion.svg" alt="orion svg" />
     </div>
 
-    <!-- menu  -->
+    <!-- menu 
+    style="top: 0; left: 0; height: 20px; width: 28px"  -->
     <div
-      class="fixed backdrop-blur-lg bg-[#000149]/40 z-40 text-[#ffffff] min-[550px]:hidden"
+      class="fixed backdrop-blur-lg z-40"
       id="blur-overlay"
       style="top: 0; left: 0; height: 20px; width: 28px"
     >
@@ -126,9 +127,10 @@
 
           <div
             class="sans-stock-notch text-2xl text-[#B9BBFF] flex flex-col gap-5"
+            id="menu-btn-wrapper"
           >
             <button
-              class="w-max relative"
+              class="w-max relative menu-btn"
               data-menu-target="#home"
               data-seq="0"
               style="color: #8385ff; font-weight: 600"
@@ -138,7 +140,7 @@
             </button>
 
             <button
-              class="relative w-max"
+              class="relative menu-btn w-max"
               data-menu-target="#about-me"
               data-seq="1"
             >
@@ -147,7 +149,7 @@
             </button>
 
             <button
-              class="relative w-max"
+              class="relative menu-btn w-max"
               data-menu-target="#skills"
               data-seq="2"
             >
@@ -155,12 +157,12 @@
               <p class="absolute top-0 left-0 blur-[2px]">Skills</p>
             </button>
 
-            <button class="relative w-max">
+            <button class="relative menu-btn w-max">
               <p>Projects</p>
               <p class="absolute top-0 left-0 blur-[2px]">Projects</p>
             </button>
 
-            <button class="relative w-max">
+            <button class="relative menu-btn w-max">
               <p>Social links</p>
               <p class="absolute top-0 left-0 blur-[2px]">Social links</p>
             </button>
@@ -168,7 +170,7 @@
         </div>
 
         <aside
-          class="absolute -bottom-4 left-[40%] text-xl w-full -rotate-45 origin-bottom-left"
+          class="absolute -bottom-4 left-[40%] text-xl w-full -rotate-45 origin-bottom-left text-[#8385FF]"
           id="infinite-scroll-menu"
           style="opacity: 0; filter: blur(10px)"
         >
@@ -176,27 +178,28 @@
             <div
               class="ism ism-1 w-full flex flex-row shrink-0 justify-between"
             >
-              <p class="font-light">Menu</p>
-              <p class="font-normal">Menu</p>
-              <p class="font-medium">Menu</p>
-              <p class="font-semibold">Menu</p>
-              <p class="font-bold">Menu</p>
+              <i class="font-light">Menu</i>
+              <i class="font-normal">Menu</i>
+              <i class="font-medium">Menu</i>
+              <i class="font-semibold">Menu</i>
+              <i class="font-bold">Menu</i>
             </div>
 
             <div
               class="ism ism-2 w-full flex flex-row shrink-0 justify-between"
             >
-              <p class="font-light">Menu</p>
-              <p class="font-normal">Menu</p>
-              <p class="font-medium">Menu</p>
-              <p class="font-semibold">Menu</p>
-              <p class="font-bold">Menu</p>
+              <i class="font-light">Menu</i>
+              <i class="font-normal">Menu</i>
+              <i class="font-medium">Menu</i>
+              <i class="font-semibold">Menu</i>
+              <i class="font-bold">Menu</i>
             </div>
           </div>
         </aside>
       </div>
     </div>
 
+    <!-- audio's -->
     <div>
       <audio id="bg-music" loop>
         <source src="/audio/space-ambient.mp3" type="audio/mpeg" />
@@ -217,7 +220,7 @@
 
     <!-- NAV -->
     <div
-      class="w-full fixed z-50 top-0"
+      class="w-full fixed z-50 top-0 lg:z-80"
       style="
         backdrop-filter: blur(16px);
         filter: blur(10px);
@@ -307,7 +310,7 @@
 
     <!-- web container -->
     <main
-      class="h-full w-full"
+      class="h-full w-full z-1"
       id="web-container"
       style="opacity: 0; filter: blur(30px)"
     >
@@ -653,6 +656,7 @@
         <!-- my interest and profession -->
         <div
           class="hidden lg:flex flex-col gap-20 absolute top-1/2 -translate-y-1/2 right-0 min-[1440px]:right-[5%] text-xl"
+          id="ip-wrapper"
         >
           <!-- My interest -->
           <div class="relative">
@@ -708,13 +712,13 @@
             <ul class="text-[#E2E2FD] ml-8 flex flex-col gap-1 si-list">
               <!--  -->
               <li class="flex flex-row gap-2">
-                <img src="public/web_dev.svg" alt="web dev" />
+                <img src="/web_dev.svg" alt="web dev" />
 
                 <span>Web dev</span>
               </li>
               <!--  -->
               <li class="flex flex-row gap-2">
-                <img src="public/web_design.svg" alt="web design" />
+                <img src="/web_design.svg" alt="web design" />
 
                 <span>Web design</span>
               </li>
@@ -764,7 +768,7 @@
               I'm
 
               <div class="relative w-max">
-                <h1 class="text-[#B9BBFF] font-medium sans-stock-notch">
+                <h1 class="text-[#8385FF] font-medium sans-stock-notch">
                   Full stack web dev
                 </h1>
 
@@ -775,7 +779,10 @@
             </div>
           </div>
 
-          <div class="flex flex-col gap-10 lg:w-[50%] lg:mx-auto! relative">
+          <div
+            class="flex flex-col gap-10 lg:w-[50%] lg:mx-auto! relative"
+            id="main-skill-sec-content"
+          >
             <!-- skill-heading -->
             <div
               class="lg:text-2xl hidden lg:block lg:opacity-0"
@@ -785,7 +792,7 @@
                 I'm
 
                 <div class="relative w-max">
-                  <h1 class="text-[#B9BBFF] font-medium sans-stock-notch">
+                  <h1 class="text-[#8385FF] font-medium sans-stock-notch">
                     Full stack web dev
                   </h1>
 
@@ -1096,11 +1103,13 @@
                 <p>Next I'm learning</p>
               </div>
 
-              <div class="flex flex-col mt-3 gap-2">
+              <div
+                class="flex flex-col mt-3 gap-2 slow-moment-y text-[#B9BBFF]"
+              >
                 <div class="flex flex-row">
                   <div class="relative w-max">
                     <img
-                      src="public/nextjs_logo.png"
+                      src="/nextjs_logo.png"
                       alt="next js logo"
                       class="rounded-lg border-2 border-[#8385FF] aspect-square w-18"
                     />
@@ -1110,24 +1119,27 @@
                     ></div>
                   </div>
 
+                  <!-- next.js -->
                   <div class="relative flex items-end pb-1 -translate-x-4">
                     <span
                       class="sans-stock-notch font-medium text-2xl text-[#8385FF]"
                       >Next.js</span
                     >
 
-                    <div class="absolute -top-6 right-0 translate-x-14">
+                    <div class="absolute -top-25 right-0 translate-x-14">
                       <svg
                         width="50"
                         height="90"
                         viewBox="0 0 52 81"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
+                        style="height: 243px"
                       >
                         <path
-                          d="M49.5022 0.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174"
+                          d="M49.5022 -1.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174"
                           stroke="#E2E2FD"
                           stroke-width="2"
+                          id="arr-stick-nextlearningsec"
                         />
 
                         <path
@@ -1140,6 +1152,7 @@
                   </div>
                 </div>
 
+                <!-- almost -->
                 <div class="flex flex-row items-center gap-1">
                   <div class="bg-[#E2E2FD] relative w-full h-1 rounded-full">
                     <div
@@ -1147,7 +1160,7 @@
                     ></div>
                   </div>
 
-                  <span class="text-[#8385FF] text-sm">Almost!</span>
+                  <span class="text-sm">Almost!</span>
                 </div>
               </div>
 

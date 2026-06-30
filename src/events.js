@@ -12,21 +12,36 @@ import {
 } from "./animation";
 import gsap from "gsap";
 import { locoScroll } from "./scroll.js";
-import { deepSwooshSoundEffect } from "./soundEffects.js";
+import { deepSwooshSoundEffect, swooshSoundEffect } from "./soundEffects.js";
 
 export function setupAllEvents() {
+  slowCursorMoment();
+
   menu();
   scrollToMenu();
   onScrollNavControl();
 
   techStackSlider();
   hoverOnSkill();
-  slowCursorMoment();
 
   onClickEffect();
 
   controlSound();
 }
+
+// function onEnterPage() {
+//   gsap.utils.toArray("[data-scroll-section]").forEach((section) => {
+//     ScrollTrigger.create({
+//       trigger: section,
+//       start: "top center",
+//       end: "bottom center",
+
+//       onEnter: () => console.log(section.id),
+//       onLeave: () => lastBtn = document.querySelector(`[data-menu-target='#${}'`),
+//       onEnterBack: () => console.log(section.id),
+//     });
+//   });
+// }
 
 let isMenuOpen = false;
 let scrollToFunc = false;
@@ -49,42 +64,55 @@ function menu() {
     }
 
     menuAnimation(isMenuOpen);
-
     blurOverlay(isMenuOpen, e, () => {
       if (!scrollToFunc) return;
 
       locoScroll.scrollTo(targetSection, {
         offset: 0,
         duration: 1.5,
-
-        onComplete: () => (scrollToFunc = false),
       });
     });
   });
 }
 
+const sliderBar = document.querySelector("#menu-slider");
+function menuSlider(seq, lastBtn, currBtn, preventClick = true) {
+  const tl = gsap.timeline({
+    onComplete: () => {
+      if (preventClick) return;
+
+      menuBtn.click();
+    },
+  });
+
+  if (lastBtn != currBtn) {
+    swooshSoundEffect(0.2);
+  }
+
+  tl.to(sliderBar, {
+    top: `${20 * Number(seq)}%`,
+    duration: 0.7,
+    ease: "power3.out",
+  })
+
+    .to(lastBtn, { color: "#B9BBFF", fontWeight: 400 }, "-=0.5") //de-highlight
+    .to(currBtn, { color: "#8385FF", fontWeight: 600 }, "<<"); //highlight
+}
+
 let lastBtn = document.querySelector("[data-menu-target='#home'");
 function scrollToMenu() {
-  document.querySelectorAll("[data-menu-target]").forEach((btn) => {
+  const btns = document.querySelectorAll(".menu-btn");
+
+  const isMobile = window.innerWidth < 1024;
+
+  btns.forEach((btn) => {
+    const seq = btn.getAttribute("data-seq");
+
     btn.addEventListener("click", () => {
       targetSection = btn.getAttribute("data-menu-target");
-      const seq = btn.getAttribute("data-seq");
 
-      const tl = gsap.timeline({
-        onComplete: () => {
-          scrollToFunc = true;
-          menuBtn.click();
-        },
-      });
-
-      tl.to("#menu-slider", {
-        top: `${20 * Number(seq)}%`,
-        duration: 0.7,
-        ease: "power3.out",
-      })
-
-        .to(lastBtn, { color: "#B9BBFF", fontWeight: 400 }, "-=0.5")
-        .to(btn, { color: "#8385FF", fontWeight: 600 }, "<<");
+      scrollToFunc = true;
+      menuSlider(seq, lastBtn, btn, false);
 
       lastBtn = btn;
     });
@@ -216,6 +244,10 @@ function slowCursorMoment() {
     overwrite: "auto", // kills the previous tween
   };
 
+  function move(current, intensity = 1, min = -maxOffset, max = maxOffset) {
+    return gsap.utils.clamp(min, max, current) * intensity;
+  }
+
   body.addEventListener("mousemove", (e) => {
     if (!isStAnimationEnded) return;
 
@@ -223,21 +255,34 @@ function slowCursorMoment() {
     const xOffset = (e.clientX / window.innerWidth - 0.5) * 2 * maxOffset;
     const yOffset = (e.clientY / window.innerHeight - 0.5) * 2 * maxOffset;
 
+    // hero section center
     gsap.to(target, {
-      x: gsap.utils.clamp(-maxOffset, maxOffset, xOffset),
-      y: gsap.utils.clamp(-maxOffset, maxOffset, yOffset),
+      x: move(xOffset, 1),
+      y: move(xOffset, 1),
       ...motionEase,
     });
 
+    // slow cursor moment
     gsap.to(".slow-moment", {
-      x: gsap.utils.clamp(-maxOffset, maxOffset, xOffset) / 2,
-      y: gsap.utils.clamp(-maxOffset, maxOffset, yOffset) / 2,
+      x: move(xOffset, 1 / 2),
+      y: move(yOffset, 1 / 2),
       ...motionEase,
     });
 
-    const vectorResultant = Math.sqrt(
-      (xOffset + 50) ** 2 + (yOffset + 50) ** 2,
-    );
+    gsap.to(".slow-moment-y", {
+      y: move(yOffset, 1 / 2, 0),
+      ...motionEase,
+    });
+
+    gsap.to("#arr-stick-nextlearningsec", {
+      attr: {
+        d: `M49.5022 -${Math.floor(move(yOffset, 0.8, 0))}.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174`,
+      },
+      ...motionEase,
+    });
+
+    const vectorResultant =
+      Math.sqrt(Math.abs(xOffset) ** 2 + Math.abs(yOffset) ** 2) * 2.4;
 
     gsap.to(tbwlt, {
       width: 4 * 59 + vectorResultant,

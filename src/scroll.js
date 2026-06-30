@@ -19,7 +19,7 @@ function onScroll({ velocity }) {
   });
 }
 
-const locoScroll = new LocomotiveScroll({
+export const locoScroll = new LocomotiveScroll({
   lenisOptions: {
     lerp: 0.08,
     wheelMultiplier: 0.85,
@@ -27,16 +27,17 @@ const locoScroll = new LocomotiveScroll({
     smoothWheel: true,
     smoothTouch: false,
   },
+
   scrollCallback: onScroll,
+
   initCustomTicker: (render) => {
     gsap.ticker.add(render);
     gsap.ticker.lagSmoothing(0);
   },
+
   destroyCustomTicker: (render) => {
     gsap.ticker.remove(render);
   },
 });
 
 ScrollTrigger.refresh();
-
-export { locoScroll };

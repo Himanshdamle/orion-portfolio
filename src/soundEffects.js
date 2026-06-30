@@ -1,8 +1,8 @@
 import { isSoundOn } from "./events";
 
 const swoosh = document.querySelector("#swoosh-music");
-swoosh.volume = 0.35;
-export function swooshSoundEffect() {
+export function swooshSoundEffect(volume = 0.35) {
+  swoosh.volume = volume;
   if (!isSoundOn) return;
   swoosh.play();
 }

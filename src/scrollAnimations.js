@@ -5,6 +5,7 @@ import {
   pingSoundEffect,
   swooshSoundEffect,
 } from "./soundEffects";
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin();
 
@@ -111,6 +112,7 @@ function revealSkillSection() {
   });
 
   if (isDesktop) {
+    // in the frame dont move. Stay in the initial position
     tlScrollTrigger.to(
       psuedoSH,
       {
@@ -118,7 +120,6 @@ function revealSkillSection() {
         x: 0,
         y: 0,
         left: sh.getBoundingClientRect().left,
-        scale: 1,
 
         onComplete() {
           swooshSoundEffect();
