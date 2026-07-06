@@ -29,20 +29,6 @@ export function setupAllEvents() {
   controlSound();
 }
 
-// function onEnterPage() {
-//   gsap.utils.toArray("[data-scroll-section]").forEach((section) => {
-//     ScrollTrigger.create({
-//       trigger: section,
-//       start: "top center",
-//       end: "bottom center",
-
-//       onEnter: () => console.log(section.id),
-//       onLeave: () => lastBtn = document.querySelector(`[data-menu-target='#${}'`),
-//       onEnterBack: () => console.log(section.id),
-//     });
-//   });
-// }
-
 let isMenuOpen = false;
 let scrollToFunc = false;
 let targetSection;
@@ -281,8 +267,12 @@ function slowCursorMoment() {
       ...motionEase,
     });
 
-    const vectorResultant =
-      Math.sqrt(Math.abs(xOffset) ** 2 + Math.abs(yOffset) ** 2) * 2.4;
+    // two lines
+    console.log(xOffset, yOffset);
+
+    const vectorResultant = Math.sqrt(
+      (xOffset + 50) ** 2 + (yOffset + 50) ** 2,
+    );
 
     gsap.to(tbwlt, {
       width: 4 * 59 + vectorResultant,

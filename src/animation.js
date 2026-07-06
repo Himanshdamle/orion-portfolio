@@ -338,6 +338,7 @@ export function moveTsSliderLeft(isMoveLeft) {
 
   const tl = gsap.timeline({
     duration: 0.3,
+    ease: "power1.out",
 
     onComplete() {
       gsap.to(tsSlider, {

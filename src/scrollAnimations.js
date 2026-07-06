@@ -31,12 +31,12 @@ function aboutMeReveal() {
 
     opacity: 0,
     filter: "blur(20px)",
-    y: 200,
-    duration: 1.5,
+    y: 80,
+    duration: 1.2,
     ease: "power3.out",
     overwrite: "auto",
 
-    stagger: 0.2,
+    stagger: 0.15,
   });
 }
 
@@ -81,7 +81,7 @@ function sideInfoReveal() {
       {
         x: -32,
         opacity: 0,
-        filter: "blur(5px)",
+        filter: "blur(10px)",
         stagger: 0.2,
       },
       "+=0.3",
@@ -120,6 +120,7 @@ function revealSkillSection() {
         x: 0,
         y: 0,
         left: sh.getBoundingClientRect().left,
+        scale: 1,
 
         onComplete() {
           swooshSoundEffect();
@@ -141,18 +142,16 @@ function revealSkillSection() {
   }
 
   tlScrollTrigger
-    .from("#tech-stack-grid", {
-      filter: "blur(5px)",
+    .from(".scroll-reveal-tsg", {
+      filter: "blur(10px)",
       y: 100,
       opacity: 0,
+      stagger: 0.2,
     })
-    .from(
-      "#learning-next-wrap",
-      {
-        opacity: 0,
-        y: 100,
-        filter: "blur(5px)",
-      },
-      "+=0.3",
-    );
+    .from(".scroll-reveal-ntw", {
+      opacity: 0,
+      y: 50,
+      filter: "blur(10px)",
+      stagger: 0.2,
+    });
 }
