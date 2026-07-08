@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { deepSwooshSoundEffect, swooshSoundEffect } from "./soundEffects";
+import { locoScroll } from "./scroll";
 
 export function runAllAnima() {
   stGradient();
@@ -111,11 +112,11 @@ function revealContent() {
         duration: 1,
         ease: "power2.out",
 
-        onComplete() {
-          isStAnimationEnded = true;
-          stCounter.remove();
-        },
+        onComplete() {},
       });
+
+      isStAnimationEnded = true;
+      stCounter.remove();
     },
   });
 }

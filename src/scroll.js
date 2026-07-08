@@ -1,10 +1,13 @@
 import LocomotiveScroll from "locomotive-scroll";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { isStAnimationEnded } from "./animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function onScroll({ velocity }) {
+  if (!isStAnimationEnded) return;
+
   ScrollTrigger.update();
 
   if (window.innerWidth < 1024) return;

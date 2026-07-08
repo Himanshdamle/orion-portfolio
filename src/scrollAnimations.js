@@ -49,7 +49,7 @@ function sideInfoReveal() {
       scrollTrigger: {
         trigger: "#about-me",
         start: "bottom bottom", // trigger starts once About has fully scrolled into view
-        end: "+=600", // extra scroll distance (in px) needed to complete the reveal — tune this
+        end: "+=800", // extra scroll distance (in px) needed to complete the reveal — tune this
         scrub: 1,
         pin: true, // pins #about in place while user scrolls through this extra distance
         pinSpacing: true, // keeps layout from jumping (default true, but explicit here)
@@ -105,7 +105,7 @@ function revealSkillSection() {
     scrollTrigger: {
       trigger: "#skills",
       start: "bottom bottom",
-      end: isDesktop ? "+=500" : "+=600",
+      end: isDesktop ? "+=600" : "+=700",
       pin: true,
       scrub: isDesktop ? 1 : 0.3,
     },

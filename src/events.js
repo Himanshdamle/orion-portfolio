@@ -13,9 +13,11 @@ import {
 import gsap from "gsap";
 import { locoScroll } from "./scroll.js";
 import { deepSwooshSoundEffect, swooshSoundEffect } from "./soundEffects.js";
+import { angleBetween } from "./core.js";
 
 export function setupAllEvents() {
   slowCursorMoment();
+  rotateLines();
 
   menu();
   scrollToMenu();
@@ -267,11 +269,8 @@ function slowCursorMoment() {
       ...motionEase,
     });
 
-    // two lines
-    console.log(xOffset, yOffset);
-
     const vectorResultant = Math.sqrt(
-      (xOffset + 50) ** 2 + (yOffset + 50) ** 2,
+      (xOffset + 60) ** 2 + (yOffset + 60) ** 2,
     );
 
     gsap.to(tbwlt, {
@@ -282,6 +281,60 @@ function slowCursorMoment() {
     gsap.to(tbwlb, {
       width: 4 * 100 + vectorResultant,
       ...motionEase,
+    });
+  });
+}
+
+function rotateLines() {
+  const canRotate = document.querySelectorAll(".c-rotate");
+
+  let trackPos = false;
+  let cParent, iniAngle, prefix;
+  let hinge = [];
+  let stPoint = [];
+  document.body.addEventListener("mouseup", () => {
+    trackPos = false;
+
+    gsap.to(cParent, { rotate: -iniAngle, duration: 0.5, ease: "power2.out" });
+
+    gsap.to(`.${prefix}-rotate`, {
+      rotate: iniAngle,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  });
+  canRotate.forEach((domEL) => {
+    domEL.addEventListener("mousedown", (e) => {
+      trackPos = true;
+      stPoint = [e.clientX, e.clientY];
+      cParent = domEL.closest(".c-parent");
+
+      if (cParent) {
+        let cParentPos = cParent.getBoundingClientRect();
+        iniAngle = Number(cParent.getAttribute("data-initial-angle"));
+        prefix = cParent.getAttribute("data-prefix");
+
+        hinge = [
+          (cParentPos.width + cParentPos.left) / 2,
+          cParentPos.height / 2 + cParentPos.top,
+        ];
+      }
+    });
+  });
+
+  document.body.addEventListener("mousemove", (e) => {
+    if (!trackPos) return;
+
+    let locus = [e.clientX, e.clientY];
+
+    let angle = angleBetween(hinge, stPoint, locus);
+
+    angle = angle + iniAngle;
+
+    gsap.set(cParent, { rotate: -angle });
+
+    gsap.set(`.${prefix}-rotate`, {
+      rotate: angle,
     });
   });
 }

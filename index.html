@@ -50,7 +50,7 @@
     <script src="src/cursoreffect.js" defer type="module"></script>
     <script src="src/scroll.js" defer type="module"></script>
   </head>
-  <body class="poppins h-screen text-[#E2E2FD]">
+  <body class="poppins h-screen text-[#E2E2FD]" style="user-select: none">
     <canvas
       id="trail"
       class="-z-1 hidden lg:block w-full h-full blur-[15px]"
@@ -364,10 +364,16 @@
 
               <!-- desktop - top -->
               <div
-                class="md:flex flex-row items-center hidden text-[#8385FF] text-2xl font-medium origin-left rotate-45 -translate-y-40 translate-x-15"
+                class="md:flex flex-row items-center hidden text-[#8385FF] text-2xl font-medium origin-center translate-y-10 c-parent"
+                style="transform: rotate(-140deg) translate(-3px, -4px)"
+                data-initial-angle="140"
+                data-prefix="ct"
               >
                 <!-- web design -->
-                <div class="-rotate-45 flex flex-row gap-1 translate-x-14">
+                <div
+                  class="flex flex-row gap-1 translate-x-14 c-rotate ct-rotate"
+                  style="cursor: grab; transform: rotate(140deg)"
+                >
                   <img
                     class="aspect-square w-6"
                     src="/web_design.svg"
@@ -386,7 +392,10 @@
                 </div>
 
                 <!-- Web dev -->
-                <div class="-rotate-45 flex flex-row gap-1 -translate-x-10">
+                <div
+                  class="flex flex-row gap-1 -translate-x-10 c-rotate ct-rotate"
+                  style="cursor: grab; transform: rotate(140deg)"
+                >
                   <img
                     class="aspect-square w-6"
                     src="/web_dev.svg"
@@ -411,11 +420,15 @@
 
               <!-- desktop - bottom -->
               <div
-                class="md:flex flex-row items-center hidden text-2xl origin-left -rotate-30 translate-y-40 translate-x-12"
+                class="md:flex flex-row items-center hidden text-2xl origin-center c-parent"
+                style="transform: rotate(-20deg) translate(22px, -47px)"
+                data-initial-angle="20"
+                data-prefix="cb"
               >
                 <!-- photographer -->
                 <div
-                  class="rotate-30 flex flex-row gap-1 translate-x-1 -translate-y-11"
+                  class="flex flex-row gap-1 translate-x-1 -translate-y-11 c-rotate cb-rotate"
+                  style="cursor: grab; transform: rotate(20deg)"
                 >
                   <img
                     class="aspect-square w-5"
@@ -435,7 +448,8 @@
 
                 <!-- Badminton -->
                 <div
-                  class="rotate-30 flex flex-row gap-1 -translate-x-1 translate-y-8"
+                  class="flex flex-row gap-1 -translate-x-1 translate-y-8 c-rotate cb-rotate"
+                  style="cursor: grab; transform: rotate(20deg)"
                 >
                   <h2 class="text-nowrap">Badminton</h2>
 
