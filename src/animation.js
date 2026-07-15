@@ -107,16 +107,16 @@ function revealContent() {
 
     onComplete() {
       gsap.set("#web-container", { filter: "none" });
-      gsap.to("#st-anima-glow", {
+
+      gsap.to(stCounter, {
         opacity: 0,
-        duration: 1,
-        ease: "power2.out",
+        duration: 0.5,
 
-        onComplete() {},
+        onComplete() {
+          isStAnimationEnded = true;
+          stCounter.remove();
+        },
       });
-
-      isStAnimationEnded = true;
-      stCounter.remove();
     },
   });
 }
@@ -338,8 +338,8 @@ export function moveTsSliderLeft(isMoveLeft) {
   lastState = isMoveLeft;
 
   const tl = gsap.timeline({
-    duration: 0.3,
-    ease: "power1.out",
+    duration: 0.5,
+    ease: "power3.out",
 
     onComplete() {
       gsap.to(tsSlider, {
@@ -352,9 +352,13 @@ export function moveTsSliderLeft(isMoveLeft) {
     },
   });
 
-  tl.to(tsSlider, {
-    x: isMoveLeft ? 0 : "100%",
-  });
+  tl.to(
+    tsSlider,
+    {
+      x: isMoveLeft ? 0 : "100%",
+    },
+    "<<",
+  );
   tl.to(tsSlider, { scale: 1.2, opacity: 0.9, filter: "blur(1px)" }, "<<")
     .to(
       isMoveLeft ? frontendTs : backendTs,
@@ -375,6 +379,7 @@ export function moveTsSliderLeft(isMoveLeft) {
     tsGlowBoxB.forEach((box) => {
       box.classList.remove("glow");
     });
+
     tsBoxGlow.forEach((g) => {
       g.classList.add("glow");
     });
@@ -382,6 +387,7 @@ export function moveTsSliderLeft(isMoveLeft) {
     tsGlowBoxB.forEach((box) => {
       box.classList.add("glow");
     });
+
     tsBoxGlow.forEach((g) => {
       g.classList.remove("glow");
     });

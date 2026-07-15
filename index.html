@@ -73,6 +73,7 @@
           class="rounded-full bg-[#000275] blur-lg absolute top-0 left-0 -z-1 w-full h-full"
           id="st-anima-glow"
         ></div>
+
         <div class="relative w-max overflow-hidden">
           <div class="jskdjf">
             <div class="relative t1">
@@ -574,7 +575,9 @@
                 >
                   <!-- long -->
                   <div
-                    class="w-0.5 h-16 bg-linear-to-b from-[#B9BBFF] to-[#E2E2FD] -mt-1.5 ml-px"
+                    class="w-0.5 bg-linear-to-b from-[#B9BBFF] to-[#E2E2FD] -mt-1.5 ml-px"
+                    id="con-line-aboutme"
+                    style="height: 64px"
                   ></div>
 
                   <!-- love building text -->
@@ -597,7 +600,7 @@
 
               <!-- Websites Text -->
               <div
-                class="flex flex-row items-baseline gap-2 w-max -translate-y-2.25 lg:-translate-y-1 relative left-1/2 translate-x-[-40%] about-me-text"
+                class="flex flex-row items-baseline gap-2 w-max -translate-y-2.25 lg:-translate-y-1 relative left-1/2 translate-x-[-41%] about-me-text slow-moment-y"
               >
                 <div
                   class="relative sans-stock-notch text-[#8385FF] h-max text-2xl lg:text-3xl translate-y-1"
@@ -612,14 +615,38 @@
 
                 <!--  -->
                 <img
-                  class="rotate-180 scale-110 lg:scale-130 -ml-0.5"
+                  class="rotate-180 scale-110 lg:scale-130 -ml-0.5 opacity-0"
                   src="/bold_curve_arr.svg"
                   alt="bold_curve_arr svg"
                 />
+
+                <div class="scale-110 lg:scale-130 absolute -top-30 right-0">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 52 81"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="height: 283px"
+                  >
+                    <path
+                      d="M49.5022 -1.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174"
+                      stroke="#E2E2FD"
+                      stroke-width="2"
+                      id="arr-stick-aboutme"
+                    />
+
+                    <path
+                      d="M7.42 64.3924C7.698 68.6003 6.57124 70.588 2.2298 73.4577C7.97749 75.4811 9.85795 76.9073 11.7148 79.7768"
+                      stroke="#E2E2FD"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
               </div>
 
               <ul
-                class="flex flex-col justify-center items-center gap-4 mt-3 lg:mt-5"
+                class="flex flex-col justify-center items-center gap-4 mt-3 lg:mt-5 slow-moment-y"
               >
                 <li
                   class="flex flex-row gap-2 items-center -ml-2 about-me-text"
@@ -660,7 +687,7 @@
             </div>
 
             <div
-              class="max-w-[400px] lg:max-w-[490px] lg:translate-x-4 mx-auto about-me-text"
+              class="max-w-[400px] lg:max-w-[490px] lg:translate-x-4 mx-auto about-me-text slow-moment-y"
             >
               Into
               <span class="font-medium text-[#B9BBFF]">Web dev</span>

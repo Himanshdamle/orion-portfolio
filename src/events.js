@@ -233,7 +233,11 @@ function slowCursorMoment() {
   };
 
   function move(current, intensity = 1, min = -maxOffset, max = maxOffset) {
-    return gsap.utils.clamp(min, max, current) * intensity;
+    return gsap.utils.clamp(min, max, current * intensity);
+  }
+
+  function ym(e, min) {
+    return (e.clientY / window.innerHeight) * (maxOffset - min) + min;
   }
 
   body.addEventListener("mousemove", (e) => {
@@ -258,13 +262,18 @@ function slowCursorMoment() {
     });
 
     gsap.to(".slow-moment-y", {
-      y: move(yOffset, 1 / 2, 0),
+      y: move(ym(e, 0), 1 / 2, 0),
       ...motionEase,
     });
 
-    gsap.to("#arr-stick-nextlearningsec", {
+    gsap.to("#con-line-aboutme", {
+      height: move(ym(e, 25), 64 / 45, 25, 64),
+      ...motionEase,
+    });
+
+    gsap.to(["#arr-stick-nextlearningsec", "#arr-stick-aboutme"], {
       attr: {
-        d: `M49.5022 -${Math.floor(move(yOffset, 0.8, 0))}.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174`,
+        d: `M49.5022 -${Math.floor(move(ym(e, 0), 0.8, 0))}.311897C54.3114 48.5808 29.2247 73.8977 2.10856 73.7174`,
       },
       ...motionEase,
     });
