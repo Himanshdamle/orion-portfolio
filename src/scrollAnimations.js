@@ -5,6 +5,7 @@ import {
   pingSoundEffect,
   swooshSoundEffect,
 } from "./soundEffects";
+import { locoScroll } from "./scroll";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin();
@@ -105,11 +106,60 @@ function revealSkillSection() {
     scrollTrigger: {
       trigger: "#skills",
       start: "bottom bottom",
-      end: isDesktop ? "+=600" : "+=700",
+      end: isDesktop ? "+=300" : "+=400",
       pin: true,
       scrub: isDesktop ? 1 : 0.3,
+
+      onUpdate(self) {
+        const progress = self.progress;
+
+        if (
+          progress <= 1 &&
+          progress >= 0.9 &&
+          !revealTl.isActive() &&
+          self.direction == 1
+        ) {
+          revealTl.play();
+        }
+
+        if (progress != 1 && revealTl.progress() === 1) {
+          revealTl.reverse();
+
+          locoScroll.stop();
+        }
+      },
     },
   });
+
+  const revealTl = gsap.timeline({
+    paused: true,
+
+    onReverseComplete() {
+      locoScroll.start();
+    },
+  });
+
+  revealTl
+    .from(".scroll-reveal-tsg", {
+      filter: "blur(10px)",
+      y: 100,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 0.5,
+      ease: "power2.out",
+    })
+    .from(
+      ".scroll-reveal-ntw",
+      {
+        opacity: 0,
+        y: 50,
+        filter: "blur(10px)",
+        duration: 0.5,
+        stagger: 0.2,
+        ease: "power2.out",
+      },
+      "-=0.35",
+    );
 
   if (isDesktop) {
     // in the frame dont move. Stay in the initial position
@@ -140,18 +190,4 @@ function revealSkillSection() {
       },
     });
   }
-
-  tlScrollTrigger
-    .from(".scroll-reveal-tsg", {
-      filter: "blur(10px)",
-      y: 100,
-      opacity: 0,
-      stagger: 0.2,
-    })
-    .from(".scroll-reveal-ntw", {
-      opacity: 0,
-      y: 50,
-      filter: "blur(10px)",
-      stagger: 0.2,
-    });
 }

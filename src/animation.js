@@ -339,7 +339,7 @@ export function moveTsSliderLeft(isMoveLeft) {
 
   const tl = gsap.timeline({
     duration: 0.5,
-    ease: "power3.out",
+    ease: "power2.out",
 
     onComplete() {
       gsap.to(tsSlider, {
@@ -347,7 +347,14 @@ export function moveTsSliderLeft(isMoveLeft) {
         opacity: 1,
         filter: "blur(0px)",
 
-        duration: 0.3,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+
+      gsap.to(tsSlider, {
+        boxShadow: `inset 0px 0px 15px 3px #8385ff8c`,
+        duration: 0.8,
+        ease: "power2.out",
       });
     },
   });
@@ -359,11 +366,20 @@ export function moveTsSliderLeft(isMoveLeft) {
     },
     "<<",
   );
-  tl.to(tsSlider, { scale: 1.2, opacity: 0.9, filter: "blur(1px)" }, "<<")
+  tl.to(
+    tsSlider,
+    {
+      scale: 1.15,
+      opacity: 0.9,
+      filter: "blur(0.8px)",
+      boxShadow: `inset ${isMoveLeft ? -7 : 7}px 0px 10px 3px #8385ffa2`,
+    },
+    "<<",
+  )
     .to(
       isMoveLeft ? frontendTs : backendTs,
       {
-        color: "#000275",
+        color: "#aeafff",
       },
       "<<",
     )
@@ -375,6 +391,8 @@ export function moveTsSliderLeft(isMoveLeft) {
       "<<",
     );
 
+  const mediaQuery = window.innerWidth > 550;
+
   if (isMoveLeft) {
     tsGlowBoxB.forEach((box) => {
       box.classList.remove("glow");
@@ -383,6 +401,14 @@ export function moveTsSliderLeft(isMoveLeft) {
     tsBoxGlow.forEach((g) => {
       g.classList.add("glow");
     });
+
+    if (!mediaQuery) return;
+
+    gsap.to("#tech-stack-wrapper", {
+      x: -15,
+      duration: 1,
+      ease: "power2.out",
+    });
   } else {
     tsGlowBoxB.forEach((box) => {
       box.classList.add("glow");
@@ -390,6 +416,14 @@ export function moveTsSliderLeft(isMoveLeft) {
 
     tsBoxGlow.forEach((g) => {
       g.classList.remove("glow");
+    });
+
+    if (!mediaQuery) return;
+
+    gsap.to("#tech-stack-wrapper", {
+      x: 15,
+      duration: 1,
+      ease: "power2.out",
     });
   }
 }

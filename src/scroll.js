@@ -9,17 +9,6 @@ function onScroll({ velocity }) {
   if (!isStAnimationEnded) return;
 
   ScrollTrigger.update();
-
-  if (window.innerWidth < 1024) return;
-
-  const skew = gsap.utils.clamp(-5, 5, velocity * 0.04);
-
-  gsap.to("[data-scroll-section]", {
-    skewY: skew,
-    duration: 0.6,
-    ease: "power3.out",
-    overwrite: "auto",
-  });
 }
 
 export const locoScroll = new LocomotiveScroll({

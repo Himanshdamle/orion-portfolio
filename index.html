@@ -232,7 +232,7 @@
       id="nav-wrapper"
     >
       <nav
-        class="text-[#B9BBFF] margin-y-400 mt-14 margin-x-400 mx-14 mq-nav-margin-x-550 pb-4 flex flex-row justify-between items-center"
+        class="text-[#B9BBFF] margin-y-400 mt-14 margin-x-400 mx-10 mq-nav-margin-x-550 pb-4 flex flex-row justify-between items-center"
       >
         <a href="index.html" class="sans-stock-notch text-[#8385FF]"
           >Himansh Web</a
@@ -316,11 +316,7 @@
       style="opacity: 0; filter: blur(30px)"
     >
       <!-- Home -->
-      <section
-        data-scroll-section
-        class="h-full grid grid-rows-[1fr] lg:text-xl"
-        id="home"
-      >
+      <section class="h-full grid grid-rows-[1fr] lg:text-xl" id="home">
         <div class="grid grid-rows-[1fr_auto]">
           <!-- Center -->
           <div
@@ -535,8 +531,7 @@
 
       <!-- about me -->
       <section
-        data-scroll-section
-        class="margin-x-400 mx-14 mq-margin-x-550 h-screen grid grid-rows-[auto_1fr] relative scrollAnimaEffect"
+        class="margin-x-400 mx-10 mq-margin-x-550 h-screen grid grid-rows-[auto_1fr] relative scrollAnimaEffect"
         id="about-me"
       >
         <!-- heading -->
@@ -783,8 +778,7 @@
 
       <!-- Skill section -->
       <section
-        data-scroll-section
-        class="margin-x-400 mx-14 mq-margin-x-550 h-full grid grid-rows-[auto_1fr] scrollAnimaEffect"
+        class="margin-x-400 mx-10 mq-margin-x-550 h-full grid grid-rows-[auto_1fr] scrollAnimaEffect"
         id="skills"
       >
         <!-- heading -->
@@ -826,7 +820,7 @@
           </div>
 
           <div
-            class="flex flex-col gap-10 lg:w-[50%] lg:mx-auto! relative"
+            class="flex flex-col gap-15 lg:w-[50%] lg:mx-auto! relative"
             id="main-skill-sec-content"
           >
             <!-- skill-heading -->
@@ -859,12 +853,12 @@
                   class="absolute z-1 top-0 left-mq-400 -left-14 mq--left-500 md:left-0! h-full w-8 bg-linear-to-r from-[#000133] md:from-[#00012c] lg:from-[#00013a] to-[#00013300] md:to-[#00012c00] lg:to-[#00013a00]"
                 ></div>
 
-                <!-- -left-14 because mx-14 -->
+                <!-- -left-10 because mx-10 -->
                 <div
-                  class="absolute left-mq-400 -left-14 mq--left-500 grid-lines h-max w-screen md:w-full md:left-0!"
+                  class="absolute left-mq-400 -left-10 mq--left-500 grid-lines h-max w-screen md:w-full md:left-0!"
                 >
                   <div
-                    class="grid grid-cols-5 grid-rows-3 p-[15px] w-full max-w-[440px] mx-auto"
+                    class="grid grid-cols-5 grid-rows-3 p-[15px] w-full max-w-[440px] mx-auto min-[550px]:translate-x-[-15px]"
                     id="tech-stack-wrapper"
                   >
                     <div class="ts-overlay tech-skill-card">
@@ -1096,26 +1090,29 @@
                 </div>
 
                 <div
-                  class="absolute z-1 top-0 right-mq-400 -right-14 mq--right-500 md:right-0! h-full w-8 bg-linear-to-r md:from-[#00014a00] from-[#00026A00] to-[#000151] md:to-[#00014a]"
+                  class="absolute z-1 top-0 right-mq-400 -right-10 mq--right-500 md:right-0! h-full w-8 bg-linear-to-r md:from-[#00014a00] from-[#00026A00] to-[#000151] md:to-[#00014a]"
                 ></div>
               </div>
 
               <!-- select frontend or backend tech stack -->
               <div class="text-[16px] scroll-reveal-tsg">
                 <div
-                  class="rounded-full border border-[#8385FF] px-2 py-2 max-w-[450px] mx-auto"
+                  class="rounded-full border border-[#8385FF] px-2 py-2 max-w-[450px] inner-shadow-css-2 mx-auto"
                 >
                   <div
                     class="relative flex flex-row justify-between items-center py-1"
                     id="ts-slider-btn-wrp"
                   >
+                    <!-- frontend -->
                     <button
                       class="text-center font-medium w-full"
                       id="frontend-ts"
-                      style="color: #000275"
+                      style="color: #aeafff"
                     >
                       Frontend
                     </button>
+
+                    <!-- backend -->
                     <button
                       class="text-center font-medium w-full"
                       id="backend-ts"
@@ -1123,8 +1120,9 @@
                       Backend
                     </button>
 
+                    <!-- slider -->
                     <div
-                      class="absolute -z-1 top-0 left-0 w-1/2 h-full bg-[#8385FF] rounded-full"
+                      class="absolute -z-1 top-0 left-0 w-1/2 h-full bg-[8385FF] inner-shadow-css-1 rounded-full"
                       id="ts-slider"
                     ></div>
                   </div>
