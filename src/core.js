@@ -9,6 +9,13 @@ export function randomFloat(min, max, decimals = 2) {
   return parseFloat(val.toFixed(decimals));
 }
 
+export function giveNode(str) {
+  const tempNode = document.createElement("div");
+  tempNode.innerHTML = str.trim();
+
+  return tempNode.firstElementChild;
+}
+
 export function angleBetween(hinge, p1, p2) {
   const AB = {
     x: hinge[1] - p1[1],

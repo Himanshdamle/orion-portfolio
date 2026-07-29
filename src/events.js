@@ -13,7 +13,7 @@ import {
 import gsap from "gsap";
 import { locoScroll } from "./scroll.js";
 import { deepSwooshSoundEffect, swooshSoundEffect } from "./soundEffects.js";
-import { angleBetween } from "./core.js";
+import { angleBetween, giveNode, randomInt } from "./core.js";
 
 export function setupAllEvents() {
   slowCursorMoment();
@@ -179,6 +179,7 @@ function hoverOnSkill() {
     });
   }
 
+  let lastHoverGlow;
   tsw.addEventListener(
     "mousemove",
     (e) => {
@@ -186,8 +187,17 @@ function hoverOnSkill() {
 
       if (!card) return;
 
+      if (lastHoverGlow) {
+        adjustGlow(lastHoverGlow, 0.5);
+
+        lastHoverGlow = undefined;
+      }
+
       const hoverGlow = card.querySelector(".glow");
       if (!hoverGlow) return;
+
+      lastHoverGlow = hoverGlow;
+
       const allCardGlow = document.querySelectorAll(".glow");
 
       adjustGlow(hoverGlow, 1);
