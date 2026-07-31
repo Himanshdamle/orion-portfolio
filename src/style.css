@@ -3,6 +3,7 @@
 html {
   background: linear-gradient(to bottom right, #00011e, #000261);
 }
+
 html,
 body {
   margin: 0;
@@ -71,6 +72,29 @@ button {
   width: calc(
     100dvw - 80px
   ) !important; /* 56px left + 56px right, matching mx-14 on both sides */
+}
+
+.hover-fade {
+  opacity: 0.8;
+  transition: opacity 250ms ease-out;
+}
+
+.hover-fade:hover {
+  opacity: 1;
+}
+
+@keyframes colorCycle {
+  0%,
+  100% {
+    color: #8385ff;
+  }
+  50% {
+    color: #e2e2fd;
+  }
+}
+
+.animate-color-pulse {
+  animation: colorCycle 0.8s step-end infinite;
 }
 
 .inner-shadow-css-1 {

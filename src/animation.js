@@ -8,6 +8,9 @@ export function runAllAnima() {
 
   infiniteScroll();
 
+  slideMailTextUnderline();
+  navigateSlider();
+
   gsap.set(".ts-overlay-b", { overflow: "hidden" });
   gsap.set(".ts-box-b", { x: "-105%" });
   gsap.set(".ts-box-glow-b", { opacity: 0 });
@@ -492,4 +495,57 @@ export function slideFrontendTs() {
       stagger: 0.02,
       ease: "power1.in",
     });
+}
+
+export function slideMailTextUnderline() {
+  const textWrapper = document.querySelector("#mail-text-box");
+
+  textWrapper.addEventListener("mouseenter", () => {
+    gsap.to(".underline", {
+      x: "100%",
+      stagger: 0.1,
+      background: "#B9BBFF",
+
+      duration: 0.35,
+      ease: "power2.out",
+    });
+  });
+
+  textWrapper.addEventListener("mouseleave", () => {
+    gsap.fromTo(
+      ".underline",
+      {
+        x: "-100%",
+      },
+
+      {
+        x: 0,
+        stagger: 0.1,
+        background: "#8385FF",
+
+        duration: 0.35,
+        ease: "power2.inOut",
+      },
+    );
+  });
+}
+
+export function navigateSlider() {
+  const navigateBtns = document.querySelectorAll(".navigate-btns");
+  const slider = document.querySelector("#navigate-slider");
+  const sliderX = slider.getBoundingClientRect().x;
+
+  navigateBtns.forEach((btns) => {
+    const btnRect = btns.getBoundingClientRect();
+
+    const dispX = btnRect.x - sliderX;
+
+    btns.addEventListener("mouseenter", () => {
+      gsap.to(slider, {
+        x: dispX,
+        duration: 1.5,
+        ease: "elastic.out(1,0.5)",
+      });
+    });
+  });
 }
