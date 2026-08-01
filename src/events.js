@@ -311,6 +311,7 @@ function rotateLines() {
   let cParent, iniAngle, prefix;
   let hinge = [];
   let stPoint = [];
+  
   document.body.addEventListener("mouseup", () => {
     trackPos = false;
 
@@ -322,6 +323,7 @@ function rotateLines() {
       ease: "power2.out",
     });
   });
+
   canRotate.forEach((domEL) => {
     domEL.addEventListener("mousedown", (e) => {
       trackPos = true;
