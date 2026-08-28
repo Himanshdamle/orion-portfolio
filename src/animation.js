@@ -16,6 +16,13 @@ export function runAllAnima() {
   gsap.set(".ts-box-glow-b", { opacity: 0 });
 }
 
+export function scrollToSection(section) {
+  locoScroll.scrollTo(section, {
+    offset: 0,
+    duration: 1.5,
+  });
+}
+
 const stCounter = document.querySelector(".st-counter");
 function stGradient() {
   gsap.to(".bg-gradient", {
@@ -501,6 +508,10 @@ export function slideMailTextUnderline() {
   const textWrapper = document.querySelector("#mail-text-box");
 
   textWrapper.addEventListener("mouseenter", () => {
+    gsap.to(".mail-svg-glow", {
+      opacity: 1,
+    });
+
     gsap.to(".underline", {
       x: "100%",
       stagger: 0.1,
@@ -512,6 +523,10 @@ export function slideMailTextUnderline() {
   });
 
   textWrapper.addEventListener("mouseleave", () => {
+    gsap.to(".mail-svg-glow", {
+      opacity: 0.5,
+    });
+
     gsap.fromTo(
       ".underline",
       {
@@ -533,18 +548,19 @@ export function slideMailTextUnderline() {
 export function navigateSlider() {
   const navigateBtns = document.querySelectorAll(".navigate-btns");
   const slider = document.querySelector("#navigate-slider");
-  const sliderX = slider.getBoundingClientRect().x;
+  const sliderRect = slider.getBoundingClientRect();
+  const sliderX = sliderRect.x;
 
-  navigateBtns.forEach((btns) => {
+  navigateBtns.forEach((btns, index) => {
     const btnRect = btns.getBoundingClientRect();
-
+    const len = navigateBtns.length;
     const dispX = btnRect.x - sliderX;
 
     btns.addEventListener("mouseenter", () => {
       gsap.to(slider, {
-        x: dispX,
+        x: index == len - 1 ? btnRect.right - sliderRect.right : dispX,
         duration: 1.5,
-        ease: "elastic.out(1,0.5)",
+        ease: "elastic.out(1,0.8)",
       });
     });
   });

@@ -47,7 +47,6 @@ function spawnMeteor() {
 function animateMeteor(meteorInfo) {
   const duration = randomFloat(0.7, 3);
 
-  const angle = (-45 * Math.PI) / 180;
   const distance =
     meteorInfo.posX + meteorInfo.meteorWidth * Math.cos(Math.PI / 4) + 100;
 

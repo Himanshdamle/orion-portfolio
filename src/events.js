@@ -9,17 +9,19 @@ import {
   isStAnimationEnded,
   iniWaveAnima,
   waveRunAnima,
+  scrollToSection,
 } from "./animation";
 import gsap from "gsap";
 import { locoScroll } from "./scroll.js";
 import { deepSwooshSoundEffect, swooshSoundEffect } from "./soundEffects.js";
-import { angleBetween, giveNode, randomInt } from "./core.js";
+import { angleBetween } from "./core.js";
 
 export function setupAllEvents() {
   slowCursorMoment();
   rotateLines();
 
   menu();
+  navigate();
   scrollToMenu();
   onScrollNavControl();
 
@@ -55,10 +57,19 @@ function menu() {
     blurOverlay(isMenuOpen, e, () => {
       if (!scrollToFunc) return;
 
-      locoScroll.scrollTo(targetSection, {
-        offset: 0,
-        duration: 1.5,
-      });
+      scrollToSection(targetSection);
+    });
+  });
+}
+
+function navigate() {
+  const btns = document.querySelectorAll(".navigate-btns");
+
+  btns.forEach((btn) => {
+    const section = btn.getAttribute("data-menu-target");
+
+    btn.addEventListener("click", () => {
+      scrollToSection(section);
     });
   });
 }
@@ -311,7 +322,7 @@ function rotateLines() {
   let cParent, iniAngle, prefix;
   let hinge = [];
   let stPoint = [];
-  
+
   document.body.addEventListener("mouseup", () => {
     trackPos = false;
 

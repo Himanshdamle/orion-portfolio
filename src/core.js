@@ -1,5 +1,3 @@
-import gsap from "gsap";
-
 export function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -35,4 +33,33 @@ export function angleBetween(hinge, p1, p2) {
   angle = (angle * 180) / Math.PI;
 
   return angle;
+}
+
+export function giveTime() {
+  const now = new Date();
+
+  const time = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).formatToParts(now);
+
+  const parts24 = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(now);
+
+  const hour = time[0].value;
+  const min = time[2].value;
+  const hour24 = parts24[0].value;
+
+  return {
+    hour,
+    min,
+    hour24,
+    ampm: time[4].value,
+  };
 }

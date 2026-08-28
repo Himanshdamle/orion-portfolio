@@ -1248,7 +1248,7 @@
                 <div class="flex flex-row gap-1.5 items-end tracking-wide">
                   <h3 class="text-3xl font-semibold">
                     <!-- hour -->
-                    <span id="hour-txt">02</span>
+                    <span class="hour">--</span>
 
                     <!-- : -->
                     <span class="text-[#8385FF] poppins animate-color-pulse"
@@ -1256,10 +1256,10 @@
                     >
 
                     <!-- min -->
-                    <span id="min">39</span>
+                    <span class="min">--</span>
                   </h3>
 
-                  <h5 class="text-lg">AM</h5>
+                  <h5 class="text-lg ampm">--</h5>
                 </div>
 
                 <div
@@ -1267,7 +1267,7 @@
                 >
                   <h3 class="text-3xl font-semibold">
                     <!-- hour -->
-                    <span id="hour-txt">02</span>
+                    <span class="hour">--</span>
 
                     <!-- : -->
                     <span class="text-[#8385FF] poppins animate-color-pulse"
@@ -1275,16 +1275,14 @@
                     >
 
                     <!-- min -->
-                    <span id="min">39</span>
+                    <span class="min">--</span>
                   </h3>
 
-                  <h5 class="text-lg">AM</h5>
+                  <h5 class="text-lg ampm">--</h5>
                 </div>
               </div>
 
-              <p class="text-[16px]">
-                ( Probably I’m trying to sleep, LOL xD )
-              </p>
+              <p class="text-[16px]" id="time-context">( --- )</p>
             </div>
 
             <!-- Navigate -->
@@ -1309,9 +1307,15 @@
               <div
                 class="flex flex-row justify-between items-center text-2xl font-medium"
               >
-                <button class="navigate-btns">Home</button>
-                <button class="navigate-btns">About me</button>
-                <button class="navigate-btns">Skills</button>
+                <button class="navigate-btns" data-menu-target="#home">
+                  Home
+                </button>
+                <button class="navigate-btns" data-menu-target="#about-me">
+                  About me
+                </button>
+                <button class="navigate-btns" data-menu-target="#skills">
+                  Skills
+                </button>
               </div>
             </div>
 
@@ -1357,7 +1361,7 @@
                     <p
                       class="translate-y-1/2 text-[16px] poppins absolute text-nowrap -translate-x-1/2 left-1/2 -mt-2"
                     >
-                      ( Okay, maybe I used chatGPT too. )
+                      ( Works on my machine. )
                     </p>
                   </div>
 
@@ -1398,7 +1402,10 @@
                 </svg>
 
                 <!-- glow -->
-                <div class="absolute top-0 left-0 blur-[2.5px]">
+                <div
+                  class="absolute top-0 left-0 blur-[2.5px] mail-svg-glow"
+                  style="opacity: 0.5"
+                >
                   <svg
                     width="50"
                     height="50"
@@ -1445,13 +1452,13 @@
             </div>
 
             <div class="flex flex-row items-center justify-center">
-              <button>
+              <a href="https://github.com/Himanshdamle">
                 <img
                   src="public/github_white_filled.png"
                   alt="github_white_filled image"
                   class="aspect-square w-[50px] hover-fade"
                 />
-              </button>
+              </a>
             </div>
           </div>
         </section>
