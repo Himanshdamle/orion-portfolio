@@ -25,7 +25,7 @@ function updateTime() {
 
     minTxt[index].textContent = time.min;
 
-    ampm[index].textContent = time.ampm;
+    ampm[index].textContent = time.ampm.toUpperCase();
 
     const hour24 = time.hour24;
     let giveTimeContext = "---";

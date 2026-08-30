@@ -124,6 +124,12 @@ button {
   }
 }
 
+@media (max-width: 375px) {
+  .text-size {
+    font-size: 40px;
+  }
+}
+
 @media (max-height: 750px) {
   .y-gap-skills-mq {
     gap: 60px;
