@@ -8,8 +8,8 @@ export function swooshSoundEffect(volume = 0.35) {
 }
 
 const deepSwoosh = document.querySelector("#deep-swoosh-music");
-deepSwoosh.volume = 0.25;
-export function deepSwooshSoundEffect() {
+export function deepSwooshSoundEffect(volume = 0.25) {
+  deepSwoosh.volume = volume;
   if (!isSoundOn) return;
   deepSwoosh.currentTime = 0;
   deepSwoosh.play();

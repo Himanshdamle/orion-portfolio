@@ -226,7 +226,7 @@ export function menuAnimation(openAnima) {
     );
 }
 
-let ani, revCompleteFunc;
+let ani;
 export function blurOverlay(open, e, revComplete) {
   if (window.innerWidth >= 550) return;
 
@@ -508,6 +508,8 @@ export function slideMailTextUnderline() {
   const textWrapper = document.querySelector("#mail-text-box");
 
   textWrapper.addEventListener("mouseenter", () => {
+    deepSwooshSoundEffect();
+
     gsap.to(".mail-svg-glow", {
       opacity: 1,
     });
@@ -523,6 +525,8 @@ export function slideMailTextUnderline() {
   });
 
   textWrapper.addEventListener("mouseleave", () => {
+    deepSwooshSoundEffect();
+
     gsap.to(".mail-svg-glow", {
       opacity: 0.5,
     });
@@ -557,6 +561,8 @@ export function navigateSlider() {
     const dispX = btnRect.x - sliderX;
 
     btns.addEventListener("mouseenter", () => {
+      deepSwooshSoundEffect(0.15);
+
       gsap.to(slider, {
         x: index == len - 1 ? btnRect.right - sliderRect.right : dispX,
         duration: 1.5,

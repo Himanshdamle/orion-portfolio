@@ -12,7 +12,6 @@ import {
   scrollToSection,
 } from "./animation";
 import gsap from "gsap";
-import { locoScroll } from "./scroll.js";
 import { deepSwooshSoundEffect, swooshSoundEffect } from "./soundEffects.js";
 import { angleBetween } from "./core.js";
 
@@ -102,8 +101,6 @@ let lastBtn = document.querySelector("[data-menu-target='#home'");
 function scrollToMenu() {
   const btns = document.querySelectorAll(".menu-btn");
 
-  const isMobile = window.innerWidth < 1024;
-
   btns.forEach((btn) => {
     const seq = btn.getAttribute("data-seq");
 
@@ -119,8 +116,6 @@ function scrollToMenu() {
 }
 
 function onScrollNavControl() {
-  const navWrapper = document.querySelector("#nav-wrapper");
-
   let lastScroll = 0;
   let anima1 = false;
   window.addEventListener("scroll", (e) => {
@@ -399,15 +394,12 @@ function onClickEffect() {
   });
 }
 
-export let isSoundOn;
+export let isSoundOn = false;
 function controlSound() {
   const ctrlSoundBtn = document.querySelector("#ctrl-sound-nav");
-  const waveSvgWrapper = document.querySelector("#wave-svg-nav");
 
   const bgMusic = document.querySelector("#bg-music");
   bgMusic.volume = 0.15;
-
-  isSoundOn = false;
 
   ctrlSoundBtn.addEventListener("click", () => {
     isSoundOn = !isSoundOn;
